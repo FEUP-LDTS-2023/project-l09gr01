@@ -1,4 +1,4 @@
-## LDTS_<l09><gr01> - <project-l09gr01>
+## LDTS_l09gr01 - project-l09gr01
 
 
 In this fun and exciting strategy, maze-based game your goal is to collect every last piece of fruit in each level. Each maze is guarded by different monsters that you can either defeat or avoid by using different power-ups that are scattered around the area 
