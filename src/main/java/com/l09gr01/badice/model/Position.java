@@ -1,4 +1,4 @@
-package com.l09gr01.badice.model.element;
+package com.l09gr01.badice.model;
 
 public class Position {
     private final int x;
