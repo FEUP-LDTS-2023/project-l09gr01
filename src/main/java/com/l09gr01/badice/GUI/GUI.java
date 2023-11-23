@@ -1,5 +1,7 @@
 package com.l09gr01.badice.GUI;
 
+import com.l09gr01.badice.model.element.Position;
+
 import java.io.IOException;
 
 public interface GUI {
