@@ -1,8 +1,8 @@
 package com.l09gr01.badice.model.game.level;
 
-import com.l09gr01.badice.model.game.element.Monster;
-import com.l09gr01.badice.model.game.element.PlayerCharacter;
-import com.l09gr01.badice.model.game.element.Wall;
+import com.l09gr01.badice.model.game.elements.Monster;
+import com.l09gr01.badice.model.game.elements.PlayerCharacter;
+import com.l09gr01.badice.model.game.elements.Wall;
 import com.l09gr01.badice.model.Position;
 import java.util.List;
 
