@@ -1,4 +1,4 @@
-package com.l09gr01.badice.controller;
+package com.l09gr01.badice.controller.game;
 
 public class PlayerCharacterController {
 }
