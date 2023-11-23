@@ -1,5 +1,6 @@
 package com.l09gr01.badice.GUI;
 
+import com.l09gr01.badice.model.
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -11,14 +12,15 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.l09gr01.badice.model.element.Position;
 
+import java.awt.*;
 import java.io.IOException;
 
-public class LanternaGUI implements GUI {
+public class InputHandler implements GUI {
     private final Screen screen;
-    public LanternaGUI(Screen screen){
+    public InputHandler(Screen screen){
         this.screen = screen;
     }
-    public LanternaGUI(int width, int height) throws IOException {
+    public InputHandler(int width, int height) throws IOException {
         Terminal terminal = createTerminal(width, height);
         this.screen = createScreen(terminal);
     }
