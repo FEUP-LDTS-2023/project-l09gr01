@@ -1,6 +1,6 @@
 package com.l09gr01.badice.GUI;
 
-import com.l09gr01.badice.model.element.Position;
+import com.l09gr01.badice.model.Position;
 
 import java.io.IOException;
 
