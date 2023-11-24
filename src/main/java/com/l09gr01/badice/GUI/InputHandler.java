@@ -54,7 +54,7 @@ public class InputHandler implements GUI {
         return ACTION.NONE;
     }
     @Override
-    public void drawHero(Position position) {
+    public void drawPlayerCharacter(Position position) {
         drawCharacter(position.getX(), position.getY(), 'H', "#90EE90");
     }
 

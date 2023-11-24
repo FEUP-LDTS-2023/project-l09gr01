@@ -1,4 +1,4 @@
-package com.l09gr01.badice.model.game.level;
+package com.l09gr01.badice.model.game.arena;
 
 import com.l09gr01.badice.model.game.elements.Monster;
 import com.l09gr01.badice.model.game.elements.PlayerCharacter;
@@ -6,7 +6,7 @@ import com.l09gr01.badice.model.game.elements.Wall;
 import com.l09gr01.badice.model.Position;
 import java.util.List;
 
-public class Level {
+public class Arena {
     private final int width;
     private final int height;
 
@@ -15,7 +15,7 @@ public class Level {
     private List<Monster> monsters;
     private List<Wall> walls;
 
-    public Level(int width, int height) {
+    public Arena(int width, int height) {
         this.width = width;
         this.height = height;
     }
@@ -28,12 +28,12 @@ public class Level {
         return height;
     }
 
-    public PlayerCharacter getHero() {
+    public PlayerCharacter getPlayerCharacter() {
         return playerCharacter;
     }
 
-    public void setHero(PlayerCharacter hero) {
-        this.playerCharacter = hero;
+    public void setPlayerCharacter(PlayerCharacter playerCharacter) {
+        this.playerCharacter = playerCharacter;
     }
 
     public List<Monster> getMonsters() {
