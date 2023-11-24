@@ -10,4 +10,4 @@
 P represents the player's starting position
 M represents the location of monsters
 F represents the location of fruit
-(powerups don't spawn at arena creation)
+(powerups don't spawn at level creation)
