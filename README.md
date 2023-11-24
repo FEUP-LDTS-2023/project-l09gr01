@@ -1,7 +1,7 @@
 ## LDTS_l09gr01 - Bad Ice
 
 
-In this fun and exciting strategy, maze-based game your goal is to collect every last piece of fruit in each level. Each maze is guarded by different monsters that you can either defeat or avoid by using different power-ups that are scattered around the area 
+In this fun and exciting strategy, maze-based game your goal is to collect every last piece of fruit in each arena. Each maze is guarded by different monsters that you can either defeat or avoid by using different power-ups that are scattered around the area 
 and you will be able to modify the maze layout in real time to your advantage by destroying and creating walls
 Your creativity and ability to think quick will be put to the test!
 
