@@ -50,6 +50,9 @@ public class InputHandler implements GUI {
 
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'p') return ACTION.PAUSE;
+        if(keyStroke.getKeyType() == KeyType.Escape) return ACTION.PAUSE;
+
         if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.ACTION;
         return ACTION.NONE;
     }
