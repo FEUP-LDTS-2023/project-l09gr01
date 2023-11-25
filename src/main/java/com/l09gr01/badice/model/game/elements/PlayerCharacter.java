@@ -1,7 +1,5 @@
 package com.l09gr01.badice.model.game.elements;
 
-import com.l09gr01.badice.model.elements.Element;
-import com.l09gr01.badice.model.elements.PowerUp;
 
 import java.util.List;
 
@@ -9,7 +7,7 @@ public class PlayerCharacter extends Element {
 
     private int hp;
     private String lastmovement;
-    private List<com.l09gr01.badice.model.elements.PowerUp> powerUps; // o unico power up que o char pode ter vai ser uma bomba mas esta para ser implementado maos no futuro
+    private List<PowerUp> powerUps; // o unico power up que o char pode ter vai ser uma bomba mas esta para ser implementado maos no futuro
 
     public PlayerCharacter(int x, int y)
     {
@@ -43,7 +41,7 @@ public class PlayerCharacter extends Element {
         this.lastmovement = lastmovement; // no controler e que se4 poe quel e que e a string que aqui fica
     }
 
-    public void addPowerUp(com.l09gr01.badice.model.elements.PowerUp powerUp)
+    public void addPowerUp(PowerUp powerUp)
     {
         powerUps.add(powerUp);
     }
