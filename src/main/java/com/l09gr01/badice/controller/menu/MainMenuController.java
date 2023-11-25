@@ -4,13 +4,15 @@ import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.model.game.arena.LoaderArenaBuilder;
-import com.l09gr01.badice.model.menu.Menu;
+import com.l09gr01.badice.model.menu.HiscoresMenu;
+import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.GameState;
+import com.l09gr01.badice.state.HiscoresMenuState;
 
 import java.io.IOException;
 
-public class MenuController extends Controller<Menu> {
-    public MenuController(Menu menu) {
+public class MainMenuController extends Controller<MainMenu> {
+    public MainMenuController(MainMenu menu) {
         super(menu);
     }
 
@@ -25,7 +27,8 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                if (getModel().isSelectedHiscores()) game.setState(new HiscoresMenuState(new HiscoresMenu()));
+                if (getModel().isSelectedNew()) game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
         }
     }
 }

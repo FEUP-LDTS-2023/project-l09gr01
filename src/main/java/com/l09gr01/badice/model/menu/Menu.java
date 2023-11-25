@@ -3,12 +3,12 @@ package com.l09gr01.badice.model.menu;
 import java.util.Arrays;
 import java.util.List;
 
-public class Menu {
-    private final List<String> entries;
-    private int currentEntry = 0;
+public abstract class Menu {
+    protected List<String> entries;
+    protected int currentEntry = 0;
 
     public Menu() {
-        this.entries = Arrays.asList("Start", "Exit");
+        this.entries = Arrays.asList("");
     }
 
     public void nextEntry() {
@@ -29,14 +29,6 @@ public class Menu {
 
     public boolean isSelected(int i) {
         return currentEntry == i;
-    }
-
-    public boolean isSelectedExit() {
-        return isSelected(1);
-    }
-
-    public boolean isSelectedStart() {
-        return isSelected(0);
     }
 
     public int getNumberEntries() {

@@ -1,8 +1,8 @@
 package com.l09gr01.badice;
 
-import com.aor.hero.states.MenuState;
 import com.l09gr01.badice.GUI.InputHandler;
-import com.l09gr01.badice.model.menu.Menu;
+import com.l09gr01.badice.model.menu.MainMenu;
+import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.state.State;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class Game {     // Game loop. Starting point
 
     public Game() throws IOException {
         this.gui = new InputHandler(20,20);
-        this.state = new MenuState(new Menu());
+        this.state = new MainMenuState(new MainMenu());
     }
 
     public static void main(String[] args) throws IOException {

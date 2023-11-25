@@ -11,22 +11,22 @@ public class PlayerCharacterController extends GameController {
     }
 
     public void movePlayerCharacterLeft() {
-        moveHero(getModel().getPlayerCharacter().getPosition().getLeft());
+        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getLeft());
     }
 
     public void movePlayerCharacterRight() {
-        moveHero(getModel().getPlayerCharacter().getPosition().getRight());
+        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getRight());
     }
 
     public void movePlayerCharacterUp() {
-        moveHero(getModel().getPlayerCharacter().getPosition().getUp());
+        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getUp());
     }
 
     public void movePlayerCharacterDown() {
-        moveHero(getModel().getPlayerCharacter().getPosition().getDown());
+        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getDown());
     }
 
-    private void moveHero(Position position) {
+    private void movePlayerCharacter(Position position) {
         //if same position as Monster game over(?)
     }
 
