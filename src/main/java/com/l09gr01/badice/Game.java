@@ -1,27 +1,33 @@
 package com.l09gr01.badice;
 
+import com.aor.hero.states.MenuState;
+import com.l09gr01.badice.GUI.InputHandler;
+import com.l09gr01.badice.model.menu.Menu;
 import com.l09gr01.badice.state.State;
+
+import java.io.IOException;
 
 public class Game {     // Game loop. Starting point
 
-    private boolean isGameRunning = true;
+    private final InputHandler gui;
     private State state;
 
-    public static void main(String[] args) {
+    public Game() throws IOException {
+        this.gui = new InputHandler(20,20);
+        this.state = new MenuState(new Menu());
+    }
+
+    public static void main(String[] args) throws IOException {
         Game game = new Game();
         game.start();
     }
 
-    public void start() {
-        int targetFPS = 60;
-        // 60 FPS
+    public void start() throws IOException {
+        int targetFPS = 30;
         long targetTimePerFrame = 1000 / targetFPS;
-        initialize();
-
-        while (isGameRunning) {
+        while (this.state != null) {
             long startTime = System.currentTimeMillis();
-            update();
-            render();
+            state.step(this,gui,startTime);
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = targetTimePerFrame - elapsedTime;
 
@@ -34,35 +40,13 @@ public class Game {     // Game loop. Starting point
             }
         }
 
-        cleanup();
+        gui.close();
     }
 
     public void setState(State state) {
         this.state = state;
     }
 
+    public State getState(){ return this.state;}
 
-    private void initialize() {
-        // Perform any initialization tasks here
-    }
-
-    private void update() {
-        // Update the game state (handle input, move characters, check collisions, etc.)
-    }
-
-    private void render() {
-        // Render the current state of the game to the screen
-    }
-
-    private void cleanup() {
-        // Perform any cleanup tasks here
-    }
-
-    private void sleep(long milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 }
