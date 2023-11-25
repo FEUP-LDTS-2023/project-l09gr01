@@ -1,8 +1,11 @@
 package com.l09gr01.badice;
 
+import com.l09gr01.badice.state.State;
+
 public class Game {     // Game loop. Starting point
 
     private boolean isGameRunning = true;
+    private State state;
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -33,6 +36,11 @@ public class Game {     // Game loop. Starting point
 
         cleanup();
     }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
 
     private void initialize() {
         // Perform any initialization tasks here
