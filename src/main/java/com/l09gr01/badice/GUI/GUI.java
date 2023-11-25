@@ -13,6 +13,10 @@ public interface GUI {
 
     void drawMonster(Position position);
 
+    void drawIce(Position position);
+
+    void drawPowerUp(Position position);
+
     void drawText(Position position, String text, String color);
 
     void clear();
