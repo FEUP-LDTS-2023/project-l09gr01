@@ -19,16 +19,21 @@ This project is being developed by João Parada (up201405280@edu.fe.up.pt), Joã
 ### PLANNED FEATURES
 
 > This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+- **Arena levels** - For each level there will be different arena layouts with increasing difficulty.
+![mockup-2](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/c48fd691-5ec7-4896-8b7d-f56fa4228431)
+Level example
 
 - **Power-ups** - You can collect different power-ups from the ground that will boost your character (faster movement speed, temporary immunity, etc.) or give you access to new abilities.
 - **Breaking walls** - You have the ability to break rows or lines of walls by pressing spacebar as long as you are facing them and they are breakable.
 - **Creating walls** - You have the ability to create rows or lines of walls by pressing spacebar as long as there is room avaiable.
 - **Two-player mode**
 - **Different difficulty monster behaviour algorithms**
-- **Hiscores**
-- **Saving and loading level unlocks**
-- **Score updater** - For each fruit collected the score increases.
-- **Pausing game state** - Pressing P or ESC during game, the current game state will freeze until it is resumed or closed.
+- **Menus and Hiscores functionality**
+![mockup-1](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/f9d1b2b4-1731-47b6-91be-e73b43955e61)
+![mockup-3](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/f604b506-c9a0-4de2-b7cf-083d9d60dbf1)
+- **Saving and loading level unlocks** 
+- **Score updater** - For each fruit collected the score increases. (see level example)
+- **Pausing game state** - Pressing P or ESC during game, the current game state will freeze until it is resumed or closed. (see level example)
 - **Game sound** - Getting hit by a monster, collecting fruit, hitting a wall, collecting and using power-ups, completing level, losing level all should play different sounds.
 - **Music** - Menu music and in-game music.
 
