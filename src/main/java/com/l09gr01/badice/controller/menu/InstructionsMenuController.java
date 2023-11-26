@@ -3,7 +3,6 @@ package com.l09gr01.badice.controller.menu;
 import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
-import com.l09gr01.badice.model.menu.HiscoresMenu;
 import com.l09gr01.badice.model.menu.InstructionsMenu;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;

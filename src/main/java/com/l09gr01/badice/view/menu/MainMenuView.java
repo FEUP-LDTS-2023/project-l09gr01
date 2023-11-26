@@ -3,7 +3,6 @@ package com.l09gr01.badice.view.menu;
 import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.menu.MainMenu;
-import com.l09gr01.badice.model.menu.Menu;
 import com.l09gr01.badice.view.View;
 
 public class MainMenuView extends View<MainMenu> {

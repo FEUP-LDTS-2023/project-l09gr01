@@ -84,15 +84,6 @@ public class InputHandler implements GUI {
         drawCharacter(position.getX(), position.getY(), '@', "#FF007F");
     }
 
-    @Override
-    public void drawPowerUp(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'P', "#AAAAAA");
-    }
-
-    @Override
-    public void drawIce(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'I', "#AAAAAA");
-    }
 
     @Override
     public void drawText(Position position, String text, String color) {

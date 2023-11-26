@@ -2,7 +2,6 @@ package com.l09gr01.badice.controller.game;
 
 import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.Game;
-import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.game.arena.Arena;
 
@@ -33,6 +32,8 @@ public class PlayerCharacterController extends GameController {
             if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
         }
     }
+
+
 
     public void doAction(){
         if (getModel().isEmpty(getModel().getPlayerCharacter().getFront()) && !getModel().isMonster(getModel().getPlayerCharacter().getFront())) getModel().createIce(getModel().getPlayerCharacter().getDirection(),getModel().getPlayerCharacter().getFront());
