@@ -10,13 +10,17 @@ import java.io.IOException;
 
 public class ArenaController extends GameController {
     private final PlayerCharacterController playerCharacterController;
-    private final MonsterController monsterController;
+    private final MonsterEasyController monsterEasyController;
+    private final MonsterMediumController monsterMediumController;
+    private final MonsterHardController monsterHardController;
 
     public ArenaController(Arena arena) {
         super(arena);
 
         this.playerCharacterController = new PlayerCharacterController(arena);
-        this.monsterController = new MonsterController(arena);
+        this.monsterEasyController = new MonsterEasyController(arena);
+        this.monsterMediumController = new MonsterMediumController(arena);
+        this.monsterHardController = new MonsterHardController(arena);
     }
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
@@ -24,7 +28,9 @@ public class ArenaController extends GameController {
             game.setState(new PauseMenuState(new PauseMenu()));
         else {
             playerCharacterController.step(game, action, time);
-            monsterController.step(game, action, time);
+            monsterEasyController.step(game, action, time);
+            monsterMediumController.step(game,action,time);
+            monsterHardController.step(game,action,time);
         }
     }
 }
