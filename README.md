@@ -47,7 +47,7 @@ For each new menu there will be a new state, viewer and controller.
 
 
 ### SELF-EVALUATION
-João Parada - 50%
-João Cordeiro - 25%
-Luciano Ferreira - 25%
+João Parada - 50%,
+João Cordeiro - 25%,
+Luciano Ferreira - 25%.
 
