@@ -1,5 +1,6 @@
 package com.l09gr01.badice.model.game.arena;
 
+import com.l09gr01.badice.model.game.elements.Ice;
 import com.l09gr01.badice.model.game.elements.Monster;
 import com.l09gr01.badice.model.game.elements.PlayerCharacter;
 import com.l09gr01.badice.model.game.elements.Wall;
@@ -14,6 +15,11 @@ public class Arena {
 
     private List<Monster> monsters;
     private List<Wall> walls;
+
+    private List<Ice> iceBlocks;
+
+
+
 
     public Arena(int width, int height) {
         this.width = width;
@@ -52,10 +58,26 @@ public class Arena {
         this.walls = walls;
     }
 
-    public boolean isEmpty(Position position) {
+
+    public List<Ice> getIceBlocks() {
+        return iceBlocks;
+    }
+
+    public void setIceBlocks(List<Ice> iceBlocks) {
+        this.iceBlocks = iceBlocks;
+    }
+
+
+
+    public boolean isEmpty(Position position) { // nao seria mais facil criar aqui um isWall e um isIce?
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
+
+        for(Ice ice : iceBlocks)
+            if(ice.getPosition().equals(position))
+                return false;
+
         return true;
     }
 

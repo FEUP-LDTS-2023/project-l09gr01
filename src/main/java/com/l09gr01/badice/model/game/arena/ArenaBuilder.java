@@ -3,6 +3,7 @@ package com.l09gr01.badice.model.game.arena;
 import com.l09gr01.badice.model.game.elements.Monster;
 import com.l09gr01.badice.model.game.elements.PlayerCharacter;
 import com.l09gr01.badice.model.game.elements.Wall;
+import com.l09gr01.badice.model.game.elements.Ice;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public abstract class ArenaBuilder {
         arena.setPlayerCharacter(createPlayerCharacter());
         arena.setMonsters(createMonsters());
         arena.setWalls(createWalls());
+        arena.setIceBlocks(createIceBlocks());
 
         return arena;
     }
@@ -22,6 +24,7 @@ public abstract class ArenaBuilder {
     protected abstract int getHeight();
 
     protected abstract List<Wall> createWalls();
+    protected abstract List<Ice> createIceBlocks();
 
     protected abstract List<Monster> createMonsters();
 
