@@ -1,7 +1,5 @@
 package com.l09gr01.badice.model.game.elements;
 
-import com.l09gr01.badice.model.elements.Element;
-
 public class Monster extends Element {
 
     private int difficulty;

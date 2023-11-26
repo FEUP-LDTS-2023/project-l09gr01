@@ -9,7 +9,6 @@ import com.l09gr01.badice.model.game.elements.Monster;
 import java.io.IOException;
 
 public interface MonsterController {
-
     private void moveMonster(Monster monster, Position position) {
     }
 }

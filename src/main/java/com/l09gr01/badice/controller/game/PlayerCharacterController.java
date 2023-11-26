@@ -2,6 +2,7 @@ package com.l09gr01.badice.controller.game;
 
 import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.Game;
+import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.game.arena.Arena;
 
@@ -27,7 +28,15 @@ public class PlayerCharacterController extends GameController {
     }
 
     private void movePlayerCharacter(Position position) {
-        //if same position as Monster game over(?)
+        if (getModel().isEmpty(position)) {
+            getModel().getPlayerCharacter().setPosition(position);
+            if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
+        }
+    }
+
+    public void doAction(){
+        if (getModel().isEmpty(getModel().getPlayerCharacter().getFront()) && !getModel().isMonster(getModel().getPlayerCharacter().getFront())) getModel().createIce(getModel().getPlayerCharacter().getDirection(),getModel().getPlayerCharacter().getFront());
+        else if (getModel().isIce(getModel().getPlayerCharacter().getFront())) getModel().destroyIce(getModel().getPlayerCharacter().getDirection(), getModel().getPlayerCharacter().getFront());
     }
 
     @Override
@@ -36,5 +45,6 @@ public class PlayerCharacterController extends GameController {
         if (action == GUI.ACTION.RIGHT) movePlayerCharacterRight();
         if (action == GUI.ACTION.DOWN) movePlayerCharacterDown();
         if (action == GUI.ACTION.LEFT) movePlayerCharacterLeft();
+        if (action == GUI.ACTION.ACTION) doAction();
+        }
     }
-}

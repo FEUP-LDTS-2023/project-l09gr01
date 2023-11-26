@@ -4,10 +4,11 @@ import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.model.game.arena.Arena;
 import com.l09gr01.badice.model.game.elements.Element;
 import com.l09gr01.badice.view.View;
+import com.l09gr01.badice.view.game.observers.ScoreObserver;
 
 import java.util.List;
 
-public class GameView extends View<Arena> {
+public class GameView extends View<Arena> implements ScoreObserver {
     public GameView(Arena arena) {
         super(arena);
     }
@@ -27,5 +28,8 @@ public class GameView extends View<Arena> {
 
     private <T extends Element> void drawElement(GUI gui, T element, ElementView<T> view) {
         view.draw(element, gui);
+    }
+    public void updateScore(int newScore){
+        getModel().getPlayerCharacter().setScore(getModel().getPlayerCharacter().getScore() + newScore);
     }
 }
