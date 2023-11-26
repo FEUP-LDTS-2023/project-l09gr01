@@ -1,8 +1,9 @@
 ## LDTS_l09gr01 - Bad Ice
 
 
-In this fun and exciting strategy, maze-based game your goal is to collect every last piece of fruit in each level. Each maze is guarded by different monsters that you can either defeat or avoid by using different power-ups that are scattered around the area 
-and you will be able to modify the maze layout in real time to your advantage by destroying and creating walls
+In this fun and exciting strategy, maze-based game, your goal is to collect every last piece of fruit in each level. 
+Each maze is guarded by different monsters that you can either defeat or avoid by using different power-ups that are scattered around the area.
+You will be able to modify the maze layout in real time to your advantage by destroying and creating ice blocks.
 Your creativity and ability to think quick will be put to the test!
 
 This project is being developed by João Parada (up201405280@edu.fe.up.pt), João Cordeiro (up202205682@edu.fe.up.pt) and Luciano Ferreira (up202208158@edu.fe.up.pt) for LDTS 2023⁄24.
@@ -23,6 +24,13 @@ This project is being developed by João Parada (up201405280@edu.fe.up.pt), Joã
 - **Breaking walls** - You have the ability to break rows or lines of walls by pressing spacebar as long as you are facing them and they are breakable.
 - **Creating walls** - You have the ability to create rows or lines of walls by pressing spacebar as long as there is room avaiable.
 - **Two-player mode**
+- **Different difficulty monster behaviour algorithms**
+- **Hiscores**
+- **Saving and loading level unlocks**
+- **Score updater** - For each fruit collected the score increases.
+- **Pausing game state** - Pressing P or ESC during game, the current game state will freeze until it is resumed or closed.
+- **Game sound** - Getting hit by a monster, collecting fruit, hitting a wall, collecting and using power-ups, completing level, losing level all should play different sounds.
+- **Music** - Menu music and in-game music.
 
 ### DESIGN
 
@@ -31,15 +39,15 @@ This project is being developed by João Parada (up201405280@edu.fe.up.pt), Joã
 
 
 **Problem in Context**
-
+Creating menus
 
 
 **The Pattern**
-
+MVC Architectural Pattern
 
 
 **Implementation**
-
+For each new menu there will be a new state, viewer and controller.
 
 
 #### KNOWN CODE SMELLS
