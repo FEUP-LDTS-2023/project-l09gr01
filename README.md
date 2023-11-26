@@ -10,15 +10,10 @@ This project is being developed by João Parada (up201405280@edu.fe.up.pt), Joã
 
 ### IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
 - WIP;
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 - **Arena levels** - For each level there will be different arena layouts with increasing difficulty.
 ![mockup-2](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/c48fd691-5ec7-4896-8b7d-f56fa4228431)
 Level example
@@ -39,10 +34,6 @@ Level example
 
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
-
-
-
 **Problem in Context**
 Creating menus
 
@@ -55,15 +46,8 @@ MVC Architectural Pattern
 For each new menu there will be a new state, viewer and controller.
 
 
-#### KNOWN CODE SMELLS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
-
-### TESTING
-
-
 ### SELF-EVALUATION
-
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
+João Parada - 50%
+João Cordeiro - 25%
+Luciano Ferreira - 25%
 
