@@ -2,11 +2,11 @@ package com.l09gr01.badice.view.menu;
 
 import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.model.Position;
-import com.l09gr01.badice.model.menu.Menu;
+import com.l09gr01.badice.model.menu.NewHiscoreMenu;
 import com.l09gr01.badice.view.View;
 
-public class MenuView extends View<Menu> {
-    public MenuView(Menu menu) {
+public class NewHiscoreMenuView extends View<NewHiscoreMenu> {
+    public NewHiscoreMenuView(NewHiscoreMenu menu) {
         super(menu);
     }
 

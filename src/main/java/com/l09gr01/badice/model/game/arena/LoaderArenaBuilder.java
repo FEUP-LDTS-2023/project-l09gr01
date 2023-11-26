@@ -12,10 +12,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoaderArenaBuilder extends ArenaBuilder {
+public class LoaderArenaBuilder{
     private final int level;
     private final List<String> lines;
-
+    
     public LoaderArenaBuilder(int level) throws IOException {
         this.level = level;
 
@@ -23,6 +23,16 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
+    }
+    public Arena createArena() {
+        Arena arena = new Arena(getWidth(), getHeight());
+
+        arena.setPlayerCharacter(createPlayerCharacter());
+        arena.setMonsters(createMonsters());
+        arena.setWalls(createWalls());
+        arena.setIceBlocks(createIceBlocks());
+
+        return arena;
     }
 
     private List<String> readLines(BufferedReader br) throws IOException {
@@ -32,7 +42,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return lines;
     }
 
-    @Override
+    
     protected int getWidth() {
         int width = 0;
         for (String line : lines)
@@ -40,12 +50,12 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return width;
     }
 
-    @Override
+    
     protected int getHeight() {
         return lines.size();
     }
 
-    @Override
+    
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
 
@@ -58,7 +68,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return walls;
     }
 
-    @Override
+    
     protected List<Ice> createIceBlocks() {
         List<Ice> iceBlocks = new ArrayList<>();
 
@@ -71,7 +81,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return iceBlocks;
     }
 
-    @Override
+    
     protected List<Monster> createMonsters() {
         List<Monster> monsters = new ArrayList<>();
 
@@ -84,7 +94,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return monsters;
     }
 
-    @Override
+    
     protected PlayerCharacter createPlayerCharacter() {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
