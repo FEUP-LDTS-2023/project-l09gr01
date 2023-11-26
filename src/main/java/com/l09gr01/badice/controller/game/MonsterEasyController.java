@@ -27,6 +27,10 @@ public class MonsterEasyController extends GameController implements MonsterCont
     }
 
     private void moveMonster(Monster monster, Position position) {
-        //if same position as PC game over(?)
+        if (getModel().isEmpty(position)) {
+            monster.setPosition(position);
+            if (getModel().getPlayerCharacter().getPosition().equals(position))
+                getModel().getPlayerCharacter().decreaseHp();
+        }
     }
 }

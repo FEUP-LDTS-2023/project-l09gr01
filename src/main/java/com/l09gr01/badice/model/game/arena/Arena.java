@@ -97,10 +97,10 @@ public class Arena {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
-
-        for(Ice ice : iceBlocks)
-            if(ice.getPosition().equals(position))
-                return false;
+        if(iceBlocks != null)
+            for(Ice ice : iceBlocks)
+                if(ice.getPosition().equals(position))
+                    return false;
 
         return true;
     }

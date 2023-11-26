@@ -23,6 +23,7 @@ public class PlayerCharacterControllerTest {
     {
         arena = new Arena(10,10);
         player = new PlayerCharacter(5,5);
+        arena.setPlayerCharacter(player);
 
         arena.setWalls(Arrays.asList());
         arena.setMonsters(Arrays.asList());

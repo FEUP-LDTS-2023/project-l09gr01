@@ -28,7 +28,10 @@ public class PlayerCharacterController extends GameController {
     }
 
     private void movePlayerCharacter(Position position) {
-        //if same position as Monster game over(?)
+        if (getModel().isEmpty(position)) {
+            getModel().getPlayerCharacter().setPosition(position);
+            if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
+        }
     }
 
     public void doAction(){

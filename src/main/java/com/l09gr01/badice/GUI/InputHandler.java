@@ -72,6 +72,16 @@ public class InputHandler implements GUI {
     }
 
     @Override
+    public void drawPowerUp(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'P', "#AAAAAA");
+    }
+
+    @Override
+    public void drawIce(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'I', "#AAAAAA");
+    }
+
+    @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
