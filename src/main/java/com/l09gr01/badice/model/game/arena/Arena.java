@@ -3,6 +3,8 @@ package com.l09gr01.badice.model.game.arena;
 import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.game.elements.*;
 import com.l09gr01.badice.model.Position;
+
+import java.util.Iterator;
 import java.util.List;
 
 public class Arena {
@@ -122,6 +124,18 @@ public class Arena {
             if (fruit.getPosition().equals(position))
                 return true;
         return false;
+    }
+
+    public int retrieveFruits(){ //if int x = retrieveCoins() == 0, level complete!!
+        int remainingFruits = fruits.size();
+        for(Iterator<Fruit> iterator = fruits.iterator(); iterator.hasNext();) {
+            Fruit fruit = iterator.next();
+            if(playerCharacter.getPosition().equals(fruit.getPosition())){
+                iterator.remove();
+                remainingFruits--;
+            }
+        }
+        return remainingFruits;
     }
     public boolean isPowerUp(Position position) {
             if (powerUp.getPosition().equals(position))

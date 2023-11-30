@@ -1,4 +1,4 @@
-package com.l09gr01.badice.GUI;
+package com.l09gr01.badice.gui;
 
 import com.l09gr01.badice.model.Position;
 
@@ -16,6 +16,8 @@ public interface GUI {
     void drawIce(Position position);
 
     void drawPowerUp(Position position);
+
+    void drawFruit(Position position);
 
     void drawText(Position position, String text, String color);
 

@@ -1,6 +1,6 @@
 package com.l09gr01.badice.view;
 
-import com.l09gr01.badice.GUI.GUI;
+import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.game.elements.PlayerCharacter;
 import com.l09gr01.badice.view.game.PlayerCharacterView;
 import org.junit.jupiter.api.BeforeEach;

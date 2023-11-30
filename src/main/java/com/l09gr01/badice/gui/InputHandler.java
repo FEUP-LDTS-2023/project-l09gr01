@@ -1,4 +1,4 @@
-package com.l09gr01.badice.GUI;
+package com.l09gr01.badice.gui;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -78,12 +78,15 @@ public class InputHandler implements GUI {
         drawCharacter(position.getX(), position.getY(),'P', "#FFA500");
     }
 
-
     @Override
     public void drawMonster(Position position) {
         drawCharacter(position.getX(), position.getY(), '@', "#FF007F");
     }
 
+    @Override
+    public void drawFruit(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'F', "#FFFF00");
+    }
 
     @Override
     public void drawText(Position position, String text, String color) {
