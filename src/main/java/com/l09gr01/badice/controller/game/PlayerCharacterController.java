@@ -36,8 +36,19 @@ public class PlayerCharacterController extends GameController {
 
 
     public void doAction(){
-        if (getModel().isEmpty(getModel().getPlayerCharacter().getFront()) && !getModel().isMonster(getModel().getPlayerCharacter().getFront())) getModel().createIce(getModel().getPlayerCharacter().getDirection(),getModel().getPlayerCharacter().getFront());
-        else if (getModel().isIce(getModel().getPlayerCharacter().getFront())) getModel().destroyIce(getModel().getPlayerCharacter().getDirection(), getModel().getPlayerCharacter().getFront());
+        if (getModel().isEmpty(getModel().getPlayerCharacter().getFront()))
+        {
+
+
+        }
+
+
+        else if (getModel().isIce(getModel().getPlayerCharacter().getFront()))
+        {
+            getModel().destroyIce(getModel().getPlayerCharacter().getDirection(), getModel().getPlayerCharacter().getFront());
+        }
+
+
     }
 
     @Override
@@ -48,4 +59,9 @@ public class PlayerCharacterController extends GameController {
         if (action == GUI.ACTION.LEFT) movePlayerCharacterLeft();
         if (action == GUI.ACTION.ACTION) doAction();
         }
+    }
+
+    public Position getNextPosion(Position)
+    {
+        return
     }
