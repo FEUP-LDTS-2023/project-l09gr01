@@ -30,7 +30,9 @@ public class MonsterEasyController extends GameController implements MonsterCont
         if (getModel().isEmpty(position)) {
             monster.setPosition(position);
             if (getModel().getPlayerCharacter().getPosition().equals(position))
+            {
                 getModel().getPlayerCharacter().decreaseHp();
+            }
         }
     }
 }

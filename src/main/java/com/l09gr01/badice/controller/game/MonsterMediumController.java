@@ -19,18 +19,23 @@ public class MonsterMediumController extends GameController implements MonsterCo
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        /*
-        medium algorithm here
-        if (time - lastMovement > 500) {
+
+        if (time - lastMovement > 300) {
             for (Monster monster : getModel().getMonsters())
                 moveMonster(monster, monster.getPosition().getRandomNeighbour());
             this.lastMovement = time;
-        }*/
+        }
     }
 
 
-        private void moveMonster (Monster monster, Position position){
-            //medium algorithm here
+    private void moveMonster(Monster monster, Position position) {
+        if (getModel().isEmpty(position)) {
+            monster.setPosition(position);
+            if (getModel().getPlayerCharacter().getPosition().equals(position))
+            {
+                getModel().getPlayerCharacter().decreaseHp();
+            }
         }
+    }
     }
 

@@ -3,7 +3,9 @@ package com.l09gr01.badice.controller.game;
 import com.l09gr01.badice.GUI.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.game.arena.Arena;
+import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.model.menu.PauseMenu;
+import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.state.PauseMenuState;
 
 import java.io.IOException;
@@ -26,6 +28,10 @@ public class ArenaController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || action == GUI.ACTION.PAUSE)
             game.setState(new PauseMenuState(new PauseMenu()));
+        else if(getModel().getPlayerCharacter().getHp() == 0)
+        {
+            game.setState(new MainMenuState(new MainMenu()));
+        }
         else {
             playerCharacterController.step(game, action, time);
             monsterEasyController.step(game, action, time);
