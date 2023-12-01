@@ -59,24 +59,6 @@ public class PlayerCharacter extends Element {
     {
         return powerUps.get(0);
     }
-    public Position getFront() {
-        switch (getDirection()) {
-            case UP:
-                return new Position(getPosition().getX(), getPosition().getY() - 1);
-
-            case DOWN:
-                return new Position(getPosition().getX(), getPosition().getY() + 1);
-
-            case RIGHT:
-                return new Position(getPosition().getX() + 1, getPosition().getY());
-
-            case LEFT:
-                return new Position(getPosition().getX() - 1, getPosition().getY());
-
-            default:
-                return null;
-        }
-    }
     public void pickUpFruit(Fruit fruit){
         this.score += 10;
     }
