@@ -1,10 +1,12 @@
 package com.l09gr01.badice.controller.game;
 
-import com.l09gr01.badice.GUI.GUI;
+import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.game.arena.Arena;
+
+import static com.l09gr01.badice.model.Direction.*;
 
 public class PlayerCharacterController extends GameController {
     public PlayerCharacterController(Arena arena) {
@@ -12,18 +14,22 @@ public class PlayerCharacterController extends GameController {
     }
 
     public void movePlayerCharacterLeft() {
+        getModel().getPlayerCharacter().setDirection(LEFT);
         movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getLeft());
     }
 
     public void movePlayerCharacterRight() {
+        getModel().getPlayerCharacter().setDirection(RIGHT);
         movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getRight());
     }
 
     public void movePlayerCharacterUp() {
+        getModel().getPlayerCharacter().setDirection(UP);
         movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getUp());
     }
 
     public void movePlayerCharacterDown() {
+        getModel().getPlayerCharacter().setDirection(DOWN);
         movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getDown());
     }
 
@@ -31,6 +37,10 @@ public class PlayerCharacterController extends GameController {
         if (getModel().isEmpty(position)) {
             getModel().getPlayerCharacter().setPosition(position);
             if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
+            if (getModel().isFruit(position)) {
+                getModel().getPlayerCharacter().pickUpFruit();
+                getModel().removeFruit(position);
+            }
         }
     }
 

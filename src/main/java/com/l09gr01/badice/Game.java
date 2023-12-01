@@ -1,6 +1,6 @@
 package com.l09gr01.badice;
 
-import com.l09gr01.badice.GUI.InputHandler;
+import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.state.State;
@@ -13,7 +13,7 @@ public class Game {     // Game loop. Starting point
     private State state;
 
     public Game() throws IOException {
-        this.gui = new InputHandler(20,20);
+        this.gui = new InputHandler(40,40);
         this.state = new MainMenuState(new MainMenu());
     }
 

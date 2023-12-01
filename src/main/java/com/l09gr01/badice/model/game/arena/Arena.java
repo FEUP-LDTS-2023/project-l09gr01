@@ -1,8 +1,11 @@
 package com.l09gr01.badice.model.game.arena;
 
+import com.l09gr01.badice.gui.GameTimer;
 import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.game.elements.*;
 import com.l09gr01.badice.model.Position;
+
+import java.util.Iterator;
 import java.util.List;
 
 public class Arena {
@@ -18,10 +21,7 @@ public class Arena {
     private List<Ice> iceBlocks;
     private List<Fruit> fruits;
     private PowerUp powerUp;
-
-
-
-
+    private int level;
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -138,7 +138,16 @@ public class Arena {
     }
     public void destroyIce(Position position)
     {
-        iceBlocks.remove(position);
+        iceBlocks.removeIf(ice -> ice.getPosition().equals(position));
+    }
+    public void removeFruit(Position position){
+        fruits.removeIf(fruit -> fruit.getPosition().equals(position));
+    }
+    public void setLevel(int level){
+        this.level = level;
+    }
+    public int getLevel(){
+        return this.level;
     }
 }
 

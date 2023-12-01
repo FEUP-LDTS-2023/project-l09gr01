@@ -1,6 +1,6 @@
 package com.l09gr01.badice.controller.menu;
 
-import com.l09gr01.badice.GUI.GUI;
+import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.model.menu.PauseMenu;

@@ -1,4 +1,4 @@
-package com.l09gr01.badice.GUI;
+package com.l09gr01.badice.gui;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -56,6 +56,7 @@ public class InputHandler implements GUI {
         if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.ACTION;
         return ACTION.NONE;
     }
+
     @Override
     public void drawPlayerCharacter(Position position) {
         drawCharacter(position.getX(), position.getY(), 'H', "#90EE90");
@@ -72,24 +73,30 @@ public class InputHandler implements GUI {
         drawCharacter(position.getX(), position.getY(),'&', "#ADD8E6");
     }
 
+    public void drawFruit(Position position) { drawCharacter(position.getX(), position.getY(), 'F', "#32A852");}
     @Override
     public void drawPowerUp(Position position)
     {
         drawCharacter(position.getX(), position.getY(),'P', "#FFA500");
     }
-
-
     @Override
     public void drawMonster(Position position) {
         drawCharacter(position.getX(), position.getY(), '@', "#FF007F");
     }
 
+    public void drawHeader(int level, int score, String time){
+        TextGraphics tg = screen.newTextGraphics();
+        tg.putString(0, 0, "Level " + level);
+        tg.putString(15, 0, String.valueOf(score));
+        tg.putString(35, 0, time);
+
+    }
 
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
+        tg.putString(position.getX(), position.getY() + 1, text);
     }
 
     private void drawCharacter(int x, int y, char c, String color) {

@@ -59,7 +59,7 @@ public class PlayerCharacter extends Element {
     {
         return powerUps.get(0);
     }
-    public void pickUpFruit(Fruit fruit){
+    public void pickUpFruit(){
         this.score += 10;
     }
     public void setScore(int newScore){

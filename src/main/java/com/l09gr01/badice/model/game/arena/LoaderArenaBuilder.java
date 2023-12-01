@@ -29,6 +29,7 @@ public class LoaderArenaBuilder{
         arena.setWalls(createWalls());
         arena.setIceBlocks(createIceBlocks());
         arena.setFruit(createFruits());
+        arena.setLevel(level);
 
         return arena;
     }
