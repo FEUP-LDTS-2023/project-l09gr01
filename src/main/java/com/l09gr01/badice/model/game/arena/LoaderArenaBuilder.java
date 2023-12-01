@@ -1,9 +1,6 @@
 package com.l09gr01.badice.model.game.arena;
 
-import com.l09gr01.badice.model.game.elements.Monster;
-import com.l09gr01.badice.model.game.elements.PlayerCharacter;
-import com.l09gr01.badice.model.game.elements.Wall;
-import com.l09gr01.badice.model.game.elements.Ice;
+import com.l09gr01.badice.model.game.elements.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -31,6 +28,7 @@ public class LoaderArenaBuilder{
         arena.setMonsters(createMonsters());
         arena.setWalls(createWalls());
         arena.setIceBlocks(createIceBlocks());
+        arena.setFruit(createFruits());
 
         return arena;
     }
@@ -68,20 +66,18 @@ public class LoaderArenaBuilder{
         return walls;
     }
 
-    
     protected List<Ice> createIceBlocks() {
         List<Ice> iceBlocks = new ArrayList<>();
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '&') iceBlocks.add(new Ice(x, y));
+                if (line.charAt(x) == 'O') iceBlocks.add(new Ice(x, y));
         }
 
         return iceBlocks;
     }
 
-    
     protected List<Monster> createMonsters() {
         List<Monster> monsters = new ArrayList<>();
 
@@ -94,13 +90,22 @@ public class LoaderArenaBuilder{
         return monsters;
     }
 
-    
     protected PlayerCharacter createPlayerCharacter() {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'H') return new PlayerCharacter(x, y);
+                if (line.charAt(x) == 'G') return new PlayerCharacter(x, y);
         }
         return null;
+    }
+    protected List<Fruit> createFruits() {
+        List<Fruit> fruits = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'F') fruits.add(new Fruit(x, y));
+        }
+        return fruits;
     }
 }
