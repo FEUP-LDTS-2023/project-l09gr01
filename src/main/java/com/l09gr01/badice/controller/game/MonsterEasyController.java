@@ -21,7 +21,7 @@ public class MonsterEasyController extends GameController implements MonsterCont
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
             for (Monster monster : getModel().getMonsters())
-                moveMonster(monster, monster.getPosition().getRandomNeighbour());
+                if(monster.getDifficulty() == 1) moveMonster(monster, monster.getPosition().getRandomNeighbour());
             this.lastMovement = time;
         }
     }

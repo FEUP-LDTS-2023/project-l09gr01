@@ -4,9 +4,10 @@ public class Monster extends Element {
 
     private int difficulty;
 
-    public Monster(int x, int y)
+    public Monster(int x, int y, int difficulty)
     {
         super(x,y);
+        this.difficulty = difficulty;
     }
 
     public void setDifficulty(int difficulty)

@@ -22,7 +22,7 @@ public class MonsterMediumController extends GameController implements MonsterCo
 
         if (time - lastMovement > 300) {
             for (Monster monster : getModel().getMonsters())
-                moveMonster(monster, monster.getPosition().getRandomNeighbour());
+                if(monster.getDifficulty() == 2) moveMonster(monster, monster.getPosition().getRandomNeighbour());
             this.lastMovement = time;
         }
     }

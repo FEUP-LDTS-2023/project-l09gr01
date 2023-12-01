@@ -84,9 +84,11 @@ public class LoaderArenaBuilder{
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'M') monsters.add(new Monster(x, y));
-        }
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'E') monsters.add(new Monster(x, y, 1));
+                if (line.charAt(x) == 'M') monsters.add(new Monster(x, y, 2));
+                if (line.charAt(x) == 'H') monsters.add(new Monster(x, y, 3));
+        }}
 
         return monsters;
     }

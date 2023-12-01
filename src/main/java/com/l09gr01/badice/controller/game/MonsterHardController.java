@@ -25,7 +25,7 @@ public class MonsterHardController extends GameController implements MonsterCont
 
         if (time - lastMovement > 300) {
             for (Monster monster : getModel().getMonsters())
-                moveMonster(monster);
+                if(monster.getDifficulty() == 3) moveMonster(monster);
             this.lastMovement = time;
         }
     }
