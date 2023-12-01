@@ -59,9 +59,6 @@ public class PlayerCharacter extends Element {
     {
         return powerUps.get(0);
     }
-    public Position getFront() {
-        return this.getPosition(); // + facingDirection
-    }
     public void pickUpFruit(Fruit fruit){
         this.score += 10;
     }

@@ -97,11 +97,15 @@ public class Arena {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
+        for(Monster monster : monsters)
+        {
+            if(monster.getPosition().equals(position))
+                return false;
+        }
         if(iceBlocks != null)
             for(Ice ice : iceBlocks)
                 if(ice.getPosition().equals(position))
                     return false;
-
         return true;
     }
 
@@ -128,11 +132,13 @@ public class Arena {
                 return true;
         return false;
     }
-    public void createIce(Direction direction, Position position){
+    public void createIce(Position position){
 
+        iceBlocks.add(new Ice(position.getX(),position.getY()));
     }
-    public void destroyIce(Direction direction, Position position){
-
+    public void destroyIce(Position position)
+    {
+        iceBlocks.remove(position);
     }
 }
 
