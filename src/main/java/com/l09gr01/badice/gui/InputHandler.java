@@ -80,10 +80,11 @@ public class InputHandler implements GUI {
         drawCharacter(position.getX(), position.getY(),'P', "#FFA500");
     }
     @Override
-    public void drawMonster(Position position) {
-        drawCharacter(position.getX(), position.getY(), '@', "#FF007F");
+    public void drawEasyMonster(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'E', "#FF007F");
     }
-
+    public void drawMediumMonster(Position position) { drawCharacter(position.getX(), position.getY(), 'M',"#FF007F" );}
+    public void drawHardMonster(Position position) { drawCharacter(position.getX(),position.getY(), 'H', "#FF007F");}
     public void drawHeader(int level, int score, String time){
         TextGraphics tg = screen.newTextGraphics();
         tg.putString(0, 0, "Level " + level);
