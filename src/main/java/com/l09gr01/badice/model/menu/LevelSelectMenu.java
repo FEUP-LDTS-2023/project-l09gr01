@@ -8,7 +8,6 @@ public class LevelSelectMenu extends Menu{
         super();
         this.entries = Arrays.asList("Level 1", "Level 2", "Level 3", "Back To Main Menu");
     }
-
     public boolean isSelectedLevel1() {
         return isSelected(0);
     }
@@ -21,5 +20,4 @@ public class LevelSelectMenu extends Menu{
     public boolean isSelectedBack() {
         return isSelected(3);
     }
-
 }

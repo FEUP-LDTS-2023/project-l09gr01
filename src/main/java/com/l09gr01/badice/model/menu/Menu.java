@@ -26,6 +26,7 @@ public abstract class Menu {
     public String getEntry(int i) {
         return entries.get(i);
     }
+    public void setEntry(int i,String entry) { entries.set(i,entry);}
 
     public boolean isSelected(int i) {
         return currentEntry == i;

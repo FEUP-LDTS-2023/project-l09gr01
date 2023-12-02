@@ -7,10 +7,11 @@ import com.l09gr01.badice.state.State;
 
 import java.io.IOException;
 
-public class Game {     // Game loop. Starting point
+public class Game {
 
     private final InputHandler gui;
     private State state;
+    private int levelUnlocks = 1;
 
     public Game() throws IOException {
         this.gui = new InputHandler(40,40);
@@ -39,14 +40,13 @@ public class Game {     // Game loop. Starting point
                 }
             }
         }
-
         gui.close();
     }
-
     public void setState(State state) {
         this.state = state;
     }
 
     public State getState(){ return this.state;}
-
+    public int getLevelUnlocks(){return this.levelUnlocks;}
+    public void setLevelUnlocks(int levelUnlocks){ this.levelUnlocks = levelUnlocks;}
 }
