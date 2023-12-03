@@ -9,28 +9,50 @@ import com.l09gr01.badice.model.game.arena.Arena;
 import static com.l09gr01.badice.model.Direction.*;
 
 public class PlayerCharacterController extends GameController {
+
+    private Direction lastDirection;
     public PlayerCharacterController(Arena arena) {
         super(arena);
     }
 
     public void movePlayerCharacterLeft() {
-        getModel().getPlayerCharacter().setDirection(LEFT);
-        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getLeft());
+        if(lastDirection == LEFT){
+            movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getLeft());
+        }
+        else{
+            getModel().getPlayerCharacter().setDirection(LEFT);
+            lastDirection = LEFT;
+        }
     }
 
     public void movePlayerCharacterRight() {
-        getModel().getPlayerCharacter().setDirection(RIGHT);
-        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getRight());
+        if(lastDirection == RIGHT){
+            movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getRight());
+        }
+        else{
+            getModel().getPlayerCharacter().setDirection(RIGHT);
+            lastDirection = RIGHT;
+        }
     }
 
     public void movePlayerCharacterUp() {
-        getModel().getPlayerCharacter().setDirection(UP);
-        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getUp());
+        if(lastDirection == UP){
+            movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getUp());
+        }
+        else{
+            getModel().getPlayerCharacter().setDirection(UP);
+            lastDirection = UP;
+        }
     }
 
     public void movePlayerCharacterDown() {
-        getModel().getPlayerCharacter().setDirection(DOWN);
-        movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getDown());
+        if(lastDirection == DOWN){
+            movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getDown());
+        }
+        else{
+            getModel().getPlayerCharacter().setDirection(DOWN);
+            lastDirection = DOWN;
+        }
     }
 
     private void movePlayerCharacter(Position position) {
