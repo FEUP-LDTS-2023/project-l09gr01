@@ -42,6 +42,15 @@ public class MonsterHardController extends GameController implements MonsterCont
                 getModel().getPlayerCharacter().decreaseHp();
             }
         }
+
+        else
+        {
+            monster.setPosition(monster.getPosition().getRandomNeighbour());
+            if (getModel().getPlayerCharacter().getPosition().equals(closerPosition))
+            {
+                getModel().getPlayerCharacter().decreaseHp();
+            }
+        }
         // hard algorithm here
     }
 
