@@ -40,7 +40,7 @@ public class MonsterControllerTest {
 
     @Test
     void moveMonsters() throws IOException {
-        Monster monster = new Monster(5, 5);
+        Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
 
         controller.step(game, GUI.ACTION.NONE, 1000);
@@ -50,7 +50,7 @@ public class MonsterControllerTest {
 
     @Test
     void moveMonstersClosed() throws IOException {
-        Monster monster = new Monster(5, 5);
+        Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
                 new Wall(4, 5),
@@ -67,7 +67,7 @@ public class MonsterControllerTest {
 
     @Test
     void moveMonstersGap() throws IOException {
-        Monster monster = new Monster(5, 5);
+        Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
                 new Wall(4, 5),
