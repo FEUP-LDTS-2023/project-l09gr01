@@ -33,6 +33,7 @@ public class MonsterHardController extends GameController implements MonsterCont
     private void moveMonster(Monster monster) {
 
         Position closerPosition = closestToPlayer(monster);
+        Position randomPosition = monster.getPosition().getRandomNeighbour();
 
         if(getModel().isEmpty(closerPosition))
         {
@@ -45,10 +46,12 @@ public class MonsterHardController extends GameController implements MonsterCont
 
         else
         {
-            monster.setPosition(monster.getPosition().getRandomNeighbour());
-            if (getModel().getPlayerCharacter().getPosition().equals(closerPosition))
-            {
-                getModel().getPlayerCharacter().decreaseHp();
+            if(getModel().isEmpty(randomPosition)) {
+                monster.setPosition(randomPosition);
+
+                if (getModel().getPlayerCharacter().getPosition().equals(closerPosition)) {
+                    getModel().getPlayerCharacter().decreaseHp();
+                }
             }
         }
         // hard algorithm here
