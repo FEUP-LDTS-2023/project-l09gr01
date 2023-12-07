@@ -5,7 +5,9 @@ import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.state.State;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
 
@@ -13,12 +15,12 @@ public class Game {
     private State state;
     private int levelUnlocks = 1;
 
-    public Game() throws IOException {
+    public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new InputHandler(40,40);
         this.state = new MainMenuState(new MainMenu());
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
         Game game = new Game();
         game.start();
     }

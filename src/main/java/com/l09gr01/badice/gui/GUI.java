@@ -7,7 +7,10 @@ import java.io.IOException;
 public interface GUI {
     ACTION getNextAction() throws IOException;
 
-    void drawPlayerCharacter(Position position);
+    void drawUpPlayerCharacter(Position position);
+    void drawDownPlayerCharacter(Position position);
+    void drawLeftPlayerCharacter(Position position);
+    void drawRightPlayerCharacter(Position position);
 
     void drawWall(Position position);
 

@@ -9,17 +9,23 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.l09gr01.badice.model.Position;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class InputHandler implements GUI {
     private final Screen screen;
     public InputHandler(Screen screen){
         this.screen = screen;
     }
-    public InputHandler(int width, int height) throws IOException {
-        Terminal terminal = createTerminal(width, height);
+    public InputHandler(int width, int height) throws IOException, URISyntaxException, FontFormatException {
+        AWTTerminalFontConfiguration fontConfig = loadFont();
+        Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -30,11 +36,25 @@ public class InputHandler implements GUI {
         screen.doResizeIfNecessary();
         return screen;
     }
-    private Terminal createTerminal(int width, int height) throws IOException {
+    private Terminal createTerminal(int width, int height,AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+        terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
+    }
+    private AWTTerminalFontConfiguration loadFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/badice_font.ttf");
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        return fontConfig;
     }
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -58,8 +78,17 @@ public class InputHandler implements GUI {
     }
 
     @Override
-    public void drawPlayerCharacter(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#90EE90");
+    public void drawUpPlayerCharacter(Position position) {
+        drawCharacter(position.getX(), position.getY(), '%', "#90EE90");
+    }
+    public void drawDownPlayerCharacter(Position position) {
+        drawCharacter(position.getX(), position.getY(), '$', "#90EE90");
+    }
+    public void drawLeftPlayerCharacter(Position position) {
+        drawCharacter(position.getX(), position.getY(), '_', "#90EE90");
+    }
+    public void drawRightPlayerCharacter(Position position) {
+        drawCharacter(position.getX(), position.getY(), '^', "#90EE90");
     }
 
     @Override
@@ -73,7 +102,7 @@ public class InputHandler implements GUI {
         drawCharacter(position.getX(), position.getY(),'&', "#ADD8E6");
     }
 
-    public void drawFruit(Position position) { drawCharacter(position.getX(), position.getY(), 'F', "#32A852");}
+    public void drawFruit(Position position) { drawCharacter(position.getX(), position.getY(), '~', "#32A852");}
     @Override
     public void drawPowerUp(Position position)
     {
@@ -81,10 +110,10 @@ public class InputHandler implements GUI {
     }
     @Override
     public void drawEasyMonster(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'E', "#FF007F");
+        drawCharacter(position.getX(), position.getY(), '|', "#FF007F");
     }
-    public void drawMediumMonster(Position position) { drawCharacter(position.getX(), position.getY(), 'M',"#FF007F" );}
-    public void drawHardMonster(Position position) { drawCharacter(position.getX(),position.getY(), 'H', "#FF007F");}
+    public void drawMediumMonster(Position position) { drawCharacter(position.getX(), position.getY(), '{',"#FF007F" );}
+    public void drawHardMonster(Position position) { drawCharacter(position.getX(),position.getY(), '}', "#FF007F");}
     public void drawHeader(int level, int score, String time){
         TextGraphics tg = screen.newTextGraphics();
         tg.putString(0, 0, "Level " + level);

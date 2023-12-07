@@ -30,8 +30,10 @@ public class ArenaController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || action == GUI.ACTION.PAUSE)
             game.setState(new PauseMenuState(new PauseMenu()));
-        else if (getModel().getFruit().isEmpty())
+        else if (getModel().getFruit().isEmpty()){
+            if (getModel().getLevel() == game.getLevelUnlocks()) game.setLevelUnlocks(game.getLevelUnlocks() + 1);
             game.setState(new LevelSelectMenuState(new LevelSelectMenu()));
+        }
         else if(getModel().getPlayerCharacter().getHp() == 0)
         {
             game.setState(new MainMenuState(new MainMenu()));
