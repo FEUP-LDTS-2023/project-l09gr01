@@ -23,6 +23,7 @@ public interface GUI {
     void drawPowerUp(Position position);
 
     void drawFruit(Position position);
+    void drawFruitInIce(Position position);
 
     void drawText(Position position, String text, String color);
 

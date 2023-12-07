@@ -22,6 +22,7 @@ public class Arena {
     private List<Fruit> fruits;
     private PowerUp powerUp;
     private int level;
+    private List<FruitInIce> fruitsInIce;
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -93,6 +94,8 @@ public class Arena {
     public void removePowerUp(){ this.powerUp = null;}
     public boolean existsPowerUp(){ return this.powerUp != null;}
 
+    public List<FruitInIce> getFruitInIce() {return this.fruitsInIce;}
+    public void setFruitInIce(List<FruitInIce> fruitInIce) { this.fruitsInIce = fruitInIce;}
     public boolean isEmpty(Position position) { // nao seria mais facil criar aqui um isWall e um isIce?
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
@@ -121,6 +124,12 @@ public class Arena {
                 return true;
         return false;
     }
+    public boolean isFruitInIce(Position position){
+        for (FruitInIce fruitInIce : fruitsInIce)
+            if (fruitInIce.getPosition().equals(position))
+                return true;
+        return false;
+    }
     public boolean isFruit(Position position) {
         for (Fruit fruit : fruits)
             if (fruit.getPosition().equals(position))
@@ -135,9 +144,11 @@ public class Arena {
     public void createIce(Position position){
 
         iceBlocks.add(new Ice(position.getX(),position.getY()));
+        if (isFruit(position)) fruitsInIce.add(new FruitInIce(position.getX(), position.getY()));
     }
     public void destroyIce(Position position)
     {
+        fruitsInIce.removeIf(fruitInIce -> fruitInIce.getPosition().equals(position));
         iceBlocks.removeIf(ice -> ice.getPosition().equals(position));
     }
     public void removeFruit(Position position){

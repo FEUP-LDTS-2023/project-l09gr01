@@ -81,7 +81,8 @@ public class PlayerCharacterController extends GameController {
             }
         }
 
-        else if (getModel().isIce(nextPosition(getModel().getPlayerCharacter().getPosition(), direction)))
+        else if (getModel().isIce(nextPosition(getModel().getPlayerCharacter().getPosition(), direction))
+        || getModel().isFruitInIce(nextPosition(getModel().getPlayerCharacter().getPosition(), direction)))
         {
             while(getModel().isIce(nextPosition))
             {

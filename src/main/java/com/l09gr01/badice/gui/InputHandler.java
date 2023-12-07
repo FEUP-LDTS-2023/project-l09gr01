@@ -103,6 +103,8 @@ public class InputHandler implements GUI {
     }
 
     public void drawFruit(Position position) { drawCharacter(position.getX(), position.getY(), '~', "#32A852");}
+
+    public void drawFruitInIce(Position position) { drawCharacter(position.getX(), position.getY(), '@', "#ADD8E6");}
     @Override
     public void drawPowerUp(Position position)
     {

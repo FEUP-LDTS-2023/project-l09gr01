@@ -29,6 +29,7 @@ public class LoaderArenaBuilder{
         arena.setWalls(createWalls());
         arena.setIceBlocks(createIceBlocks());
         arena.setFruit(createFruits());
+        arena.setFruitInIce(createFruitInIce());
         arena.setLevel(level);
 
         return arena;
@@ -73,7 +74,7 @@ public class LoaderArenaBuilder{
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'O') iceBlocks.add(new Ice(x, y));
+                if (line.charAt(x) == 'O' || line.charAt(x) == 'U') iceBlocks.add(new Ice(x, y));
         }
 
         return iceBlocks;
@@ -107,8 +108,20 @@ public class LoaderArenaBuilder{
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'F') fruits.add(new Fruit(x, y));
+                if (line.charAt(x) == 'F' || line.charAt(x) == 'U') fruits.add(new Fruit(x, y));
         }
         return fruits;
+    }
+    protected List<FruitInIce> createFruitInIce() {
+        List<FruitInIce> fruitInIce = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'U'){
+                    fruitInIce.add(new FruitInIce(x, y));
+                }
+        }
+        return fruitInIce;
     }
 }

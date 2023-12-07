@@ -26,6 +26,7 @@ public class GameView extends View<Arena> implements ScoreObserver {
         drawElement(gui, getModel().getPlayerCharacter(), new PlayerCharacterView());
         drawElements(gui, getModel().getFruit(), new FruitView());
         drawElements(gui, getModel().getIceBlocks(), new IceView());
+        drawElements(gui, getModel().getFruitInIce(), new FruitInIceView());
 
     }
 
