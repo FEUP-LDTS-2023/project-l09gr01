@@ -1,4 +1,4 @@
-package com.l09gr01.badice.GUI;
+package com.l09gr01.badice.gui;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;

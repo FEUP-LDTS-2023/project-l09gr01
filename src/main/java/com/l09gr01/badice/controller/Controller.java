@@ -1,6 +1,6 @@
 package com.l09gr01.badice.controller;
 
-import com.l09gr01.badice.GUI.GUI;
+import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 
 import java.io.IOException;

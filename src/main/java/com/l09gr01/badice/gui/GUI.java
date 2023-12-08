@@ -1,4 +1,4 @@
-package com.l09gr01.badice.GUI;
+package com.l09gr01.badice.gui;
 
 import com.l09gr01.badice.model.Position;
 
