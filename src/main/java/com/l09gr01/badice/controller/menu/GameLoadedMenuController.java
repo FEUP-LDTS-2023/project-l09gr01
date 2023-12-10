@@ -1,17 +1,17 @@
 package com.l09gr01.badice.controller.menu;
 
-import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
-import com.l09gr01.badice.model.menu.PauseMenu;
+import com.l09gr01.badice.gui.GUI;
+import com.l09gr01.badice.model.menu.GameLoadedMenu;
+import com.l09gr01.badice.model.menu.InstructionsMenu;
 import com.l09gr01.badice.model.menu.MainMenu;
-import com.l09gr01.badice.state.GameState;
 import com.l09gr01.badice.state.MainMenuState;
 
 import java.io.IOException;
 
-public class PauseMenuController extends Controller<PauseMenu> {
-    public PauseMenuController(PauseMenu menu) {
+public class GameLoadedMenuController extends Controller<GameLoadedMenu> {
+    public GameLoadedMenuController(GameLoadedMenu menu) {
         super(menu);
     }
 
@@ -25,7 +25,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedResume()) game.setState(new GameState(PauseMenu.getPausedArena()));
+                if (getModel().isSelectedConfirm()) game.setState(new MainMenuState(new MainMenu()));
         }
     }
 }

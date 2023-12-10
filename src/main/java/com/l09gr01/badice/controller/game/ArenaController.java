@@ -3,14 +3,13 @@ package com.l09gr01.badice.controller.game;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.game.arena.Arena;
-import com.l09gr01.badice.model.menu.LevelSelectMenu;
-import com.l09gr01.badice.model.menu.MainMenu;
-import com.l09gr01.badice.model.menu.PauseMenu;
-import com.l09gr01.badice.state.LevelSelectMenuState;
-import com.l09gr01.badice.state.MainMenuState;
-import com.l09gr01.badice.state.PauseMenuState;
+import com.l09gr01.badice.model.menu.*;
+import com.l09gr01.badice.state.*;
+import com.l09gr01.badice.utils.HiscoresManager;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class ArenaController extends GameController {
     private final PlayerCharacterController playerCharacterController;
@@ -28,15 +27,26 @@ public class ArenaController extends GameController {
     }
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        if (getModel().getGameTimer().isPaused) getModel().resumeGameTimer();
         if (action == GUI.ACTION.QUIT || action == GUI.ACTION.PAUSE)
-            game.setState(new PauseMenuState(new PauseMenu()));
-        else if (getModel().getFruit().isEmpty()){
+        {
+            getModel().pauseGameTimer();
+            game.setState(new PauseMenuState(new PauseMenu(getModel().getArena())));
+        }
+        else if (getModel().getFruit().isEmpty())
+        {
+            getModel().pauseGameTimer();
             if (getModel().getLevel() == game.getLevelUnlocks()) game.setLevelUnlocks(game.getLevelUnlocks() + 1);
-            game.setState(new LevelSelectMenuState(new LevelSelectMenu()));
+            int newRank = HiscoresManager.findIndexToInsert(game.getHiscores(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime());
+            if (newRank < 10) game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank,getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())));
+            else game.setState(new LevelCompletedMenuState(new LevelCompletedMenu(getModel().getLevel() + 1)));
         }
         else if(getModel().getPlayerCharacter().getHp() == 0)
         {
-            game.setState(new MainMenuState(new MainMenu()));
+            getModel().pauseGameTimer();
+            int newRank = HiscoresManager.findIndexToInsert(game.getHiscores(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime());
+            if (newRank < 10) game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank,getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())));
+            else game.setState(new GameOverMenuState(new GameOverMenu(getModel().getLevel())));
         }
         else {
             playerCharacterController.step(game, action, time);

@@ -1,15 +1,45 @@
 package com.l09gr01.badice.model.menu;
 
+import com.l09gr01.badice.utils.HiscoreEntry;
+
 import java.util.Arrays;
 
 public class NewHiscoreMenu extends Menu {
-    // WIP
-    public NewHiscoreMenu() {
+    private int newRank;
+    private int newScore;
+    private String newTime;
+    private String newName;
+    public NewHiscoreMenu(int newRank, int newScore, String newTime) {
         super();
-        this.entries = Arrays.asList("Back To Main Menu");
+        this.newRank = newRank;
+        this.newScore = newScore;
+        this.newTime = newTime;
+        this.entries = Arrays.asList("INSERT NAME", "");
     }
 
-    public boolean isSelectedBack() {
+    public void setNewName(String newName) {
+        this.newName = newName;
+    }
+
+    public String getNewName() {
+        return newName;
+    }
+    public HiscoreEntry createHiscoreEntry(){
+        return new HiscoreEntry(this.getNewRank(),this.getNewName(),this.getNewScore(),this.getNewTime());
+    }
+    public boolean isSelectedInsertName() {
         return isSelected(0);
+    }
+
+    public int getNewRank() {
+        return newRank;
+    }
+
+    public int getNewScore() {
+        return newScore;
+    }
+
+    public String getNewTime() {
+        return newTime;
     }
 }

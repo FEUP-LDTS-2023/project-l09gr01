@@ -4,16 +4,21 @@ import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.state.State;
+import com.l09gr01.badice.utils.HiscoreEntry;
+import com.l09gr01.badice.utils.HiscoresManager;
+
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class Game {
 
     private final InputHandler gui;
     private State state;
     private int levelUnlocks = 1;
+    private List<HiscoreEntry> hiscores = HiscoresManager.loadHiscores("data/hiscores.txt");
 
     public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new InputHandler(40,40);
@@ -48,7 +53,21 @@ public class Game {
         this.state = state;
     }
 
+    public InputHandler getGui() {
+        return gui;
+    }
+
     public State getState(){ return this.state;}
     public int getLevelUnlocks(){return this.levelUnlocks;}
     public void setLevelUnlocks(int levelUnlocks){ this.levelUnlocks = levelUnlocks;}
+
+    public List<HiscoreEntry> getHiscores() {
+        return hiscores;
+    }
+
+    public void setHiscores(List<HiscoreEntry> hiscores) {
+        this.hiscores = hiscores;
+    }
+
+
 }

@@ -1,11 +1,9 @@
 package com.l09gr01.badice.model.game.arena;
 
 import com.l09gr01.badice.gui.GameTimer;
-import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.game.elements.*;
 import com.l09gr01.badice.model.Position;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Arena {
@@ -23,9 +21,11 @@ public class Arena {
     private PowerUp powerUp;
     private int level;
     private List<FruitInIce> fruitsInIce;
+    private final GameTimer gameTimer = new GameTimer();
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        gameTimer.start();
     }
 
     public int getWidth() {
@@ -159,6 +159,22 @@ public class Arena {
     }
     public int getLevel(){
         return this.level;
+    }
+
+    public GameTimer getGameTimer() {
+        return gameTimer;
+    }
+    public void pauseGameTimer(){
+    gameTimer.pause();
+    }
+    public void resumeGameTimer(){
+        gameTimer.resume();
+    }
+    public ArenaData getArenaData() {
+        return new ArenaData(this);
+    }
+    public Arena getArena(){
+        return this;
     }
 }
 

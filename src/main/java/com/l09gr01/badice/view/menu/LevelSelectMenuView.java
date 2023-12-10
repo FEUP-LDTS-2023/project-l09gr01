@@ -1,5 +1,6 @@
 package com.l09gr01.badice.view.menu;
 
+import com.l09gr01.badice.Game;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.menu.LevelSelectMenu;
@@ -12,7 +13,7 @@ public class LevelSelectMenuView extends View<LevelSelectMenu> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Select Level", "#FFFFFF");
+        gui.drawText(new Position(5, 5), "SELECT LEVEL", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(

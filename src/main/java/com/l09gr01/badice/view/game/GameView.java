@@ -10,17 +10,15 @@ import com.l09gr01.badice.view.game.observers.ScoreObserver;
 import java.util.List;
 
 public class GameView extends View<Arena> implements ScoreObserver {
-    private final GameTimer gameTimer = new GameTimer();
     public GameView(Arena arena) {
         super(arena);
-        gameTimer.start();
     }
 
 
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawHeader(getModel().getLevel(),getModel().getPlayerCharacter().getScore(), gameTimer.getFormattedTime());
+        gui.drawHeader(getModel().getLevel(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime());
         drawElements(gui, getModel().getWalls(), new WallView());
         drawElements(gui, getModel().getMonsters(), new MonsterView());
         drawElement(gui, getModel().getPlayerCharacter(), new PlayerCharacterView());

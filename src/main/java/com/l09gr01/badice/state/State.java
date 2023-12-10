@@ -5,7 +5,9 @@ import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.view.View;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public abstract class State<T> {
     private final T model;

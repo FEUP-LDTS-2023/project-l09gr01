@@ -10,7 +10,9 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.Position;
+import com.l09gr01.badice.state.NewHiscoreMenuState;
 
 import java.awt.*;
 import java.io.File;
@@ -20,9 +22,7 @@ import java.net.URL;
 
 public class InputHandler implements GUI {
     private final Screen screen;
-    public InputHandler(Screen screen){
-        this.screen = screen;
-    }
+    private char lastInputCharacter;
     public InputHandler(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
@@ -59,10 +59,15 @@ public class InputHandler implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
-
+        if (keyStroke.getKeyType() == KeyType.Character) {
+            char inputChar = keyStroke.getCharacter();
+            if (Character.isLetter(inputChar)) {
+                lastInputCharacter = inputChar;
+                return ACTION.INPUT_CHAR;
+            }
+        }
+        if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.BACKSPACE;
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
@@ -75,6 +80,9 @@ public class InputHandler implements GUI {
 
         if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.ACTION;
         return ACTION.NONE;
+    }
+    public char getLastInputCharacter() {
+        return lastInputCharacter;
     }
 
     @Override
@@ -136,7 +144,6 @@ public class InputHandler implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
     }
-
     @Override
     public void clear() {
         screen.clear();

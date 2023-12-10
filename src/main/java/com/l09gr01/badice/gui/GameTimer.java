@@ -6,7 +6,7 @@ import java.util.TimerTask;
 public class GameTimer {
     private final Timer timer;
     private int secondsElapsed;
-    private boolean isPaused;
+    public boolean isPaused;
     private String formattedTime;
 
     public GameTimer() {
