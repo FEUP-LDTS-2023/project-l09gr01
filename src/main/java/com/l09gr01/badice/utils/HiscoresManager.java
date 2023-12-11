@@ -7,7 +7,7 @@ import com.l09gr01.badice.Game;
 
 public class HiscoresManager {
     public static int findIndexToInsert(List<HiscoreEntry> hiscores, int score, String time) {
-        for (int i = 0; i < hiscores.size(); i++) {
+        for (int i = 0; i < getLowestRank(); i++) {
             HiscoreEntry currentEntry = hiscores.get(i);
 
             // Compare scores
@@ -20,11 +20,16 @@ public class HiscoresManager {
                 }
             }
         }
-        return hiscores.size(); // Insert at the end if no suitable position is found
+        return 10; // Insert at the end if no suitable position is found
     }
     public static List<HiscoreEntry> addHiscoreEntry(List<HiscoreEntry> hiscores, HiscoreEntry hiscoreEntry){
-        int i = findIndexToInsert(hiscores, hiscoreEntry.getScore(), hiscoreEntry.getTime());
-        hiscores.add(i,hiscoreEntry);
+        int rank = hiscoreEntry.getRank();
+        for (int i = rank - 1; i < getLowestRank()-1;i++){
+            HiscoreEntry tempEntry = hiscores.get(i);
+            tempEntry.setRank(tempEntry.getRank()+1);
+            hiscores.set(i,hiscoreEntry);
+            hiscoreEntry = tempEntry;
+        }
         return hiscores;
     }
 
@@ -45,12 +50,14 @@ public class HiscoresManager {
         }
     }
     public static void saveHiscores(List<HiscoreEntry> hiscores, String filePath) {
-        try (PrintWriter writer = new PrintWriter(filePath)) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (HiscoreEntry entry : hiscores) {
-                writer.println(entry.getRank() + ". " + entry.getName() + " " + entry.getScore() + " " + entry.getTime());
+                writer.write(entry.getRank() + ". " + entry.getName() + " " + entry.getScore() + " " + entry.getTime());
+                writer.newLine();
             }
-        } catch (FileNotFoundException e) {
-            // Handle the case where the file is not found
+            writer.flush();
+        } catch (IOException e) {
+            // Handle IOException, which might occur during file operations
             // You might want to log the error or provide user-friendly feedback
             e.printStackTrace();
         }
@@ -80,5 +87,9 @@ public class HiscoresManager {
             e.printStackTrace();
         }
         return hiscores;
+    }
+
+    public static int getLowestRank() {
+        return 10;
     }
 }

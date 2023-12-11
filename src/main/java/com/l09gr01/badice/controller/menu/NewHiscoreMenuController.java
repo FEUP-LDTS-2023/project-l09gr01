@@ -37,7 +37,7 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
                 HiscoreEntry newEntry = getModel().createHiscoreEntry();
                 List<HiscoreEntry> newHiscores = HiscoresManager.addHiscoreEntry(game.getHiscores(),newEntry);
                 game.setHiscores(newHiscores);
-                HiscoresManager.saveHiscores(newHiscores, "/data/hiscores.txt");
+                HiscoresManager.saveHiscores(newHiscores, "data/hiscores.txt");
                 game.setState(new MainMenuState(new MainMenu()));
                 break;
             case BACKSPACE:

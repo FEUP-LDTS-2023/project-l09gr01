@@ -37,15 +37,15 @@ public class ArenaController extends GameController {
         {
             getModel().pauseGameTimer();
             if (getModel().getLevel() == game.getLevelUnlocks()) game.setLevelUnlocks(game.getLevelUnlocks() + 1);
-            int newRank = HiscoresManager.findIndexToInsert(game.getHiscores(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime());
-            if (newRank < 10) game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank,getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())));
+            int newRank = HiscoresManager.findIndexToInsert(game.getHiscores(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime()) + 1;
+            if (newRank <= HiscoresManager.getLowestRank()) game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank,getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())));
             else game.setState(new LevelCompletedMenuState(new LevelCompletedMenu(getModel().getLevel() + 1)));
         }
         else if(getModel().getPlayerCharacter().getHp() == 0)
         {
             getModel().pauseGameTimer();
-            int newRank = HiscoresManager.findIndexToInsert(game.getHiscores(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime());
-            if (newRank < 10) game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank,getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())));
+            int newRank = HiscoresManager.findIndexToInsert(game.getHiscores(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())+1;
+            if (newRank < HiscoresManager.getLowestRank()) game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank,getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime())));
             else game.setState(new GameOverMenuState(new GameOverMenu(getModel().getLevel())));
         }
         else {
