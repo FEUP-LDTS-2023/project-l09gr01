@@ -30,7 +30,7 @@ public class GameOverMenuController extends Controller<GameOverMenu> {
             case SELECT:
                 if (getModel().isSelectedTryAgain()) game.setState(new GameState(new LoaderArenaBuilder(getModel().getLevel()).createArena()));
                 if (getModel().isSelectedChooseLevel()) game.setState(new LevelSelectMenuState(new LevelSelectMenu()));
-                if (getModel().isSelectedMainMenu()) game.setState(new MainMenuState(new MainMenu()));
+                if (getModel().isSelectedMainMenu()) newHiscoreCheck(game);
                 if (getModel().isSelectedQuit()) game.setState(null);
         }
     }

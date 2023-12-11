@@ -10,6 +10,7 @@ public class Arena {
     private final int width;
     private final int height;
 
+    private int score = 0;
     private PlayerCharacter playerCharacter;
     private PlayerCharacter playerCharacter2;
 
@@ -21,11 +22,11 @@ public class Arena {
     private PowerUp powerUp;
     private int level;
     private List<FruitInIce> fruitsInIce;
-    private final GameTimer gameTimer = new GameTimer();
+    private final GameTimer levelTimer = new GameTimer();
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        gameTimer.start();
+        levelTimer.start();
     }
 
     public int getWidth() {
@@ -162,19 +163,28 @@ public class Arena {
     }
 
     public GameTimer getGameTimer() {
-        return gameTimer;
+        return levelTimer;
     }
     public void pauseGameTimer(){
-    gameTimer.pause();
+    levelTimer.pause();
     }
     public void resumeGameTimer(){
-        gameTimer.resume();
+        levelTimer.resume();
     }
     public ArenaData getArenaData() {
         return new ArenaData(this);
     }
     public Arena getArena(){
         return this;
+    }
+    public void pickUpFruit(){
+        this.score += 1000;
+    }
+    public void setScore(int newScore){
+        this.score = newScore;
+    }
+    public int getScore(){
+        return this.score;
     }
 }
 

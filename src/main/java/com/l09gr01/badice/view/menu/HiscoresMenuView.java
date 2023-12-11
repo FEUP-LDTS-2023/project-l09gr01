@@ -21,7 +21,7 @@ public class HiscoresMenuView extends View<HiscoresMenu> {
         for (int i = 0; i < hiscores.size(); i++) {
             HiscoreEntry entry = hiscores.get(i);
             gui.drawText(new Position(5, 7 + i),
-                    entry.getRank() + ". " + entry.getName() + " - " + entry.getScore() + " points", "#FFFFFF");
+                    entry.getRank() + ". " + entry.getName() + " - " + entry.getScore() + " - " + entry.getTime(), "#FFFFFF");
         }
 
     }

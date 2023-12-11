@@ -18,7 +18,7 @@ public class GameView extends View<Arena> implements ScoreObserver {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawHeader(getModel().getLevel(),getModel().getPlayerCharacter().getScore(), getModel().getGameTimer().getFormattedTime());
+        gui.drawHeader(getModel().getLevel(),getModel().getScore(), getModel().getGameTimer().getFormattedTime());
         drawElements(gui, getModel().getWalls(), new WallView());
         drawElements(gui, getModel().getMonsters(), new MonsterView());
         drawElement(gui, getModel().getPlayerCharacter(), new PlayerCharacterView());
@@ -37,6 +37,6 @@ public class GameView extends View<Arena> implements ScoreObserver {
         view.draw(element, gui);
     }
     public void updateScore(int newScore){
-        getModel().getPlayerCharacter().setScore(getModel().getPlayerCharacter().getScore() + newScore);
+        getModel().setScore(getModel().getScore() + newScore);
     }
 }

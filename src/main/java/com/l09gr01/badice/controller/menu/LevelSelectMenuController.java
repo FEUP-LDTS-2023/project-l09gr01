@@ -6,8 +6,12 @@ import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.model.game.arena.LoaderArenaBuilder;
 import com.l09gr01.badice.model.menu.LevelSelectMenu;
 import com.l09gr01.badice.model.menu.MainMenu;
+import com.l09gr01.badice.model.menu.NewHiscoreMenu;
 import com.l09gr01.badice.state.GameState;
 import com.l09gr01.badice.state.MainMenuState;
+import com.l09gr01.badice.state.NewHiscoreMenuState;
+import com.l09gr01.badice.utils.GameStats;
+import com.l09gr01.badice.utils.HiscoresManager;
 import com.sun.tools.javac.Main;
 
 import java.io.IOException;
@@ -28,22 +32,22 @@ public class LevelSelectMenuController extends Controller<LevelSelectMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedLevel1()) {
-                    if (game.getLevelUnlocks() >= 1)
+                    if (GameStats.getLevelsUnlocked() >= 1)
                         game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
                     else break;
                 }
                 if (getModel().isSelectedLevel2()) {
-                    if (game.getLevelUnlocks() >= 2)
+                    if (GameStats.getLevelsUnlocked() >= 2)
                         game.setState(new GameState(new LoaderArenaBuilder(2).createArena()));
                     else break;
                 }
                 if (getModel().isSelectedLevel3()) {
-                    if (game.getLevelUnlocks() >= 3)
+                    if (GameStats.getLevelsUnlocked() >= 3)
                         game.setState(new GameState(new LoaderArenaBuilder(3).createArena()));
                     else break;
                 }
                 if (getModel().isSelectedBack()) {
-                    game.setState(new MainMenuState(new MainMenu()));
+                    newHiscoreCheck(game);
                 }
         }
     }

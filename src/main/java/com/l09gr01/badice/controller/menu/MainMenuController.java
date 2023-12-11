@@ -6,8 +6,9 @@ import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.model.game.arena.LoaderArenaBuilder;
 import com.l09gr01.badice.model.menu.*;
 import com.l09gr01.badice.state.*;
-import com.l09gr01.badice.utils.LoadLevelUnlocks;
-import com.l09gr01.badice.utils.SaveLevelUnlocks;
+import com.l09gr01.badice.utils.GameStats;
+import com.l09gr01.badice.utils.LoadGameStats;
+import com.l09gr01.badice.utils.SaveGameStats;
 
 import java.io.IOException;
 
@@ -29,12 +30,11 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedChooseLevel()) game.setState(new LevelSelectMenuState(new LevelSelectMenu()));
                 if (getModel().isSelectedSave()) {
-                    SaveLevelUnlocks.saveLevelUnlocks(game.getLevelUnlocks(), "data/saveFile.txt");
+                    SaveGameStats.saveGameStats(GameStats.getLevelsUnlocked(),"data/saveFile.txt");
                     game.setState(new GameSavedMenuState(new GameSavedMenu()));
                 }
                 if (getModel().isSelectedLoad()) {
-                    int savedProgress = LoadLevelUnlocks.loadLevelUnlocks("data/saveFile.txt");
-                    game.setLevelUnlocks(savedProgress);
+                    LoadGameStats.loadGameStats("data/saveFile.txt");
                     game.setState(new GameLoadedMenuState(new GameLoadedMenu()));
                 }
                 if (getModel().isSelectedOptions()) game.setState(new OptionsMenuState(new OptionsMenu()));

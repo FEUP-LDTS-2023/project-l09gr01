@@ -22,4 +22,5 @@ public abstract class View<T> {
     }
 
     protected abstract void drawElements(GUI gui);
+
 }

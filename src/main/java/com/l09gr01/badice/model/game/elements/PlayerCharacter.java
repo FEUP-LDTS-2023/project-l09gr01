@@ -59,14 +59,5 @@ public class PlayerCharacter extends Element {
     {
         return powerUps.get(0);
     }
-    public void pickUpFruit(){
-        this.score += 1000;
-    }
-    public void setScore(int newScore){
-        this.score = newScore;
-    }
-    public int getScore(){
-        return this.score;
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.l09gr01.badice.gui;
 
+import com.googlecode.lanterna.gui2.TextBox;
 import com.l09gr01.badice.model.Position;
 
 import java.io.IOException;

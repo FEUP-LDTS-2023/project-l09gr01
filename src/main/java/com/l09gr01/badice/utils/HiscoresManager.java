@@ -6,6 +6,12 @@ import java.util.List;
 import com.l09gr01.badice.Game;
 
 public class HiscoresManager {
+    public static int getLowestRank() {
+        return 10;
+    }
+    public static boolean isNewHiscore(int score, String time){
+        return findIndexToInsert(GameStats.getHiscores(),score,time) < getLowestRank();
+    }
     public static int findIndexToInsert(List<HiscoreEntry> hiscores, int score, String time) {
         for (int i = 0; i < getLowestRank(); i++) {
             HiscoreEntry currentEntry = hiscores.get(i);
@@ -20,11 +26,11 @@ public class HiscoresManager {
                 }
             }
         }
-        return 10; // Insert at the end if no suitable position is found
+        return getLowestRank(); // Insert at the end if no suitable position is found
     }
     public static List<HiscoreEntry> addHiscoreEntry(List<HiscoreEntry> hiscores, HiscoreEntry hiscoreEntry){
         int rank = hiscoreEntry.getRank();
-        for (int i = rank - 1; i < getLowestRank()-1;i++){
+        for (int i = rank - 1; i < getLowestRank();i++){
             HiscoreEntry tempEntry = hiscores.get(i);
             tempEntry.setRank(tempEntry.getRank()+1);
             hiscores.set(i,hiscoreEntry);
@@ -75,7 +81,6 @@ public class HiscoresManager {
                     String name = parts[1];
                     int score = Integer.parseInt(parts[2]);
                     String time = parts[3];
-
                     hiscores.add(new HiscoreEntry(rank, name, score, time));
                 }
             }
@@ -87,9 +92,5 @@ public class HiscoresManager {
             e.printStackTrace();
         }
         return hiscores;
-    }
-
-    public static int getLowestRank() {
-        return 10;
     }
 }

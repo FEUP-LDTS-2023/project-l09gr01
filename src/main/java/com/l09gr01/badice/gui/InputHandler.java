@@ -52,7 +52,7 @@ public class InputHandler implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 20);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
@@ -126,7 +126,7 @@ public class InputHandler implements GUI {
     public void drawHardMonster(Position position) { drawCharacter(position.getX(),position.getY(), '}', "#FF007F");}
     public void drawHeader(int level, int score, String time){
         TextGraphics tg = screen.newTextGraphics();
-        tg.putString(0, 0, "Level " + level);
+        tg.putString(0, 0, "LEVEL " + level);
         tg.putString(15, 0, String.valueOf(score));
         tg.putString(35, 0, time);
 
@@ -144,6 +144,7 @@ public class InputHandler implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
     }
+
     @Override
     public void clear() {
         screen.clear();

@@ -7,6 +7,7 @@ import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.model.menu.NewHiscoreMenu;
 import com.l09gr01.badice.state.MainMenuState;
+import com.l09gr01.badice.utils.GameStats;
 import com.l09gr01.badice.utils.HiscoreEntry;
 import com.l09gr01.badice.utils.HiscoresManager;
 
@@ -32,11 +33,11 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
                 getModel().setEntry(1, name);
                 break;
             case SELECT:
-                name = stringBuilder.toString();
-                getModel().setNewName(name);
+                String finalName = stringBuilder.toString();
+                getModel().setNewName(finalName);
                 HiscoreEntry newEntry = getModel().createHiscoreEntry();
-                List<HiscoreEntry> newHiscores = HiscoresManager.addHiscoreEntry(game.getHiscores(),newEntry);
-                game.setHiscores(newHiscores);
+                List<HiscoreEntry> newHiscores = HiscoresManager.addHiscoreEntry(GameStats.getHiscores(), newEntry);
+                GameStats.setHiscores(newHiscores);
                 HiscoresManager.saveHiscores(newHiscores, "data/hiscores.txt");
                 game.setState(new MainMenuState(new MainMenu()));
                 break;
@@ -44,8 +45,8 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
                 if (!stringBuilder.isEmpty()) {
                     stringBuilder.deleteCharAt(stringBuilder.length() - 1);
                 }
-                name = stringBuilder.toString();
-                getModel().setEntry(1, name);
+                String newName = stringBuilder.toString();
+                getModel().setEntry(1, newName);
                 break;
         }
     }

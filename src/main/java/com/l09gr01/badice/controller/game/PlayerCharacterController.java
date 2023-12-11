@@ -60,7 +60,7 @@ public class PlayerCharacterController extends GameController {
             getModel().getPlayerCharacter().setPosition(position);
             if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
             if (getModel().isFruit(position)) {
-                getModel().getPlayerCharacter().pickUpFruit();
+                getModel().pickUpFruit();
                 getModel().removeFruit(position);
             }
         }
