@@ -63,6 +63,7 @@ public class GameTimer implements Comparable<GameTimer> {
             return df.format(minutes) + ":" + df.format(seconds);
     }
     private static int parseTimerToSeconds(String timer) {
+        if (timer == null) return 0;
         String[] parts = timer.split(":");
 
         int minutes = Integer.parseInt(parts[0]);

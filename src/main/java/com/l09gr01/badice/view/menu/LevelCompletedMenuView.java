@@ -14,6 +14,7 @@ public class LevelCompletedMenuView extends View<LevelCompletedMenu> {
 
     @Override
     public void drawElements(GUI gui) {
+        if (getModel().getLevel() == getModel().getMaxLevel()) getModel().setEntry(0,"TRY AGAIN");
         gui.drawText(new Position(5, 5), "LEVEL " + getModel().getLevel() + " COMPLETE!", "#FFFFFF");
         gui.drawText(new Position(5, 6), "TIME: " + getModel().getTime(), "#FFFFFF");
         gui.drawText(new Position(5, 7), "SCORE: " + getModel().getScore(), "#FFFFFF");

@@ -27,7 +27,18 @@ public class OptionsMenuController extends Controller<OptionsMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelected2PlayerMode()) GameStats.setSelected2Players(!GameStats.isSelected2Players());
-                if (getModel().isSelectedSetP1MoveUp()) KeybindManager.setKeybind(GUI.ACTION.UP,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP1MoveUp()) KeybindManager.setKeybind(GUI.ACTION.MOVE_UP,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP1MoveDown()) KeybindManager.setKeybind(GUI.ACTION.MOVE_DOWN,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP1MoveLeft()) KeybindManager.setKeybind(GUI.ACTION.MOVE_LEFT,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP1MoveRight()) KeybindManager.setKeybind(GUI.ACTION.MOVE_RIGHT,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP1Action()) KeybindManager.setKeybind(GUI.ACTION.ACTION,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP2MoveUp()) KeybindManager.setKeybind(GUI.ACTION.P2UP,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP2MoveDown()) KeybindManager.setKeybind(GUI.ACTION.P2DOWN,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP2MoveLeft()) KeybindManager.setKeybind(GUI.ACTION.P2LEFT,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP2MoveRight()) KeybindManager.setKeybind(GUI.ACTION.P2RIGHT,game.getGui().getUserInput());
+                if (getModel().isSelectedSetP2Action()) KeybindManager.setKeybind(GUI.ACTION.P2ACTION,game.getGui().getUserInput());
+                if (getModel().isSelectedToggleSound()) KeybindManager.setKeybind(GUI.ACTION.MOVE_UP,game.getGui().getUserInput());
+                if (getModel().isSelectedToggleMusic()) KeybindManager.setKeybind(GUI.ACTION.MOVE_UP,game.getGui().getUserInput());
                 if (getModel().isSelectedMainMenu()) game.setState(new MainMenuState(new MainMenu()));
         }
     }

@@ -3,6 +3,7 @@ package com.l09gr01.badice.controller.game;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.gui.GameTimer;
+import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.game.arena.Arena;
 import com.l09gr01.badice.model.menu.*;
 import com.l09gr01.badice.state.*;
@@ -30,9 +31,11 @@ public class ArenaController extends GameController {
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (getModel().getGameTimer().isPaused) getModel().resumeGameTimer();
+        if (!KeybindManager.isIngame()) KeybindManager.setIngame(true);
         if (action == GUI.ACTION.QUIT || action == GUI.ACTION.PAUSE)
         {
             getModel().pauseGameTimer();
+            KeybindManager.setIngame(false);
             game.setState(new PauseMenuState(new PauseMenu(getModel().getArena())));
         }
         else if (getModel().getFruit().isEmpty())
@@ -70,6 +73,7 @@ public class ArenaController extends GameController {
                 && (currentTimer.compareTo(new GameTimer(GameStats.getLevelTimer(currentLevel))) < 0)){
             GameStats.setLevelTimer(currentLevel,currentTimer.getFormattedTime());
         }
+        KeybindManager.setIngame(false);
     }
     private void setGameOver(Game game) {
         getModel().pauseGameTimer();

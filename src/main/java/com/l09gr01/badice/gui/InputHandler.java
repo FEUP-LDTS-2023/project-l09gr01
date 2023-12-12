@@ -65,19 +65,26 @@ public class InputHandler implements GUI {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if ((keyStroke.getKeyType() == KeyType.Character) && keybindManager.isCharacterInputMode()) {
-            char inputChar = keyStroke.getCharacter();
-            if (Character.isLetter(inputChar)) {
-                lastInputCharacter = inputChar;
-                return ACTION.INPUT_CHAR;
+        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.PAUSE;
+        if(!KeybindManager.isIngame()) {
+            if ((keyStroke.getKeyType() == KeyType.Character) && keybindManager.isCharacterInputMode()) {
+                char inputChar = keyStroke.getCharacter();
+                if (Character.isLetter(inputChar)) {
+                    lastInputCharacter = inputChar;
+                    return ACTION.INPUT_CHAR;
+                }
             }
+            if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
+            if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.BACKSPACE;
+            if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
+            if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
+            if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
+            if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         }
-        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-        if(keyStroke.getKeyType() == KeyType.Escape) return ACTION.PAUSE;
-        if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.BACKSPACE;
-        for (ACTION action : EnumSet.complementOf(EnumSet.of(ACTION.NONE, ACTION.INPUT_CHAR, ACTION.QUIT, ACTION.SELECT, ACTION.PAUSE))) {
-            KeyStroke actionKeyStroke = keybindManager.getKeybind(action);
-            Character characterKeyStroke = keybindManager.getCharacterKeybind(action);
+        for (ACTION action : EnumSet.of(ACTION.MOVE_UP, ACTION.MOVE_DOWN, ACTION.MOVE_LEFT, ACTION.MOVE_RIGHT, ACTION.ACTION,
+                ACTION.P2UP, ACTION.P2DOWN, ACTION.P2LEFT, ACTION.P2RIGHT, ACTION.P2ACTION)) {
+            KeyStroke actionKeyStroke = KeybindManager.getKeybind(action);
+            Character characterKeyStroke = KeybindManager.getCharacterKeybind(action);
             if (actionKeyStroke != null && actionKeyStroke.equals(keyStroke)) return action;
             else if (characterKeyStroke != null && (keyStroke.getKeyType() == KeyType.Character) && (keyStroke.getCharacter() == characterKeyStroke)) return action;
         }
@@ -89,7 +96,7 @@ public class InputHandler implements GUI {
         return lastInputCharacter;
     }
     public KeyStroke getUserInput() throws IOException {
-        return screen.pollInput();
+        return screen.readInput();
     }
 
     @Override

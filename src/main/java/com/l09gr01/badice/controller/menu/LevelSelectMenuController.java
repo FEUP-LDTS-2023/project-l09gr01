@@ -3,6 +3,7 @@ package com.l09gr01.badice.controller.menu;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
+import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.game.arena.LoaderArenaBuilder;
 import com.l09gr01.badice.model.menu.LevelSelectMenu;
 import com.l09gr01.badice.model.menu.MainMenu;
@@ -34,6 +35,7 @@ public class LevelSelectMenuController extends Controller<LevelSelectMenu> {
                 if (getModel().isSelectedLevel1()) {
                     if (GameStats.getLevelsUnlocked() >= 1)
                         game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+
                     else break;
                 }
                 if (getModel().isSelectedLevel2()) {
@@ -44,6 +46,7 @@ public class LevelSelectMenuController extends Controller<LevelSelectMenu> {
                 if (getModel().isSelectedLevel3()) {
                     if (GameStats.getLevelsUnlocked() >= 3)
                         game.setState(new GameState(new LoaderArenaBuilder(3).createArena()));
+
                     else break;
                 }
                 if (getModel().isSelectedBack()) {

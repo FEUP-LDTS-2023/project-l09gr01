@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class LevelCompletedMenu extends Menu{
     private final int level;
+    private final int maxLevel = 3;
     private final String time;
     private final int score;
     public LevelCompletedMenu(int level, String time, int score) {
@@ -14,6 +15,7 @@ public class LevelCompletedMenu extends Menu{
         this.score = score;
     }
 
+    public boolean isSelectedTryAgain() { return isSelected(0);}
     public boolean isSelectedNextLevel() {return isSelected(0);}
     public boolean isSelectedChooseLevel() {return isSelected(1);}
     public boolean isSelectedMainMenu() {return isSelected(2);}
@@ -24,4 +26,8 @@ public class LevelCompletedMenu extends Menu{
     }
     public String getTime() {return time;}
     public int getScore(){return score;}
+
+    public int getMaxLevel() {
+        return maxLevel;
+    }
 }

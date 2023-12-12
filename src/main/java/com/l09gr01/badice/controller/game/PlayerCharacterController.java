@@ -94,10 +94,10 @@ public class PlayerCharacterController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.UP) movePlayerCharacterUp();
-        if (action == GUI.ACTION.RIGHT) movePlayerCharacterRight();
-        if (action == GUI.ACTION.DOWN) movePlayerCharacterDown();
-        if (action == GUI.ACTION.LEFT) movePlayerCharacterLeft();
+        if (action == GUI.ACTION.MOVE_UP) movePlayerCharacterUp();
+        if (action == GUI.ACTION.MOVE_RIGHT) movePlayerCharacterRight();
+        if (action == GUI.ACTION.MOVE_DOWN) movePlayerCharacterDown();
+        if (action == GUI.ACTION.MOVE_LEFT) movePlayerCharacterLeft();
         if (action == GUI.ACTION.ACTION) doAction();
         }
 

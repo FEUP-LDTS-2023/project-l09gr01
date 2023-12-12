@@ -1,11 +1,29 @@
 package com.l09gr01.badice.model.menu;
 
+import com.l09gr01.badice.gui.GUI;
+import com.l09gr01.badice.model.game.arena.Arena;
+
 import java.util.Arrays;
+import java.util.List;
 
 public class OptionsMenu extends Menu {
+    List<GUI.ACTION> editableActions = Arrays.asList(
+            GUI.ACTION.MOVE_UP, GUI.ACTION.MOVE_DOWN, GUI.ACTION.MOVE_LEFT, GUI.ACTION.MOVE_RIGHT,
+            GUI.ACTION.ACTION, GUI.ACTION.P2UP, GUI.ACTION.P2DOWN, GUI.ACTION.P2LEFT,
+            GUI.ACTION.P2RIGHT, GUI.ACTION.P2ACTION
+    );
+    private Arena pausedArena;
 
     public OptionsMenu() {
         super();
+        this.pausedArena = null;
+        this.entries = Arrays.asList("2 PLAYER MODE","SET P1 MOVE UP","SET P1 MOVE DOWN","SET P1 MOVE LEFT","SET P1 MOVE RIGHT"
+                ,"SET P1 ACTION", "SET P2 MOVE UP","SET P2 MOVE DOWN", "SET P2 MOVE LEFT",
+                "SET P2 MOVE RIGHT", "SET P2 ACTION", "TOGGLE GAME SOUNDS", "TOGGLE MUSIC","BACK TO MAIN MENU");
+    }
+    public OptionsMenu(Arena pausedArena) {
+        super();
+        this.pausedArena = pausedArena;
         this.entries = Arrays.asList("2 PLAYER MODE","SET P1 MOVE UP","SET P1 MOVE DOWN","SET P1 MOVE LEFT","SET P1 MOVE RIGHT"
                 ,"SET P1 ACTION", "SET P2 MOVE UP","SET P2 MOVE DOWN", "SET P2 MOVE LEFT",
                 "SET P2 MOVE RIGHT", "SET P2 ACTION", "TOGGLE GAME SOUNDS", "TOGGLE MUSIC","BACK TO MAIN MENU");
@@ -26,7 +44,7 @@ public class OptionsMenu extends Menu {
     public boolean isSelectedSetP1MoveRight() {
         return isSelected(4);
     }
-    public boolean isSelectedP1Action() {
+    public boolean isSelectedSetP1Action() {
         return isSelected(5);
     }
     public boolean isSelectedSetP2MoveUp() {
@@ -41,7 +59,7 @@ public class OptionsMenu extends Menu {
     public boolean isSelectedSetP2MoveRight() {
         return isSelected(9);
     }
-    public boolean isSelectedP2Action() {
+    public boolean isSelectedSetP2Action() {
         return isSelected(10);
     }
     public boolean isSelectedToggleSound() {
@@ -54,5 +72,7 @@ public class OptionsMenu extends Menu {
         return isSelected(13);
     }
 
-
+    public GUI.ACTION getEditableAction(int i) {
+        return editableActions.get(i);
+    }
 }
