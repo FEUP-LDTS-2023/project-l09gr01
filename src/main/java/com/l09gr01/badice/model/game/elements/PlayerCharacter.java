@@ -14,15 +14,22 @@ public class PlayerCharacter extends Element {
 
     private int hp;
     private Direction facingDirection;
-    private List<PowerUp> powerUps;// o unico power up que o char pode ter vai ser uma bomba mas esta para ser implementado maos no futuro
-    private int score = 0;
+    private List<PowerUp> powerUps;
     private List<ScoreObserver> observers;
-    private int playerNumber;
+    private int playerNumber = 1;
     public PlayerCharacter(int x, int y)
     {
         super(x,y);
         this.hp = 1;
         this.facingDirection = UP;
+
+    }
+    public PlayerCharacter(int x, int y, int playerNumber)
+    {
+        super(x,y);
+        this.hp = 1;
+        this.facingDirection = UP;
+        this.playerNumber = playerNumber;
     }
 
     public int getHp()

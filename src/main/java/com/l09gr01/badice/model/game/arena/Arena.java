@@ -12,7 +12,7 @@ public class Arena {
 
     private int score = 0;
     private PlayerCharacter playerCharacter;
-    private PlayerCharacter playerCharacter2;
+    private PlayerCharacter player2Character;
 
     private List<Monster> monsters;
     private List<Wall> walls;
@@ -44,12 +44,12 @@ public class Arena {
     public void setPlayerCharacter(PlayerCharacter playerCharacter) {
         this.playerCharacter = playerCharacter;
     }
-    public PlayerCharacter getPlayerCharacter2() {
-        return playerCharacter2;
+    public PlayerCharacter getPlayer2Character() {
+        return player2Character;
     }
 
-    public void setPlayerCharacter2(PlayerCharacter playerCharacter2) {
-        this.playerCharacter2 = playerCharacter2;
+    public void setPlayer2Character(PlayerCharacter player2Character) {
+        this.player2Character = player2Character;
     }
 
     public List<Monster> getMonsters() {
@@ -97,25 +97,19 @@ public class Arena {
 
     public List<FruitInIce> getFruitInIce() {return this.fruitsInIce;}
     public void setFruitInIce(List<FruitInIce> fruitInIce) { this.fruitsInIce = fruitInIce;}
-    public boolean isEmpty(Position position) { // nao seria mais facil criar aqui um isWall e um isIce?
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position))
-                return false;
-        for(Monster monster : monsters)
-        {
-            if(monster.getPosition().equals(position))
-                return false;
-        }
-        if(iceBlocks != null)
-            for(Ice ice : iceBlocks)
-                if(ice.getPosition().equals(position))
-                    return false;
-        return true;
+    public boolean isEmpty(Position position) {
+        return (!isMonster(position) && !isWall(position) && !isIce(position) && !isPlayerCharacter(position));
     }
 
     public boolean isMonster(Position position) {
         for (Monster monster : monsters)
             if (monster.getPosition().equals(position))
+                return true;
+        return false;
+    }
+    public boolean isWall(Position position) {
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
                 return true;
         return false;
     }
@@ -138,9 +132,10 @@ public class Arena {
         return false;
     }
     public boolean isPowerUp(Position position) {
-            if (powerUp.getPosition().equals(position))
-                return true;
-        return false;
+        return powerUp.getPosition().equals(position);
+    }
+    public boolean isPlayerCharacter(Position position) {
+        return (playerCharacter.getPosition().equals(position) || (existsP2() && player2Character.getPosition().equals(position)));
     }
     public void createIce(Position position){
 
@@ -185,6 +180,9 @@ public class Arena {
     }
     public int getScore(){
         return this.score;
+    }
+    public boolean existsP2(){
+        return player2Character != null;
     }
 }
 

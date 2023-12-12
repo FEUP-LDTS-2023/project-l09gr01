@@ -10,23 +10,30 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.Position;
-import com.l09gr01.badice.state.NewHiscoreMenuState;
+import com.l09gr01.badice.state.GameState;
+import com.l09gr01.badice.state.State;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.EnumSet;
 
 public class InputHandler implements GUI {
+
+    private final KeybindManager keybindManager;
     private final Screen screen;
     private char lastInputCharacter;
+    private Game game;
     public InputHandler(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
+        keybindManager = new KeybindManager();
     }
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
@@ -41,8 +48,7 @@ public class InputHandler implements GUI {
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
-        Terminal terminal = terminalFactory.createTerminal();
-        return terminal;
+        return terminalFactory.createTerminal();
     }
     private AWTTerminalFontConfiguration loadFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/badice_font.ttf");
@@ -53,36 +59,37 @@ public class InputHandler implements GUI {
         ge.registerFont(font);
 
         Font loadedFont = font.deriveFont(Font.PLAIN, 20);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-        return fontConfig;
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character) {
+        if ((keyStroke.getKeyType() == KeyType.Character) && keybindManager.isCharacterInputMode()) {
             char inputChar = keyStroke.getCharacter();
             if (Character.isLetter(inputChar)) {
                 lastInputCharacter = inputChar;
                 return ACTION.INPUT_CHAR;
             }
         }
-        if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.BACKSPACE;
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-
-        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'p') return ACTION.PAUSE;
         if(keyStroke.getKeyType() == KeyType.Escape) return ACTION.PAUSE;
+        if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.BACKSPACE;
+        for (ACTION action : EnumSet.complementOf(EnumSet.of(ACTION.NONE, ACTION.INPUT_CHAR, ACTION.QUIT, ACTION.SELECT, ACTION.PAUSE))) {
+            KeyStroke actionKeyStroke = keybindManager.getKeybind(action);
+            Character characterKeyStroke = keybindManager.getCharacterKeybind(action);
+            if (actionKeyStroke != null && actionKeyStroke.equals(keyStroke)) return action;
+            else if (characterKeyStroke != null && (keyStroke.getKeyType() == KeyType.Character) && (keyStroke.getCharacter() == characterKeyStroke)) return action;
+        }
 
-        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.ACTION;
         return ACTION.NONE;
     }
+
     public char getLastInputCharacter() {
         return lastInputCharacter;
+    }
+    public KeyStroke getUserInput() throws IOException {
+        return screen.pollInput();
     }
 
     @Override
@@ -127,9 +134,14 @@ public class InputHandler implements GUI {
     public void drawHeader(int level, int score, String time){
         TextGraphics tg = screen.newTextGraphics();
         tg.putString(0, 0, "LEVEL " + level);
-        tg.putString(15, 0, String.valueOf(score));
-        tg.putString(35, 0, time);
+        tg.putString(16, 0, "SCORE " + score);
+        tg.putString(34, 0, time);
 
+    }
+    public void drawFooter(boolean isSelected2Players){
+        TextGraphics tg = screen.newTextGraphics();
+        if(isSelected2Players) tg.putString(0, 41, "2P");
+        else tg.putString(0, 41, "1P");
     }
 
     @Override

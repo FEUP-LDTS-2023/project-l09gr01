@@ -19,7 +19,7 @@ public class Game {
     private final InputHandler gui;
     private State state;
     public Game() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new InputHandler(40,40);
+        this.gui = new InputHandler(39,41);
         this.state = new MainMenuState(new MainMenu());
     }
 

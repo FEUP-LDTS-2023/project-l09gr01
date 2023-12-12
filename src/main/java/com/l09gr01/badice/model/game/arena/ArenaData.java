@@ -10,7 +10,7 @@ public class ArenaData implements Serializable {
     private int width;
     private int height;
     private PlayerCharacter playerCharacter;
-    private PlayerCharacter playerCharacter2;
+    private PlayerCharacter player2Character;
     private List<Monster> monsters;
     private List<Wall> walls;
     private List<Ice> iceBlocks;
@@ -26,7 +26,7 @@ public class ArenaData implements Serializable {
         this.width = arena.getWidth();
         this.height = arena.getHeight();
         this.playerCharacter = arena.getPlayerCharacter();
-        this.playerCharacter2 = arena.getPlayerCharacter2();
+        this.player2Character = arena.getPlayer2Character();
         this.monsters = arena.getMonsters();
         this.walls = arena.getWalls();
         this.iceBlocks = arena.getIceBlocks();

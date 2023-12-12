@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class ArenaController extends GameController {
     private final PlayerCharacterController playerCharacterController;
+    private final Player2CharacterController player2CharacterController;
     private final MonsterEasyController monsterEasyController;
     private final MonsterMediumController monsterMediumController;
     private final MonsterHardController monsterHardController;
@@ -21,6 +22,7 @@ public class ArenaController extends GameController {
         super(arena);
 
         this.playerCharacterController = new PlayerCharacterController(arena);
+        this.player2CharacterController = new Player2CharacterController(arena);
         this.monsterEasyController = new MonsterEasyController(arena);
         this.monsterMediumController = new MonsterMediumController(arena);
         this.monsterHardController = new MonsterHardController(arena);
@@ -45,23 +47,20 @@ public class ArenaController extends GameController {
             setLevelScoreTimer(currentLevel, currentScore, currentTimer);
             game.setState(new LevelCompletedMenuState(new LevelCompletedMenu(currentLevel,currentTimer.getFormattedTime(), currentScore)));
         }
-        else if(getModel().getPlayerCharacter().getHp() == 0)
-        {
-            getModel().pauseGameTimer();
-            int currentLevel = getModel().getLevel();
-            int currentScore = getModel().getScore();
-            GameTimer currentTimer = getModel().getGameTimer();
-            setLevelScoreTimer(currentLevel, currentScore, currentTimer);
-            game.setState(new GameOverMenuState(new GameOverMenu(currentLevel, currentTimer.getFormattedTime(),currentScore)));
+        else if (getModel().existsP2() && (getModel().getPlayerCharacter().getHp() == 0 || getModel().getPlayer2Character().getHp() == 0)) {
+                setGameOver(game);
+            }
+        else if (getModel().getPlayerCharacter().getHp() == 0) {
+            setGameOver(game);
         }
         else {
             playerCharacterController.step(game, action, time);
+            if (getModel().existsP2()) player2CharacterController.step(game,action,time);
             monsterEasyController.step(game, action, time);
             monsterMediumController.step(game,action,time);
             monsterHardController.step(game,action,time);
         }
     }
-
     private void setLevelScoreTimer(int currentLevel, int currentScore, GameTimer currentTimer) {
         if (GameStats.getLevelTimer(currentLevel) == null || currentScore > GameStats.getLevelScore(currentLevel)){
             GameStats.setLevelScore(currentLevel, currentScore);
@@ -71,5 +70,13 @@ public class ArenaController extends GameController {
                 && (currentTimer.compareTo(new GameTimer(GameStats.getLevelTimer(currentLevel))) < 0)){
             GameStats.setLevelTimer(currentLevel,currentTimer.getFormattedTime());
         }
+    }
+    private void setGameOver(Game game) {
+        getModel().pauseGameTimer();
+        int currentLevel = getModel().getLevel();
+        int currentScore = getModel().getScore();
+        GameTimer currentTimer = getModel().getGameTimer();
+        setLevelScoreTimer(currentLevel, currentScore, currentTimer);
+        game.setState(new GameOverMenuState(new GameOverMenu(currentLevel, currentTimer.getFormattedTime(), currentScore)));
     }
 }

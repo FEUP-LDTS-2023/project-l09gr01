@@ -5,9 +5,9 @@ import com.l09gr01.badice.utils.HiscoreEntry;
 import java.util.Arrays;
 
 public class NewHiscoreMenu extends Menu {
-    private int newRank;
-    private int newScore;
-    private String newTime;
+    private final int newRank;
+    private final int newScore;
+    private final String newTime;
     private String newName;
     public NewHiscoreMenu(int newRank, int newScore, String newTime) {
         super();

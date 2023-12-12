@@ -3,9 +3,9 @@ package com.l09gr01.badice.model.menu;
 import java.util.Arrays;
 
 public class LevelCompletedMenu extends Menu{
-    private int level;
-    private String time;
-    private int score;
+    private final int level;
+    private final String time;
+    private final int score;
     public LevelCompletedMenu(int level, String time, int score) {
         super();
         this.entries = Arrays.asList("NEXT LEVEL", "CHOOSE LEVEL", "MAIN MENU", "QUIT");

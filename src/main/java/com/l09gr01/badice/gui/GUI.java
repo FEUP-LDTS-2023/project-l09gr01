@@ -1,6 +1,7 @@
 package com.l09gr01.badice.gui;
 
 import com.googlecode.lanterna.gui2.TextBox;
+import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.Position;
 
 import java.io.IOException;
@@ -36,5 +37,9 @@ public interface GUI {
 
     void close() throws IOException;
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ACTION, PAUSE, INPUT_CHAR, BACKSPACE}
+    void drawFooter(boolean selected2Players);
+
+    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ACTION,
+        PAUSE, INPUT_CHAR, BACKSPACE, P2UP, P2DOWN, P2LEFT, P2RIGHT, P2ACTION,
+        MOVE_UP,MOVE_DOWN,MOVE_LEFT,MOVE_RIGHT}
 }

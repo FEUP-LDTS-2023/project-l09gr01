@@ -58,12 +58,12 @@ public class PlayerCharacterController extends GameController {
     private void movePlayerCharacter(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getPlayerCharacter().setPosition(position);
-            if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
             if (getModel().isFruit(position)) {
                 getModel().pickUpFruit();
                 getModel().removeFruit(position);
             }
         }
+        if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
     }
 
 
@@ -102,24 +102,15 @@ public class PlayerCharacterController extends GameController {
         }
 
 
-    public Position nextPosition(Position position, Direction direction) // da te a proxima posiçao sempre na direçaoem que o Player estava virado a 1x que foi usado o doAction
+    public Position nextPosition(Position position, Direction direction)
     {
-        switch (direction) {
-            case UP:
-                return new Position(position.getX(), position.getY() - 1);
-
-            case DOWN:
-                return new Position(position.getX(), position.getY() + 1);
-
-            case RIGHT:
-                return new Position(position.getX() + 1, position.getY());
-
-            case LEFT:
-                return new Position(position.getX() - 1, position.getY());
-
-            default:
-                return null;
-        }
+        return switch (direction) {
+            case UP -> new Position(position.getX(), position.getY() - 1);
+            case DOWN -> new Position(position.getX(), position.getY() + 1);
+            case RIGHT -> new Position(position.getX() + 1, position.getY());
+            case LEFT -> new Position(position.getX() - 1, position.getY());
+            default -> null;
+        };
     }
 }
 

@@ -59,6 +59,8 @@ public class MonsterHardController extends GameController implements MonsterCont
 
     public Position closestToPlayer(Monster monster) {
         Position playerP = getModel().getPlayerCharacter().getPosition();
+        Position player2P = null;
+        if (getModel().existsP2())  player2P = getModel().getPlayer2Character().getPosition();
         Position closest = null;
         double shortestDistance = Double.MAX_VALUE;
 
@@ -71,9 +73,14 @@ public class MonsterHardController extends GameController implements MonsterCont
 
         for (Position possiblePosition : positions) {
             double distance = calculateDistance(possiblePosition, playerP);
+            double distance2 = 0;
+            if (player2P != null) distance2 = calculateDistance(possiblePosition, player2P);
+            double minDistance;
+            if (distance2 != 0) minDistance = Math.min(distance, distance2);
+            else minDistance = distance;
 
-            if (distance < shortestDistance) {
-                shortestDistance = distance;
+            if (minDistance < shortestDistance) {
+                shortestDistance = minDistance;
                 closest = possiblePosition;
             }
         }

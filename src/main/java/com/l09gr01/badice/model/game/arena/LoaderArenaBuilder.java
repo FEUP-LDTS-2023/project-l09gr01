@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import com.l09gr01.badice.utils.GameStats;
 
 public class LoaderArenaBuilder{
     private final int level;
@@ -15,8 +16,9 @@ public class LoaderArenaBuilder{
     
     public LoaderArenaBuilder(int level) throws IOException {
         this.level = level;
-
-        URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
+        URL resource;
+        if (GameStats.isSelected2Players()) resource = LoaderArenaBuilder.class.getResource("/levels/twoPlayerLevels/level" + level + ".lvl");
+        else resource = LoaderArenaBuilder.class.getResource("/levels/onePlayerLevels/level" + level + ".lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         lines = readLines(br);
@@ -25,6 +27,7 @@ public class LoaderArenaBuilder{
         Arena arena = new Arena(getWidth(), getHeight());
 
         arena.setPlayerCharacter(createPlayerCharacter());
+        arena.setPlayer2Character(createPlayer2Character());
         arena.setMonsters(createMonsters());
         arena.setWalls(createWalls());
         arena.setIceBlocks(createIceBlocks());
@@ -97,8 +100,18 @@ public class LoaderArenaBuilder{
     protected PlayerCharacter createPlayerCharacter() {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
+            for (int x = 0; x < line.length(); x++) {
                 if (line.charAt(x) == 'G') return new PlayerCharacter(x, y);
+            }
+        }
+        return null;
+    }
+    protected PlayerCharacter createPlayer2Character() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++) {
+                if (line.charAt(x) == '2') return new PlayerCharacter(x, y, 2);
+            }
         }
         return null;
     }

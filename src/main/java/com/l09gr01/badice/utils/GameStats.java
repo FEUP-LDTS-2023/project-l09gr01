@@ -7,6 +7,7 @@ import java.util.List;
 
 public class GameStats {
     private static int levelsUnlocked = 1;
+    private static boolean isSelected2Players = false;
     private static List<HiscoreEntry> hiscores = HiscoresManager.loadHiscores("data/hiscores.txt");
     private static List<String> levelTimers = new ArrayList<>();
     private static List<Integer> levelScores = new ArrayList<>();
@@ -74,4 +75,11 @@ public class GameStats {
         return totalScore;
     }
 
+    public static boolean isSelected2Players() {
+        return isSelected2Players;
+    }
+
+    public static void setSelected2Players(boolean selected2Players) {
+        isSelected2Players = selected2Players;
+    }
 }
