@@ -6,27 +6,29 @@ import java.util.List;
 import com.l09gr01.badice.Game;
 
 public class HiscoresManager {
-    public static int getLowestRank() {
-        return 10;
+
+    public static boolean wasGamePlayed = false;    // flag to check if a new game was played and
+    // the levelTimers and levelScores were updated (so we don't always get newHiscoreMenu everytime
+    // we go in and out of ChooseLevelMenu
+    public static int getLowestRank() { // can just change return value incase
+        return 10;                      // we want to add more hiscore entries later
     }
     public static boolean isNewHiscore(int score, String time){
+        if (time == null) return false;
         return findIndexToInsert(GameStats.getHiscores(),score,time) < getLowestRank();
     }
     public static int findIndexToInsert(List<HiscoreEntry> hiscores, int score, String time) {
         for (int i = 0; i < getLowestRank(); i++) {
             HiscoreEntry currentEntry = hiscores.get(i);
-
-            // Compare scores
             if (score > currentEntry.getScore()) {
-                return i; // Insert before the current entry
+                return i;
             } else if (score == currentEntry.getScore()) {
-                // If scores are equal, compare times
                 if (compareTimes(time, currentEntry.getTime()) < 0) {
-                    return i; // Insert before the current entry
+                    return i;
                 }
             }
         }
-        return getLowestRank(); // Insert at the end if no suitable position is found
+        return getLowestRank(); // isNewHiscore will be false
     }
     public static List<HiscoreEntry> addHiscoreEntry(List<HiscoreEntry> hiscores, HiscoreEntry hiscoreEntry){
         int rank = hiscoreEntry.getRank();
@@ -40,8 +42,6 @@ public class HiscoresManager {
     }
 
     private static int compareTimes(String time1, String time2) {
-        // Implement logic to compare time strings, assuming format HH:mm
-        // For simplicity, let's assume they are in the format "HH:mm" for this example.
         String[] parts1 = time1.split(":");
         String[] parts2 = time2.split(":");
         int hours1 = Integer.parseInt(parts1[0]);
@@ -63,8 +63,6 @@ public class HiscoresManager {
             }
             writer.flush();
         } catch (IOException e) {
-            // Handle IOException, which might occur during file operations
-            // You might want to log the error or provide user-friendly feedback
             e.printStackTrace();
         }
     }
@@ -74,7 +72,6 @@ public class HiscoresManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Assuming the format is "RANK NAME SCORE TIME"
                 String[] parts = line.split("\\s+");
                 if (parts.length == 4) {
                     int rank = Integer.parseInt(parts[0].replace(".", ""));
@@ -85,12 +82,20 @@ public class HiscoresManager {
                 }
             }
         } catch (FileNotFoundException e) {
-            // Handle the case where the file is not found
             e.printStackTrace();
         } catch (IOException e) {
-            // Handle other IOExceptions
             e.printStackTrace();
         }
         return hiscores;
+
+        }
+    public static boolean wasGamePlayed(){
+        return wasGamePlayed;
+    }
+
+    public static void setwasGamePlayed(boolean gameWasPlayed) {
+        HiscoresManager.wasGamePlayed = gameWasPlayed;
     }
 }
+
+

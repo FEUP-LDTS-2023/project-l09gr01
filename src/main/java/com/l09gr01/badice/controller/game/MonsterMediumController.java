@@ -29,11 +29,15 @@ public class MonsterMediumController extends GameController implements MonsterCo
 
 
     private void moveMonster(Monster monster, Position position) {
-        if (getModel().isEmpty(position)) {
+        if (getModel().isEmpty(position) || getModel().isPlayerCharacter(position)) {
             monster.setPosition(position);
             if (getModel().getPlayerCharacter().getPosition().equals(position))
             {
                 getModel().getPlayerCharacter().decreaseHp();
+            }
+            if (getModel().existsP2() && getModel().getPlayer2Character().getPosition().equals(position))
+            {
+                getModel().getPlayer2Character().decreaseHp();
             }
         }
     }

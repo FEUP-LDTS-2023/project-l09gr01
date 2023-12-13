@@ -7,6 +7,8 @@ public abstract class Menu {
     protected List<String> entries;
     protected int currentEntry = 0;
 
+    private final int maxLevel = 5;
+
     public Menu() {
         this.entries = Arrays.asList("");
     }
@@ -34,5 +36,8 @@ public abstract class Menu {
 
     public int getNumberEntries() {
         return this.entries.size();
+    }
+    public int getMaxLevel() {
+        return maxLevel;
     }
 }

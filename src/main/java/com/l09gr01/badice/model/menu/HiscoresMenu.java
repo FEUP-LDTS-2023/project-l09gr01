@@ -15,7 +15,7 @@ public class HiscoresMenu extends Menu {
         this.entries = Arrays.asList("OK");
     }
 
-    public boolean isSelectedBack() {
+    public boolean isSelectedOk() {
         return isSelected(0);
     }
     public List<HiscoreEntry> getHiscores() {

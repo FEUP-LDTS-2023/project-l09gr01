@@ -23,6 +23,6 @@ public class HiscoresMenuView extends View<HiscoresMenu> {
             gui.drawText(new Position(5, 7 + i),
                     entry.getRank() + ". " + entry.getName() + " - " + entry.getScore() + " - " + entry.getTime(), "#FFFFFF");
         }
-
+        gui.drawText(new Position(5, 20), getModel().getEntry(0),"#FFD700" );
     }
 }

@@ -15,15 +15,20 @@ public class OptionsMenuView extends View<OptionsMenu> {
     @Override
     public void drawElements(GUI gui) {
         gui.drawText(new Position(5, 5), "OPTIONS", "#FFFFFF");
-        gui.drawText(new Position(5, 7),
-                getModel().getEntry(0) + " " + GameStats.isSelected2Players(),
+
+        if(getModel().getPausedArena() == null) gui.drawText(new Position(5, 7),
+            getModel().getEntry(0) + " " + GameStats.isSelected2Players(),
+            getModel().isSelected(0) ? "#FFD700" : "#FFFFFF");
+        else gui.drawText(new Position(5, 7),
+                getModel().getEntry(0),
                 getModel().isSelected(0) ? "#FFD700" : "#FFFFFF");
         for (int i = 1; i < 11; i++) {
             gui.drawText(new Position(5, 7 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
             gui.drawText(new Position(23, 7 + i),
-                    KeybindManager.getKeyString(getModel().getEditableAction(i-1)),"#FFFFFF");
+                    KeybindManager.getKeyString(KeybindManager.getEditableAction(i-1)),
+                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
         gui.drawText(new Position(5, 19),
                 getModel().getEntry(11) + " NOT IMPLEMENTED ",

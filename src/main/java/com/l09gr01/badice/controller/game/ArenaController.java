@@ -8,6 +8,7 @@ import com.l09gr01.badice.model.game.arena.Arena;
 import com.l09gr01.badice.model.menu.*;
 import com.l09gr01.badice.state.*;
 import com.l09gr01.badice.utils.GameStats;
+import com.l09gr01.badice.utils.HiscoresManager;
 
 import java.io.IOException;
 
@@ -81,6 +82,7 @@ public class ArenaController extends GameController {
         int currentScore = getModel().getScore();
         GameTimer currentTimer = getModel().getGameTimer();
         setLevelScoreTimer(currentLevel, currentScore, currentTimer);
+        if (!HiscoresManager.wasGamePlayed()) HiscoresManager.setwasGamePlayed(true);
         game.setState(new GameOverMenuState(new GameOverMenu(currentLevel, currentTimer.getFormattedTime(), currentScore)));
     }
 }

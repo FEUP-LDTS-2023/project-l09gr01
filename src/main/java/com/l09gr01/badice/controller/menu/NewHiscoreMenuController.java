@@ -5,8 +5,10 @@ import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.gui.KeybindManager;
+import com.l09gr01.badice.model.menu.HiscoresMenu;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.model.menu.NewHiscoreMenu;
+import com.l09gr01.badice.state.HiscoresMenuState;
 import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.utils.GameStats;
 import com.l09gr01.badice.utils.HiscoreEntry;
@@ -41,7 +43,8 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
                 GameStats.setHiscores(newHiscores);
                 HiscoresManager.saveHiscores(newHiscores, "data/hiscores.txt");
                 KeybindManager.setCharacterInputMode(false);
-                game.setState(new MainMenuState(new MainMenu()));
+                if (HiscoresManager.wasGamePlayed()) HiscoresManager.setwasGamePlayed(false);
+                game.setState(new HiscoresMenuState(new HiscoresMenu()));
                 break;
             case BACKSPACE:
                 if (!stringBuilder.isEmpty()) {

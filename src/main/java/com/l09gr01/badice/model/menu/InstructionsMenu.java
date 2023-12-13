@@ -6,7 +6,7 @@ public class InstructionsMenu extends Menu {
 
     public InstructionsMenu() {
         super();
-        this.entries = Arrays.asList("Back To Main Menu");
+        this.entries = Arrays.asList("BACK TO MAIN MENU");
     }
 
     public boolean isSelectedBack() {

@@ -27,7 +27,7 @@ public abstract class Controller<T> {
     public abstract void step(Game game, GUI.ACTION action, long time) throws IOException;
 
     protected static void newHiscoreCheck(Game game) {
-        if ((GameStats.getLevelTimers().get(0) == null) || (HiscoresManager.isNewHiscore(GameStats.getTotalScore(), GameStats.getTotalGameTime()))) {
+        if (HiscoresManager.isNewHiscore(GameStats.getTotalScore(), GameStats.getTotalGameTime()) && HiscoresManager.wasGamePlayed()) {
             int newRank = HiscoresManager.findIndexToInsert(GameStats.getHiscores(), GameStats.getTotalScore(), GameStats.getTotalGameTime()) + 1;
             KeybindManager.setCharacterInputMode(true);
             game.setState(new NewHiscoreMenuState(new NewHiscoreMenu(newRank, GameStats.getTotalScore(), GameStats.getTotalGameTime())));

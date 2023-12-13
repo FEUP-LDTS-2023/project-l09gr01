@@ -29,9 +29,9 @@ public class PauseMenuController extends Controller<PauseMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedResume()) {
-                    game.setState(new GameState(PauseMenu.getPausedArena()));
+                    game.setState(new GameState(getModel().getPausedArena()));
                 }
-                if (getModel().isSelectedOptions()) game.setState(new OptionsMenuState(new OptionsMenu()));
+                if (getModel().isSelectedOptions()) game.setState(new OptionsMenuState(new OptionsMenu(getModel().getPausedArena())));
                 if (getModel().isSelectedQuit()) game.setState(new MainMenuState(new MainMenu()));
         }
     }

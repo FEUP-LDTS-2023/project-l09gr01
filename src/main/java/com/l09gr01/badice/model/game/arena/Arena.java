@@ -173,7 +173,7 @@ public class Arena {
         return this;
     }
     public void pickUpFruit(){
-        this.score += 1000;
+        this.score += 100;
     }
     public void setScore(int newScore){
         this.score = newScore;

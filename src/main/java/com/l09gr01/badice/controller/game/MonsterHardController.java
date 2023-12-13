@@ -42,6 +42,10 @@ public class MonsterHardController extends GameController implements MonsterCont
             {
                 getModel().getPlayerCharacter().decreaseHp();
             }
+            if (getModel().existsP2() && getModel().getPlayer2Character().getPosition().equals(closerPosition))
+            {
+                getModel().getPlayer2Character().decreaseHp();
+            }
         }
 
         else
@@ -52,9 +56,11 @@ public class MonsterHardController extends GameController implements MonsterCont
                 if (getModel().getPlayerCharacter().getPosition().equals(closerPosition)) {
                     getModel().getPlayerCharacter().decreaseHp();
                 }
+                if (getModel().existsP2() && getModel().getPlayer2Character().getPosition().equals(closerPosition)) {
+                    getModel().getPlayer2Character().decreaseHp();
+                }
             }
         }
-        // hard algorithm here
     }
 
     public Position closestToPlayer(Monster monster) {

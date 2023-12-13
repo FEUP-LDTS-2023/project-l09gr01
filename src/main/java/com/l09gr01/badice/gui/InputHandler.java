@@ -10,11 +10,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-
-import com.l09gr01.badice.Game;
 import com.l09gr01.badice.model.Position;
-import com.l09gr01.badice.state.GameState;
-import com.l09gr01.badice.state.State;
+
 
 import java.awt.*;
 import java.io.File;
@@ -28,7 +25,6 @@ public class InputHandler implements GUI {
     private final KeybindManager keybindManager;
     private final Screen screen;
     private char lastInputCharacter;
-    private Game game;
     public InputHandler(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
@@ -86,7 +82,7 @@ public class InputHandler implements GUI {
             KeyStroke actionKeyStroke = KeybindManager.getKeybind(action);
             Character characterKeyStroke = KeybindManager.getCharacterKeybind(action);
             if (actionKeyStroke != null && actionKeyStroke.equals(keyStroke)) return action;
-            else if (characterKeyStroke != null && (keyStroke.getKeyType() == KeyType.Character) && (keyStroke.getCharacter() == characterKeyStroke)) return action;
+            else if (characterKeyStroke != null && (keyStroke.getKeyType() == KeyType.Character) && (Character.toUpperCase(keyStroke.getCharacter()) == characterKeyStroke)) return action;
         }
 
         return ACTION.NONE;

@@ -13,6 +13,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 
 public class Game {
 
@@ -24,8 +25,8 @@ public class Game {
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
-        Game game = new Game();
-        game.start();
+        new Game().start();
+        System.exit(0);
     }
 
     public void start() throws IOException {

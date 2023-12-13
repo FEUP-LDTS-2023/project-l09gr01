@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class LevelCompletedMenu extends Menu{
     private final int level;
-    private final int maxLevel = 3;
     private final String time;
     private final int score;
     public LevelCompletedMenu(int level, String time, int score) {
@@ -27,7 +26,4 @@ public class LevelCompletedMenu extends Menu{
     public String getTime() {return time;}
     public int getScore(){return score;}
 
-    public int getMaxLevel() {
-        return maxLevel;
-    }
 }

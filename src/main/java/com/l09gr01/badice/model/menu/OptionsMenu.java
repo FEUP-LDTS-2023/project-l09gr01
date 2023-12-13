@@ -1,21 +1,20 @@
 package com.l09gr01.badice.model.menu;
 
 import com.l09gr01.badice.gui.GUI;
+import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.game.arena.Arena;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class OptionsMenu extends Menu {
-    List<GUI.ACTION> editableActions = Arrays.asList(
-            GUI.ACTION.MOVE_UP, GUI.ACTION.MOVE_DOWN, GUI.ACTION.MOVE_LEFT, GUI.ACTION.MOVE_RIGHT,
-            GUI.ACTION.ACTION, GUI.ACTION.P2UP, GUI.ACTION.P2DOWN, GUI.ACTION.P2LEFT,
-            GUI.ACTION.P2RIGHT, GUI.ACTION.P2ACTION
-    );
-    private Arena pausedArena;
+
+    private final Arena pausedArena;
+    private boolean selectPressed;
 
     public OptionsMenu() {
         super();
+        this.selectPressed = false;
         this.pausedArena = null;
         this.entries = Arrays.asList("2 PLAYER MODE","SET P1 MOVE UP","SET P1 MOVE DOWN","SET P1 MOVE LEFT","SET P1 MOVE RIGHT"
                 ,"SET P1 ACTION", "SET P2 MOVE UP","SET P2 MOVE DOWN", "SET P2 MOVE LEFT",
@@ -23,14 +22,16 @@ public class OptionsMenu extends Menu {
     }
     public OptionsMenu(Arena pausedArena) {
         super();
+        this.selectPressed = false;
         this.pausedArena = pausedArena;
-        this.entries = Arrays.asList("2 PLAYER MODE","SET P1 MOVE UP","SET P1 MOVE DOWN","SET P1 MOVE LEFT","SET P1 MOVE RIGHT"
+        this.entries = Arrays.asList("CONFIRM","SET P1 MOVE UP","SET P1 MOVE DOWN","SET P1 MOVE LEFT","SET P1 MOVE RIGHT"
                 ,"SET P1 ACTION", "SET P2 MOVE UP","SET P2 MOVE DOWN", "SET P2 MOVE LEFT",
-                "SET P2 MOVE RIGHT", "SET P2 ACTION", "TOGGLE GAME SOUNDS", "TOGGLE MUSIC","BACK TO MAIN MENU");
+                "SET P2 MOVE RIGHT", "SET P2 ACTION", "TOGGLE GAME SOUNDS", "TOGGLE MUSIC","EXIT TO MAIN MENU");
     }
 
     public boolean isSelected2PlayerMode() {
-        return isSelected(0);
+        if(this.getPausedArena() == null) return isSelected(0);
+        else return false;
     }
     public boolean isSelectedSetP1MoveUp() {
         return isSelected(1);
@@ -71,8 +72,19 @@ public class OptionsMenu extends Menu {
     public boolean isSelectedMainMenu(){
         return isSelected(13);
     }
+    public boolean isSelectedResume() {
+        if(getPausedArena() != null) return isSelected(0);
+        return false;
+    }
+    public Arena getPausedArena(){
+        return this.pausedArena;
+    }
 
-    public GUI.ACTION getEditableAction(int i) {
-        return editableActions.get(i);
+    public boolean isSelectPressed(int i) {
+        return (this.selectPressed && isSelected(i));
+    }
+
+    public void setSelectPressed() {
+        this.selectPressed = !this.selectPressed;
     }
 }
