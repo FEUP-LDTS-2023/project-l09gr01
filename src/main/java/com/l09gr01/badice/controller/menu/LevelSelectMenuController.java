@@ -35,7 +35,6 @@ public class LevelSelectMenuController extends Controller<LevelSelectMenu> {
                 if (getModel().isSelectedLevel1()) {
                     if (GameStats.getLevelsUnlocked() >= 1)
                         game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
-
                     else break;
                 }
                 if (getModel().isSelectedLevel2()) {
@@ -46,19 +45,16 @@ public class LevelSelectMenuController extends Controller<LevelSelectMenu> {
                 if (getModel().isSelectedLevel3()) {
                     if (GameStats.getLevelsUnlocked() >= 3)
                         game.setState(new GameState(new LoaderArenaBuilder(3).createArena()));
-
                     else break;
                 }
                 if (getModel().isSelectedLevel4()) {
                     if (GameStats.getLevelsUnlocked() >= 4)
                         game.setState(new GameState(new LoaderArenaBuilder(4).createArena()));
-
                     else break;
                 }
                 if (getModel().isSelectedLevel5()) {
                     if (GameStats.getLevelsUnlocked() >= 5)
                         game.setState(new GameState(new LoaderArenaBuilder(5).createArena()));
-
                     else break;
                 }
                 if (getModel().isSelectedBack()) {

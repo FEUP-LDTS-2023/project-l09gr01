@@ -11,6 +11,7 @@ import com.l09gr01.badice.utils.GameStats;
 import com.l09gr01.badice.utils.HiscoresManager;
 
 import java.io.IOException;
+import java.util.Random;
 
 
 public class ArenaController extends GameController {
@@ -19,6 +20,7 @@ public class ArenaController extends GameController {
     private final MonsterEasyController monsterEasyController;
     private final MonsterMediumController monsterMediumController;
     private final MonsterHardController monsterHardController;
+    private Random random = new Random();
 
     public ArenaController(Arena arena) {
         super(arena);
@@ -32,6 +34,7 @@ public class ArenaController extends GameController {
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (getModel().getGameTimer().isPaused) getModel().resumeGameTimer();
+        if (shouldCreatePowerUp()) getModel().setPowerUp(getModel().spawnPowerUp());
         if (!KeybindManager.isIngame()) KeybindManager.setIngame(true);
         if (action == GUI.ACTION.QUIT || action == GUI.ACTION.PAUSE)
         {
@@ -51,10 +54,10 @@ public class ArenaController extends GameController {
             setLevelScoreTimer(currentLevel, currentScore, currentTimer);
             game.setState(new LevelCompletedMenuState(new LevelCompletedMenu(currentLevel,currentTimer.getFormattedTime(), currentScore)));
         }
-        else if (getModel().existsP2() && (getModel().getPlayerCharacter().getHp() == 0 || getModel().getPlayer2Character().getHp() == 0)) {
+        else if (getModel().existsP2() && (getModel().getPlayerCharacter().getHp() <= 0 || getModel().getPlayer2Character().getHp() <= 0)) {
                 setGameOver(game);
             }
-        else if (getModel().getPlayerCharacter().getHp() == 0) {
+        else if (getModel().getPlayerCharacter().getHp() <= 0) {
             setGameOver(game);
         }
         else {
@@ -82,7 +85,14 @@ public class ArenaController extends GameController {
         int currentScore = getModel().getScore();
         GameTimer currentTimer = getModel().getGameTimer();
         setLevelScoreTimer(currentLevel, currentScore, currentTimer);
-        if (!HiscoresManager.wasGamePlayed()) HiscoresManager.setwasGamePlayed(true);
+        if (!HiscoresManager.wasGamePlayed()) HiscoresManager.setWasGamePlayed(true);
         game.setState(new GameOverMenuState(new GameOverMenu(currentLevel, currentTimer.getFormattedTime(), currentScore)));
+    }
+    private boolean shouldCreatePowerUp() {
+        if (!getModel().existsPowerUp()) {
+            int randomNumber = random.nextInt(1000);
+            return randomNumber <= 1;
+        }
+        return false;
     }
 }

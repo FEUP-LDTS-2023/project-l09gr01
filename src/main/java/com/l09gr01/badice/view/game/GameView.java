@@ -23,12 +23,17 @@ public class GameView extends View<Arena> implements ScoreObserver {
         drawElements(gui, getModel().getWalls(), new WallView());
         drawElement(gui, getModel().getPlayerCharacter(), new PlayerCharacterView());
         if (getModel().existsP2()) drawElement(gui, getModel().getPlayer2Character(), new PlayerCharacterView());
-        drawElements(gui, getModel().getFruit(), new FruitView());
-        drawElements(gui, getModel().getIceBlocks(), new IceView());
-        drawElements(gui, getModel().getFruitInIce(), new FruitInIceView());
+        if (getModel().getFruit() != null) drawElements(gui, getModel().getFruit(), new FruitView());
+        if (getModel().existsPowerUp()) drawElement(gui, getModel().getPowerUp(), new PowerUpView());
+        if (getModel().getIceBlocks() != null) drawElements(gui, getModel().getIceBlocks(), new IceView());
+        if (getModel().getFruitInIce() != null) drawElements(gui, getModel().getFruitInIce(), new FruitInIceView());
         drawElements(gui, getModel().getMonsters(), new MonsterView());
-        gui.drawFooter(GameStats.isSelected2Players());
-
+        if (getModel().existsP2())
+            gui.drawFooter(getModel().getPlayerCharacter().getHp(),getModel().getPlayer2Character().getHp(),
+                    GameStats.isSelected2Players(), GameStats.getTotalScore(),getModel().getScore(),
+                    getModel().getLevel());
+        else gui.drawFooter(getModel().getPlayerCharacter().getHp(),0,GameStats.isSelected2Players(),
+                GameStats.getTotalScore(),getModel().getScore(), getModel().getLevel());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementView<T> view) {

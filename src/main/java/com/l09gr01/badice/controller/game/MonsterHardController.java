@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MonsterHardController extends GameController implements MonsterController {
+public class MonsterHardController extends GameController {
     private long lastMovement;
 
     public MonsterHardController(Arena arena) {

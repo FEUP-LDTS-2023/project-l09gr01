@@ -14,22 +14,12 @@ public class PlayerCharacter extends Element {
 
     private int hp;
     private Direction facingDirection;
-    private List<PowerUp> powerUps;
-    private List<ScoreObserver> observers;
-    private int playerNumber = 1;
     public PlayerCharacter(int x, int y)
     {
         super(x,y);
         this.hp = 1;
         this.facingDirection = UP;
 
-    }
-    public PlayerCharacter(int x, int y, int playerNumber)
-    {
-        super(x,y);
-        this.hp = 1;
-        this.facingDirection = UP;
-        this.playerNumber = playerNumber;
     }
 
     public int getHp()
@@ -55,16 +45,6 @@ public class PlayerCharacter extends Element {
     public void setDirection(Direction facingDirection)
     {
         this.facingDirection = facingDirection;
-    }
-
-    public void addPowerUp(PowerUp powerUp)
-    {
-        powerUps.add(powerUp);
-    }
-
-    public PowerUp getPowerUp()
-    {
-        return powerUps.get(0);
     }
 
 }

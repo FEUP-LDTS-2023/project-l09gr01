@@ -22,6 +22,6 @@ class PlayerCharacterViewerTest {
     @Test
     void drawElement() {
         viewer.draw(playerCharacter, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawPlayerCharacter(playerCharacter.getPosition());
+        Mockito.verify(gui, Mockito.times(1)).drawUpPlayerCharacter(playerCharacter.getPosition());
     }
 }

@@ -30,6 +30,7 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
     void drawHeader(int level, int score, String time );
+    void drawFooter(int p1Hp, int p2Hp, boolean selected2Players, int totalScore, int score, int level);
 
     void clear();
 
@@ -37,7 +38,7 @@ public interface GUI {
 
     void close() throws IOException;
 
-    void drawFooter(boolean selected2Players);
+
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ACTION,
         PAUSE, INPUT_CHAR, BACKSPACE, P2UP, P2DOWN, P2LEFT, P2RIGHT, P2ACTION,

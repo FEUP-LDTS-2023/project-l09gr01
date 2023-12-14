@@ -8,7 +8,7 @@ import com.l09gr01.badice.model.game.elements.Monster;
 
 import java.io.IOException;
 
-public class MonsterMediumController extends GameController implements MonsterController {
+public class MonsterMediumController extends GameController {
     private long lastMovement;
 
     public MonsterMediumController(Arena arena) {

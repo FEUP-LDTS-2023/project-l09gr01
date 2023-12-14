@@ -12,7 +12,7 @@ public class LoadGameStats {
                 String time = parts[1];
                 int score = Integer.parseInt(parts[2]);
                 GameStats.setLevelTimer(level,time);
-                GameStats.setLevelsUnlocked(GameStats.getLevelsUnlocked()+ 1);
+                GameStats.setLevelsUnlocked(level+1);
                 GameStats.setLevelScore(level,score);
             }
         } catch (FileNotFoundException e) {

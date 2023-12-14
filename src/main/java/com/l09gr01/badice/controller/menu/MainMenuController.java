@@ -12,6 +12,8 @@ import com.l09gr01.badice.utils.SaveGameStats;
 
 import java.io.IOException;
 
+import static com.l09gr01.badice.utils.GameStats.resetGame;
+
 public class MainMenuController extends Controller<MainMenu> {
     public MainMenuController(MainMenu menu) {
         super(menu);
@@ -40,7 +42,10 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().isSelectedOptions()) game.setState(new OptionsMenuState(new OptionsMenu()));
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsMenuState(new InstructionsMenu()));
                 if (getModel().isSelectedHiscores()) game.setState(new HiscoresMenuState(new HiscoresMenu()));
-                if (getModel().isSelectedNew()) game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                if (getModel().isSelectedNew()) {
+                    GameStats.resetGame();
+                    game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                }
         }
     }
 }

@@ -11,6 +11,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.l09gr01.badice.model.Position;
+import com.l09gr01.badice.utils.GameStats;
 
 
 import java.awt.*;
@@ -126,7 +127,7 @@ public class InputHandler implements GUI {
     @Override
     public void drawPowerUp(Position position)
     {
-        drawCharacter(position.getX(), position.getY(),'P', "#FFA500");
+        drawCharacter(position.getX(), position.getY(),'*', "#FFA500");
     }
     @Override
     public void drawEasyMonster(Position position) {
@@ -137,14 +138,19 @@ public class InputHandler implements GUI {
     public void drawHeader(int level, int score, String time){
         TextGraphics tg = screen.newTextGraphics();
         tg.putString(0, 0, "LEVEL " + level);
-        tg.putString(16, 0, "SCORE " + score);
+        tg.putString(16, 0, "SCORE:" + score);
         tg.putString(34, 0, time);
 
     }
-    public void drawFooter(boolean isSelected2Players){
+    public void drawFooter(int p1Hp,int p2Hp, boolean isSelected2Players, int totalScore, int score, int level){
         TextGraphics tg = screen.newTextGraphics();
-        if(isSelected2Players) tg.putString(0, 41, "2P");
-        else tg.putString(0, 41, "1P");
+        int currentTotalScore = score + totalScore - GameStats.getLevelScore(level);
+        if(isSelected2Players) tg.putString(37, 41, "2P");
+        else tg.putString(37, 41, "1P");
+        if(isSelected2Players) tg.putString(18, 41,"P1 HP:" + p1Hp + "  P2 HP:" + p2Hp);
+        else tg.putString(30,41,"HP:" + p1Hp);
+        tg.putString(0, 41, "TOTAL SCORE:" + currentTotalScore);
+
     }
 
     @Override

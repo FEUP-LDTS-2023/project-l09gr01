@@ -1,8 +1,7 @@
-package com.l09gr01.badice.controller;
+package com.l09gr01.badice.controller.game;
 
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
-import com.l09gr01.badice.controller.game.MonsterEasyController;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.game.arena.Arena;
 import com.l09gr01.badice.model.game.elements.Monster;
@@ -18,7 +17,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class MonsterControllerTest {
+public class MonsterEasyControllerTest {
     private MonsterEasyController controller;
     private Arena arena;
     private Game game;
@@ -32,6 +31,9 @@ public class MonsterControllerTest {
 
         arena.setWalls(Arrays.asList());
         arena.setMonsters(Arrays.asList());
+        arena.setFruit(Arrays.asList());
+        arena.setFruitInIce(Arrays.asList());
+        arena.setIceBlocks(Arrays.asList());
 
         controller = new MonsterEasyController(arena);
 
@@ -40,7 +42,7 @@ public class MonsterControllerTest {
 
     @Test
     void moveMonsters() throws IOException {
-        Monster monster = new Monster(5, 5);
+        Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
 
         controller.step(game, GUI.ACTION.NONE, 1000);
@@ -50,7 +52,7 @@ public class MonsterControllerTest {
 
     @Test
     void moveMonstersClosed() throws IOException {
-        Monster monster = new Monster(5, 5);
+        Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
                 new Wall(4, 5),
@@ -67,7 +69,7 @@ public class MonsterControllerTest {
 
     @Test
     void moveMonstersGap() throws IOException {
-        Monster monster = new Monster(5, 5);
+        Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
                 new Wall(4, 5),

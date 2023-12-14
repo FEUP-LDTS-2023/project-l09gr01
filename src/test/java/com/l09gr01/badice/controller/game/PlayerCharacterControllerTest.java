@@ -1,6 +1,7 @@
-package com.l09gr01.badice.controller;
+package com.l09gr01.badice.controller.game;
 
 import com.l09gr01.badice.controller.game.PlayerCharacterController;
+import com.l09gr01.badice.model.Direction;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.game.arena.Arena;
 import com.l09gr01.badice.model.game.elements.PlayerCharacter;
@@ -27,6 +28,9 @@ public class PlayerCharacterControllerTest {
 
         arena.setWalls(Arrays.asList());
         arena.setMonsters(Arrays.asList());
+        arena.setFruit(Arrays.asList());
+        arena.setFruitInIce(Arrays.asList());
+        arena.setIceBlocks(Arrays.asList());
 
         controller = new PlayerCharacterController(arena);
     }
@@ -34,6 +38,7 @@ public class PlayerCharacterControllerTest {
     @Test
     void movePlayerRightWithoutWall()
     {
+        player.setDirection(Direction.RIGHT);
         controller.movePlayerCharacterRight();
         assertEquals(new Position(6,5), player.getPosition());
     }

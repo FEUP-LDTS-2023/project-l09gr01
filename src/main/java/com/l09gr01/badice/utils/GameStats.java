@@ -9,8 +9,8 @@ public class GameStats {
     private static int levelsUnlocked = 1;
     private static boolean isSelected2Players = false;
     private static List<HiscoreEntry> hiscores = HiscoresManager.loadHiscores("data/hiscores.txt");
-    private static List<String> levelTimers = new ArrayList<>();
-    private static List<Integer> levelScores = new ArrayList<>();
+    private static final List<String> levelTimers = new ArrayList<>();
+    private static final List<Integer> levelScores = new ArrayList<>();
 
     public GameStats(int levelsUnlocked){
         GameStats.levelsUnlocked = levelsUnlocked;
@@ -40,10 +40,6 @@ public class GameStats {
         return totalGameTime;
     }
 
-    public static List<String> getLevelTimers() {
-        return levelTimers;
-    }
-    public static List<Integer> getLevelScores() { return levelScores;}
     public static String getLevelTimer(int level){
         while (level-1 >= levelTimers.size()) {
             levelTimers.add(null);
@@ -52,13 +48,13 @@ public class GameStats {
     }
     public static int getLevelScore(int level){
         while (level-1 >= levelScores.size()) {
-            levelScores.add(null);
+            levelScores.add(0);
         }
         return levelScores.get(level-1);
     }
     public static void setLevelScore(int level, int score){
         while (level-1 >= levelScores.size()) {
-            levelScores.add(null);
+            levelScores.add(0);
         }
         levelScores.set(level-1, score);
     }
@@ -82,5 +78,10 @@ public class GameStats {
 
     public static void setSelected2Players(boolean selected2Players) {
         isSelected2Players = selected2Players;
+    }
+    public static void resetGame(){
+        levelsUnlocked = 1;
+        levelTimers.clear();
+        levelScores.clear();
     }
 }

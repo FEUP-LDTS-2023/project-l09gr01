@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,7 +40,7 @@ public class GameTimer implements Comparable<GameTimer> {
                     formattedTime = df.format(minutes) + ":" + df.format(seconds);
                 }
             }
-        }, 0, 1000); // Schedule the task to run every 1000 milliseconds (1 second)
+        }, 0, 1000); // runs every 1000 milliseconds
     }
 
     public void pause() {

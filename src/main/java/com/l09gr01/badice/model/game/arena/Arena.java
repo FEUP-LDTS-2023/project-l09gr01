@@ -5,6 +5,7 @@ import com.l09gr01.badice.model.game.elements.*;
 import com.l09gr01.badice.model.Position;
 
 import java.util.List;
+import java.util.Random;
 
 public class Arena {
     private final int width;
@@ -98,7 +99,8 @@ public class Arena {
     public List<FruitInIce> getFruitInIce() {return this.fruitsInIce;}
     public void setFruitInIce(List<FruitInIce> fruitInIce) { this.fruitsInIce = fruitInIce;}
     public boolean isEmpty(Position position) {
-        return (!isMonster(position) && !isWall(position) && !isIce(position) && !isPlayerCharacter(position));
+        return (!isMonster(position) && !isWall(position) && ((iceBlocks != null)
+                && !isIce(position)) && !isPlayerCharacter(position));
     }
 
     public boolean isMonster(Position position) {
@@ -183,6 +185,21 @@ public class Arena {
     }
     public boolean existsP2(){
         return player2Character != null;
+    }
+    public PowerUp spawnPowerUp() {
+        Random random = new Random();
+
+        while (true) {
+            int randomX = random.nextInt(getWidth() - 2) + 1;
+            int randomY = random.nextInt(getHeight() - 4) + 2;
+
+            Position randomPos = new Position(randomX, randomY);
+
+            if (!existsPowerUp() && isEmpty(randomPos) && !isFruit(randomPos)) {
+                return new PowerUp(randomX, randomY);
+            }
+            // If conditions are not met, generate new random positions in the next iteration
+        }
     }
 }
 

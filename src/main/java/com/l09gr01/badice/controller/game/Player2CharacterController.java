@@ -11,48 +11,43 @@ import static com.l09gr01.badice.model.Direction.DOWN;
 
 public class Player2CharacterController extends PlayerCharacterController {
 
-    private Direction lastDirection;
     public Player2CharacterController(Arena arena) {
         super(arena);
     }
 
     public void movePlayer2CharacterLeft() {
-        if(this.lastDirection == LEFT){
+        if(this.getModel().getPlayer2Character().getDirection() == LEFT){
             movePlayer2Character(getModel().getPlayer2Character().getPosition().getLeft());
         }
         else{
             getModel().getPlayer2Character().setDirection(LEFT);
-            this.lastDirection = LEFT;
         }
     }
 
     public void movePlayer2CharacterRight() {
-        if(this.lastDirection == RIGHT){
+        if(this.getModel().getPlayer2Character().getDirection() == RIGHT){
             movePlayer2Character(getModel().getPlayer2Character().getPosition().getRight());
         }
         else{
             getModel().getPlayer2Character().setDirection(RIGHT);
-            this.lastDirection = RIGHT;
         }
     }
 
     public void movePlayer2CharacterUp() {
-        if(this.lastDirection == UP){
+        if(this.getModel().getPlayer2Character().getDirection() == UP){
             movePlayer2Character(getModel().getPlayer2Character().getPosition().getUp());
         }
         else{
             getModel().getPlayer2Character().setDirection(UP);
-            this.lastDirection = UP;
         }
     }
 
     public void movePlayer2CharacterDown() {
-        if(this.lastDirection == DOWN){
+        if(this.getModel().getPlayer2Character().getDirection() == DOWN){
             movePlayer2Character(getModel().getPlayer2Character().getPosition().getDown());
         }
         else{
             getModel().getPlayer2Character().setDirection(DOWN);
-            this.lastDirection = DOWN;
         }
     }
 
@@ -63,6 +58,10 @@ public class Player2CharacterController extends PlayerCharacterController {
             if (getModel().isFruit(position)) {
                 getModel().pickUpFruit();
                 getModel().removeFruit(position);
+            }
+            if (getModel().existsPowerUp() && getModel().isPowerUp(position)){
+                getModel().getPlayer2Character().increaseHp();
+                getModel().removePowerUp();
             }
         }
     }

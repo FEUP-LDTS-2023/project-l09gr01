@@ -93,7 +93,7 @@ public class HiscoresManager {
         return wasGamePlayed;
     }
 
-    public static void setwasGamePlayed(boolean gameWasPlayed) {
+    public static void setWasGamePlayed(boolean gameWasPlayed) {
         HiscoresManager.wasGamePlayed = gameWasPlayed;
     }
 }

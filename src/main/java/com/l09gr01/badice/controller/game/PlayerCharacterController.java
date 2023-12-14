@@ -10,48 +10,43 @@ import static com.l09gr01.badice.model.Direction.*;
 
 public class PlayerCharacterController extends GameController {
 
-    private Direction lastDirection;
     public PlayerCharacterController(Arena arena) {
         super(arena);
     }
 
     public void movePlayerCharacterLeft() {
-        if(lastDirection == LEFT){
+        if(getModel().getPlayerCharacter().getDirection() == LEFT){
             movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getLeft());
         }
         else{
             getModel().getPlayerCharacter().setDirection(LEFT);
-            lastDirection = LEFT;
         }
     }
 
     public void movePlayerCharacterRight() {
-        if(lastDirection == RIGHT){
+        if(getModel().getPlayerCharacter().getDirection() == RIGHT){
             movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getRight());
         }
         else{
             getModel().getPlayerCharacter().setDirection(RIGHT);
-            lastDirection = RIGHT;
         }
     }
 
     public void movePlayerCharacterUp() {
-        if(lastDirection == UP){
+        if(getModel().getPlayerCharacter().getDirection() == UP){
             movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getUp());
         }
         else{
             getModel().getPlayerCharacter().setDirection(UP);
-            lastDirection = UP;
         }
     }
 
     public void movePlayerCharacterDown() {
-        if(lastDirection == DOWN){
+        if(getModel().getPlayerCharacter().getDirection() == DOWN){
             movePlayerCharacter(getModel().getPlayerCharacter().getPosition().getDown());
         }
         else{
             getModel().getPlayerCharacter().setDirection(DOWN);
-            lastDirection = DOWN;
         }
     }
 
@@ -62,15 +57,17 @@ public class PlayerCharacterController extends GameController {
                 getModel().pickUpFruit();
                 getModel().removeFruit(position);
             }
+            if (getModel().existsPowerUp() && getModel().isPowerUp(position)){
+                getModel().getPlayerCharacter().increaseHp();
+                getModel().removePowerUp();
+            }
         }
         if (getModel().isMonster(position)) getModel().getPlayerCharacter().decreaseHp();
     }
 
-
-
     public void doAction(){
 
-        Direction direction = getModel().getPlayerCharacter().getDirection(); // guarda a diraçao do jogador para que quando se constroi o gelo quando o jogador se virar o gelo continuar a ir em frente
+        Direction direction = getModel().getPlayerCharacter().getDirection();
         Position nextPosition = nextPosition(getModel().getPlayerCharacter().getPosition(),direction);
         if (getModel().isEmpty(nextPosition(getModel().getPlayerCharacter().getPosition(), direction)))
         {

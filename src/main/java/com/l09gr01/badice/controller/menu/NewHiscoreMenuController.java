@@ -43,7 +43,7 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
                 GameStats.setHiscores(newHiscores);
                 HiscoresManager.saveHiscores(newHiscores, "data/hiscores.txt");
                 KeybindManager.setCharacterInputMode(false);
-                if (HiscoresManager.wasGamePlayed()) HiscoresManager.setwasGamePlayed(false);
+                if (HiscoresManager.wasGamePlayed()) HiscoresManager.setWasGamePlayed(false);
                 game.setState(new HiscoresMenuState(new HiscoresMenu()));
                 break;
             case BACKSPACE:
