@@ -95,7 +95,7 @@ public class PlayerCharacterController extends GameController {
         if (action == GUI.ACTION.MOVE_RIGHT) movePlayerCharacterRight();
         if (action == GUI.ACTION.MOVE_DOWN) movePlayerCharacterDown();
         if (action == GUI.ACTION.MOVE_LEFT) movePlayerCharacterLeft();
-        if (action == GUI.ACTION.ACTION) doAction();
+        if (action == GUI.ACTION.P1ACTION) doAction();
         }
 
 

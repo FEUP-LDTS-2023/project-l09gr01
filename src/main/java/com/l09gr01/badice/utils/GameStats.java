@@ -11,11 +11,6 @@ public class GameStats {
     private static List<HiscoreEntry> hiscores = HiscoresManager.loadHiscores("data/hiscores.txt");
     private static final List<String> levelTimers = new ArrayList<>();
     private static final List<Integer> levelScores = new ArrayList<>();
-
-    public GameStats(int levelsUnlocked){
-        GameStats.levelsUnlocked = levelsUnlocked;
-    }
-
     public static int getLevelsUnlocked() {
         return levelsUnlocked;
     }

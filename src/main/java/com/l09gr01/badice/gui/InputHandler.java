@@ -58,6 +58,7 @@ public class InputHandler implements GUI {
         Font loadedFont = font.deriveFont(Font.PLAIN, 20);
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
+    @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
@@ -78,7 +79,7 @@ public class InputHandler implements GUI {
             if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
             if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
         }
-        for (ACTION action : EnumSet.of(ACTION.MOVE_UP, ACTION.MOVE_DOWN, ACTION.MOVE_LEFT, ACTION.MOVE_RIGHT, ACTION.ACTION,
+        for (ACTION action : EnumSet.of(ACTION.MOVE_UP, ACTION.MOVE_DOWN, ACTION.MOVE_LEFT, ACTION.MOVE_RIGHT, ACTION.P1ACTION,
                 ACTION.P2UP, ACTION.P2DOWN, ACTION.P2LEFT, ACTION.P2RIGHT, ACTION.P2ACTION)) {
             KeyStroke actionKeyStroke = KeybindManager.getKeybind(action);
             Character characterKeyStroke = KeybindManager.getCharacterKeybind(action);
@@ -100,12 +101,15 @@ public class InputHandler implements GUI {
     public void drawUpPlayerCharacter(Position position) {
         drawCharacter(position.getX(), position.getY(), '%', "#90EE90");
     }
+    @Override
     public void drawDownPlayerCharacter(Position position) {
         drawCharacter(position.getX(), position.getY(), '$', "#90EE90");
     }
+    @Override
     public void drawLeftPlayerCharacter(Position position) {
         drawCharacter(position.getX(), position.getY(), '_', "#90EE90");
     }
+    @Override
     public void drawRightPlayerCharacter(Position position) {
         drawCharacter(position.getX(), position.getY(), '^', "#90EE90");
     }
@@ -120,9 +124,9 @@ public class InputHandler implements GUI {
     {
         drawCharacter(position.getX(), position.getY(),'&', "#ADD8E6");
     }
-
+@Override
     public void drawFruit(Position position) { drawCharacter(position.getX(), position.getY(), '~', "#32A852");}
-
+@Override
     public void drawFruitInIce(Position position) { drawCharacter(position.getX(), position.getY(), '@', "#ADD8E6");}
     @Override
     public void drawPowerUp(Position position)
@@ -133,8 +137,11 @@ public class InputHandler implements GUI {
     public void drawEasyMonster(Position position) {
         drawCharacter(position.getX(), position.getY(), '|', "#FF007F");
     }
+    @Override
     public void drawMediumMonster(Position position) { drawCharacter(position.getX(), position.getY(), '{',"#FF007F" );}
+    @Override
     public void drawHardMonster(Position position) { drawCharacter(position.getX(),position.getY(), '}', "#FF007F");}
+    @Override
     public void drawHeader(int level, int score, String time){
         TextGraphics tg = screen.newTextGraphics();
         tg.putString(0, 0, "LEVEL " + level);
@@ -142,6 +149,7 @@ public class InputHandler implements GUI {
         tg.putString(34, 0, time);
 
     }
+    @Override
     public void drawFooter(int p1Hp,int p2Hp, boolean isSelected2Players, int totalScore, int score, int level){
         TextGraphics tg = screen.newTextGraphics();
         int currentTotalScore = score + totalScore - GameStats.getLevelScore(level);

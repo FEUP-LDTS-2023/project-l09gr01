@@ -36,23 +36,19 @@ public class Position {
 
     public Position getRandomNeighbour() {
         int n = (int) (Math.random() * 4);
-        switch (n) {
-            case 0:
-                return getUp();
-            case 1:
-                return getRight();
-            case 2:
-                return getDown();
-            default:
-                return getLeft();
-        }
+        return switch (n) {
+            case 0 -> getUp();
+            case 1 -> getRight();
+            case 2 -> getDown();
+            default -> getLeft();
+        };
     }
 
-    @Override
+    @Override   @SuppressWarnings("EqualsHashCode")
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Position position = (Position) o;
+        if (!(o instanceof Position position)) return false;
         return x == position.x && y == position.y;
     }
+
 }

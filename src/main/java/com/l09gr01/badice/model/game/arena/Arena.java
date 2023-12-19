@@ -168,9 +168,6 @@ public class Arena {
     public void resumeGameTimer(){
         levelTimer.resume();
     }
-    public ArenaData getArenaData() {
-        return new ArenaData(this);
-    }
     public Arena getArena(){
         return this;
     }

@@ -12,8 +12,6 @@ import com.l09gr01.badice.utils.SaveGameStats;
 
 import java.io.IOException;
 
-import static com.l09gr01.badice.utils.GameStats.resetGame;
-
 public class MainMenuController extends Controller<MainMenu> {
     public MainMenuController(MainMenu menu) {
         super(menu);
@@ -46,6 +44,9 @@ public class MainMenuController extends Controller<MainMenu> {
                     GameStats.resetGame();
                     game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
                 }
+                break;
+            default:
+                break;
         }
     }
 }

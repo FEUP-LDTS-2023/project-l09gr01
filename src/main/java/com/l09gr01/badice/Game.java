@@ -42,7 +42,7 @@ public class Game {
                 try {
                     Thread.sleep(sleepTime);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.err.println("Game interrupted: " + e.getMessage());
                 }
             }
         }

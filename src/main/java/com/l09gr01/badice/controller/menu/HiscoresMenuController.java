@@ -26,6 +26,9 @@ public class HiscoresMenuController extends Controller<HiscoresMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedOk()) game.setState(new MainMenuState(new MainMenu()));
+                break;
+            default:
+                break;
         }
     }
 }

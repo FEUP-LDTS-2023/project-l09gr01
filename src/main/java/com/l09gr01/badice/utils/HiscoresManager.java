@@ -1,6 +1,7 @@
 package com.l09gr01.badice.utils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import com.l09gr01.badice.Game;
@@ -42,8 +43,8 @@ public class HiscoresManager {
     }
 
     private static int compareTimes(String time1, String time2) {
-        String[] parts1 = time1.split(":");
-        String[] parts2 = time2.split(":");
+        String[] parts1 = time1.split(":",-1);
+        String[] parts2 = time2.split(":",-1);
         int hours1 = Integer.parseInt(parts1[0]);
         int minutes1 = Integer.parseInt(parts1[1]);
         int hours2 = Integer.parseInt(parts2[0]);
@@ -56,23 +57,23 @@ public class HiscoresManager {
         }
     }
     public static void saveHiscores(List<HiscoreEntry> hiscores, String filePath) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, StandardCharsets.UTF_8))) {
             for (HiscoreEntry entry : hiscores) {
                 writer.write(entry.getRank() + ". " + entry.getName() + " " + entry.getScore() + " " + entry.getTime());
                 writer.newLine();
             }
             writer.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error saving hiscores file: " + e.getMessage());
         }
     }
 
     public static List<HiscoreEntry> loadHiscores(String filePath) {
         List<HiscoreEntry> hiscores = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath, StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\\s+");
+                String[] parts = line.split("\\s+", -1);
                 if (parts.length == 4) {
                     int rank = Integer.parseInt(parts[0].replace(".", ""));
                     String name = parts[1];
@@ -82,9 +83,9 @@ public class HiscoresManager {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Hiscores file not found: " + e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error loading hiscores: " + e.getMessage());
         }
         return hiscores;
 

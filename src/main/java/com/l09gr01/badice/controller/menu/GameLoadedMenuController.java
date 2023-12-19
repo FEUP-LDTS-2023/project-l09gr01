@@ -4,7 +4,6 @@ import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.menu.GameLoadedMenu;
-import com.l09gr01.badice.model.menu.InstructionsMenu;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 
@@ -26,6 +25,9 @@ public class GameLoadedMenuController extends Controller<GameLoadedMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedConfirm()) game.setState(new MainMenuState(new MainMenu()));
+                break;
+            default:
+                break;
         }
     }
 }

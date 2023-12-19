@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import com.l09gr01.badice.utils.GameStats;
@@ -19,7 +20,7 @@ public class LoaderArenaBuilder{
         URL resource;
         if (GameStats.isSelected2Players()) resource = LoaderArenaBuilder.class.getResource("/levels/twoPlayerLevels/level" + level + ".lvl");
         else resource = LoaderArenaBuilder.class.getResource("/levels/onePlayerLevels/level" + level + ".lvl");
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile(), StandardCharsets.UTF_8));
 
         lines = readLines(br);
     }

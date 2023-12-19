@@ -68,6 +68,7 @@ public class Player2CharacterController extends PlayerCharacterController {
 
 
 
+    @Override
     public void doAction(){
         Direction direction = getModel().getPlayer2Character().getDirection();
         Position nextPosition = nextPosition(getModel().getPlayer2Character().getPosition(),direction);
@@ -90,6 +91,7 @@ public class Player2CharacterController extends PlayerCharacterController {
             }
         }
     }
+    @Override
     public void step(Game game, GUI.ACTION action, long time) {
         if (action == GUI.ACTION.P2UP) movePlayer2CharacterUp();
         if (action == GUI.ACTION.P2RIGHT) movePlayer2CharacterRight();

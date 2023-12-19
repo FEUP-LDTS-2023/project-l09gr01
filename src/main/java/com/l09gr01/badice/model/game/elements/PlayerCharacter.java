@@ -3,10 +3,6 @@ package com.l09gr01.badice.model.game.elements;
 
 
 import com.l09gr01.badice.model.Direction;
-import com.l09gr01.badice.model.Position;
-import com.l09gr01.badice.view.game.observers.ScoreObserver;
-
-import java.util.List;
 
 import static com.l09gr01.badice.model.Direction.UP;
 

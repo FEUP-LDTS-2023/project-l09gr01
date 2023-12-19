@@ -11,7 +11,6 @@ import com.l09gr01.badice.utils.GameStats;
 import com.l09gr01.badice.utils.HiscoresManager;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 public abstract class Controller<T> {
     private final T model;

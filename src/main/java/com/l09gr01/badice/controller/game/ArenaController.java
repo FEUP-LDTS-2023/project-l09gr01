@@ -32,6 +32,7 @@ public class ArenaController extends GameController {
         this.monsterHardController = new MonsterHardController(arena);
     }
 
+    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (getModel().getGameTimer().isPaused) getModel().resumeGameTimer();
         if (shouldCreatePowerUp()) getModel().setPowerUp(getModel().spawnPowerUp());
@@ -52,6 +53,7 @@ public class ArenaController extends GameController {
                 GameStats.setLevelsUnlocked(GameStats.getLevelsUnlocked()+1);
             }
             setLevelScoreTimer(currentLevel, currentScore, currentTimer);
+            if (!HiscoresManager.wasGamePlayed()) HiscoresManager.setWasGamePlayed(true);
             game.setState(new LevelCompletedMenuState(new LevelCompletedMenu(currentLevel,currentTimer.getFormattedTime(), currentScore)));
         }
         else if (getModel().existsP2() && (getModel().getPlayerCharacter().getHp() <= 0 || getModel().getPlayer2Character().getHp() <= 0)) {

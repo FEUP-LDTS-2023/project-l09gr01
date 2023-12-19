@@ -25,6 +25,9 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedBack()) game.setState(new MainMenuState(new MainMenu()));
+                break;
+            default:
+                break;
         }
     }
 }

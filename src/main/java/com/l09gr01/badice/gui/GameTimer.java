@@ -65,13 +65,14 @@ public class GameTimer implements Comparable<GameTimer> {
     }
     private static int parseTimerToSeconds(String timer) {
         if (timer == null) return 0;
-        String[] parts = timer.split(":");
+        String[] parts = timer.split(":",-1);
 
         int minutes = Integer.parseInt(parts[0]);
         int seconds = Integer.parseInt(parts[1]);
 
         return minutes * 60 + seconds;
     }
+    @Override
     public int compareTo(GameTimer other){
         return Integer.compare(this.secondsElapsed, other.secondsElapsed);
     }

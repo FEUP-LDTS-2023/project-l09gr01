@@ -6,10 +6,8 @@ import com.l09gr01.badice.controller.Controller;
 import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.menu.HiscoresMenu;
-import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.model.menu.NewHiscoreMenu;
 import com.l09gr01.badice.state.HiscoresMenuState;
-import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.utils.GameStats;
 import com.l09gr01.badice.utils.HiscoreEntry;
 import com.l09gr01.badice.utils.HiscoresManager;
@@ -52,6 +50,8 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
                 }
                 String newName = stringBuilder.toString();
                 getModel().setEntry(1, newName);
+                break;
+            default:
                 break;
         }
     }

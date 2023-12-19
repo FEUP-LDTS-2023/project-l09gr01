@@ -3,17 +3,10 @@ package com.l09gr01.badice.controller.menu;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
-import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.game.arena.LoaderArenaBuilder;
 import com.l09gr01.badice.model.menu.LevelSelectMenu;
-import com.l09gr01.badice.model.menu.MainMenu;
-import com.l09gr01.badice.model.menu.NewHiscoreMenu;
 import com.l09gr01.badice.state.GameState;
-import com.l09gr01.badice.state.MainMenuState;
-import com.l09gr01.badice.state.NewHiscoreMenuState;
 import com.l09gr01.badice.utils.GameStats;
-import com.l09gr01.badice.utils.HiscoresManager;
-import com.sun.tools.javac.Main;
 
 import java.io.IOException;
 
@@ -60,6 +53,9 @@ public class LevelSelectMenuController extends Controller<LevelSelectMenu> {
                 if (getModel().isSelectedBack()) {
                     newHiscoreCheck(game);
                 }
+                break;
+            default:
+                break;
         }
     }
 }

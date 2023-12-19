@@ -25,6 +25,9 @@ public class GameSavedMenuController extends Controller<GameSavedMenu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedConfirm()) game.setState(new MainMenuState(new MainMenu()));
+                break;
+            default:
+                break;
         }
     }
 }
