@@ -12,7 +12,7 @@ public class HiscoresManager {
     // the levelTimers and levelScores were updated (so we don't always get newHiscoreMenu everytime
     // we go in and out of ChooseLevelMenu
     public static int getLowestRank() { // can just change return value incase
-        return 10;                      // we want to add more hiscore entries later
+        return 10;  // we might want to add more hiscore entries later
     }
     public static boolean isNewHiscore(int score, String time){
         if (time == null) return false;

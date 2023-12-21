@@ -1,4 +1,4 @@
-package com.l09gr01.badice.view;
+package com.l09gr01.badice.view.game;
 
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.Position;
@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.Arrays;
 
-class ArenaViewerTest {
+class GameViewTest {
     private GUI gui;
     private GameView viewer;
     private Arena arena;

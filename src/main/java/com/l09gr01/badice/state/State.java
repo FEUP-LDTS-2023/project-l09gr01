@@ -31,4 +31,7 @@ public abstract class State<T> {
         controller.step(game, action, time);
         view.draw(gui);
     }
+    public void refreshView(GUI gui) throws IOException {
+        view.draw(gui);
+    }
 }

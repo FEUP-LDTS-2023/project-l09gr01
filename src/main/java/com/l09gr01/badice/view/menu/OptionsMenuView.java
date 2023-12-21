@@ -25,10 +25,10 @@ public class OptionsMenuView extends View<OptionsMenu> {
         for (int i = 1; i < 11; i++) {
             gui.drawText(new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+                    (getModel().isSelected(i) && !getModel().isSelectPressed(i)) ? "#FFD700" : "#FFFFFF");
             gui.drawText(new Position(23, 7 + i),
                     KeybindManager.getKeyString(KeybindManager.getEditableAction(i-1)),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+                    getModel().isSelectPressed(i) ? "#FFD700" : "#FFFFFF");
         }
         gui.drawText(new Position(5, 19),
                 getModel().getEntry(11) + " NOT IMPLEMENTED ",

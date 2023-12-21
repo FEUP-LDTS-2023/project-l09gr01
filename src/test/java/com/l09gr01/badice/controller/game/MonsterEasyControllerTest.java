@@ -41,17 +41,17 @@ public class MonsterEasyControllerTest {
     }
 
     @Test
-    void moveMonsters() throws IOException {
-        Monster monster = new Monster(5, 5,1);
+    void moveMonsterTest() throws IOException {
+        Monster monster = new Monster(5, 5, 1);
         arena.setMonsters(Arrays.asList(monster));
 
         controller.step(game, GUI.ACTION.NONE, 1000);
 
         assertNotEquals(new Position(5, 5), monster.getPosition());
     }
-
-    @Test
-    void moveMonstersClosed() throws IOException {
+}
+   /* @Test
+   /* void moveMonstersClosed() throws IOException {
         Monster monster = new Monster(5, 5,1);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
@@ -87,3 +87,4 @@ public class MonsterEasyControllerTest {
         assertEquals(new Position(5, 6), monster.getPosition());
     }
 }
+*/

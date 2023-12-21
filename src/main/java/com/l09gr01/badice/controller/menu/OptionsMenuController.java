@@ -13,6 +13,8 @@ import com.l09gr01.badice.utils.GameStats;
 
 import java.io.IOException;
 
+import static com.l09gr01.badice.gui.GUI.ACTION.NONE;
+
 public class OptionsMenuController extends Controller<OptionsMenu> {
     public OptionsMenuController(OptionsMenu menu) {
         super(menu);
@@ -21,7 +23,6 @@ public class OptionsMenuController extends Controller<OptionsMenu> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            // getModel().setSelectPressed();
             case UP:
                 getModel().previousEntry();
                 break;
@@ -30,12 +31,12 @@ public class OptionsMenuController extends Controller<OptionsMenu> {
                 break;
             case SELECT:
                 getModel().setSelectPressed();
+                game.getState().refreshView(game.getGui());
                 if (getModel().isSelected2PlayerMode()){
                     GameStats.setSelected2Players(!GameStats.isSelected2Players());
                 }
                 if (getModel().isSelectedSetP1MoveUp()) {
                     KeybindManager.setKeybind(GUI.ACTION.MOVE_UP, game.getGui().getUserInput());
-                    // getModel().setSelectPressed();
                 }
                 if (getModel().isSelectedSetP1MoveDown()) KeybindManager.setKeybind(GUI.ACTION.MOVE_DOWN,game.getGui().getUserInput());
                 if (getModel().isSelectedSetP1MoveLeft()) KeybindManager.setKeybind(GUI.ACTION.MOVE_LEFT,game.getGui().getUserInput());
@@ -48,6 +49,7 @@ public class OptionsMenuController extends Controller<OptionsMenu> {
                 if (getModel().isSelectedSetP2Action()) KeybindManager.setKeybind(GUI.ACTION.P2ACTION,game.getGui().getUserInput());
                 if (getModel().isSelectedMainMenu()) game.setState(new MainMenuState(new MainMenu()));
                 if (getModel().isSelectedResume()) game.setState(new PauseMenuState(new PauseMenu(getModel().getPausedArena())));
+                getModel().setSelectPressed();
                 break;
             default:
                 break;

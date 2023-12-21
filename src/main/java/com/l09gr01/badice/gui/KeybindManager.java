@@ -34,24 +34,22 @@ public class KeybindManager {
         return keybinds.get(action);
     }
     public static String getKeyString(GUI.ACTION action){
+        if ((getKeybind(action) == null) && (getCharacterKeybind(action) == null)) return "NOT ASSIGNED";
         if ((getCharacterKeybind(action) != null) && (getCharacterKeybind(action) == ' ')) return "SPACEBAR";
-        else if ((getKeybind(action) == null) && (getCharacterKeybind(action) == null)) return "NOT ASSIGNED";
-        else return (getKeybind(action) != null) ?
-                getKeybind(action).getKeyType().toString().toUpperCase(Locale.getDefault()) : getCharacterKeybind(action).toString().toUpperCase(Locale.getDefault());
+        if (getKeybind(action) != null) return getKeybind(action).getKeyType().toString().toUpperCase(Locale.getDefault());
+        else return getCharacterKeybind(action).toString().toUpperCase(Locale.getDefault());
     }
 
     public static void setKeybind(GUI.ACTION action, KeyStroke newKeyStroke) {
         if (newKeyStroke.getKeyType() == KeyType.Character) {
             Character newChar = Character.toUpperCase(newKeyStroke.getCharacter());
+            keybinds.put(action,null);
+            characterKeybinds.entrySet().removeIf(actionCharacterEntry -> newChar.equals(actionCharacterEntry.getValue()));
             characterKeybinds.put(action, newChar);
-            if (keybinds.containsValue(newKeyStroke)) {
-                keybinds.entrySet().removeIf(InputEntry -> newKeyStroke.getKeyType() == InputEntry.getValue().getKeyType());
-            }
         } else {
+            characterKeybinds.put(action,null);
+            keybinds.entrySet().removeIf(actionKeyStrokeEntry -> newKeyStroke.equals(actionKeyStrokeEntry.getValue()));
             keybinds.put(action, newKeyStroke);
-            if ((newKeyStroke.getKeyType() == KeyType.Character) && characterKeybinds.containsValue(Character.toUpperCase(newKeyStroke.getCharacter()))) {
-                characterKeybinds.entrySet().removeIf(inputCharacterEntry -> Character.toUpperCase(newKeyStroke.getCharacter()) == inputCharacterEntry.getValue());
-            }
         }
     }
     public static Character getCharacterKeybind(GUI.ACTION action) {

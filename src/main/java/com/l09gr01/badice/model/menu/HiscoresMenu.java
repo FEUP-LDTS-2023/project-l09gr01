@@ -14,12 +14,12 @@ public class HiscoresMenu extends Menu {
         super();
         this.entries = Arrays.asList("OK");
     }
-
     public boolean isSelectedOk() {
         return isSelected(0);
     }
     public List<HiscoreEntry> getHiscores() {
         return hiscores;
     }
+
 }
 

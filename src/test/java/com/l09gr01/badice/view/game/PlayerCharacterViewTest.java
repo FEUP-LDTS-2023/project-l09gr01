@@ -1,4 +1,4 @@
-package com.l09gr01.badice.view;
+package com.l09gr01.badice.view.game;
 
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.game.elements.PlayerCharacter;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-class PlayerCharacterViewerTest {
+class PlayerCharacterViewTest {
     private PlayerCharacter playerCharacter;
     private PlayerCharacterView viewer;
     private GUI gui;
