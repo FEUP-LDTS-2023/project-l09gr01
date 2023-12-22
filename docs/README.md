@@ -20,7 +20,7 @@ This project is being developed by João Parada (up201405280@edu.fe.up.pt), Joã
 
 > This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 - **Arena levels** - For each level there will be different arena layouts with increasing difficulty.
-  Level example
+- Level example
 ![docs/mockups/Screencast from 22-12-2023 11 49 24.gif](https://github.com/FEUP-LDTS-2023/project-l09gr01/blob/master/docs/mockups/Screencast%20from%2022-12-2023%2011%2049%2024.gif)
 ![docs/mockups/Screencast from 22-12-2023 11 50 57_trimmed.gif](https://github.com/FEUP-LDTS-2023/project-l09gr01/blob/master/docs/mockups/Screencast%20from%2022-12-2023%2011%2050%2057_trimmed.gif)
 
