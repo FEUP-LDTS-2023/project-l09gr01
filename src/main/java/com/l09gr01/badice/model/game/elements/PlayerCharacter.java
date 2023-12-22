@@ -32,6 +32,7 @@ public class PlayerCharacter extends Element {
     {
         this.hp++;
     }
+    public void setHp(int newHp){ this.hp = newHp; }
 
     public Direction getDirection()
     {

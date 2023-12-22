@@ -23,7 +23,7 @@ public class MonsterHardController extends GameController {
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
 
 
-        if (time - lastMovement > 300) {
+        if (time - lastMovement >= 300) {
             for (Monster monster : getModel().getMonsters())
                 if(monster.getDifficulty() == 3) moveMonster(monster);
             this.lastMovement = time;
@@ -79,12 +79,12 @@ public class MonsterHardController extends GameController {
 
         for (Position possiblePosition : positions) {
             double distance = calculateDistance(possiblePosition, playerP);
-            double distance2 = 0;
-            if (player2P != null) distance2 = calculateDistance(possiblePosition, player2P);
             double minDistance;
-            if (distance2 != 0) minDistance = Math.min(distance, distance2);
+            if (player2P != null){
+                double distance2 = calculateDistance(possiblePosition, player2P);
+                minDistance = Math.min(distance, distance2);
+            }
             else minDistance = distance;
-
             if (minDistance < shortestDistance) {
                 shortestDistance = minDistance;
                 closest = possiblePosition;

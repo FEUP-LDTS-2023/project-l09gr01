@@ -8,6 +8,7 @@ import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HiscoresMenuController extends Controller<HiscoresMenu> {
     public HiscoresMenuController(HiscoresMenu menu) {
@@ -17,18 +18,8 @@ public class HiscoresMenuController extends Controller<HiscoresMenu> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action) {
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
-                if (getModel().isSelectedOk()) game.setState(new MainMenuState(new MainMenu()));
-                break;
-            default:
-                break;
+        if (action == GUI.ACTION.SELECT) {
+            if (getModel().isSelectedOk()) game.setState(new MainMenuState(new MainMenu()));
         }
     }
 }

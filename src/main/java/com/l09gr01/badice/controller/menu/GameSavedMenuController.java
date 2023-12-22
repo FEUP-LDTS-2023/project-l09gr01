@@ -8,6 +8,7 @@ import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class GameSavedMenuController extends Controller<GameSavedMenu> {
     public GameSavedMenuController(GameSavedMenu menu) {
@@ -16,18 +17,8 @@ public class GameSavedMenuController extends Controller<GameSavedMenu> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action) {
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
-                if (getModel().isSelectedConfirm()) game.setState(new MainMenuState(new MainMenu()));
-                break;
-            default:
-                break;
+        if (action == GUI.ACTION.SELECT) {
+            if (getModel().isSelectedConfirm()) game.setState(new MainMenuState(new MainMenu()));
         }
     }
 }

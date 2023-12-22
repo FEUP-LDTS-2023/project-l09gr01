@@ -1,7 +1,7 @@
 package com.l09gr01.badice.controller.game;
 
-import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
+import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.game.arena.Arena;
 import com.l09gr01.badice.model.game.elements.Fruit;
@@ -18,8 +18,8 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class MonsterEasyControllerTest {
-    private MonsterEasyController controller;
+public class MonsterMediumControllerTest {
+    private MonsterMediumController controller;
     private Arena arena;
     private Game game;
 
@@ -36,14 +36,14 @@ public class MonsterEasyControllerTest {
         arena.setFruitInIce(Arrays.asList());
         arena.setIceBlocks(Arrays.asList());
 
-        controller = new MonsterEasyController(arena);
+        controller = new MonsterMediumController(arena);
 
         game = Mockito.mock(Game.class);
     }
 
     @Test
     void moveMonsterTest() throws IOException {
-        Monster monster = new Monster(5, 5, 1);
+        Monster monster = new Monster(5, 5, 2);
         arena.setMonsters(Arrays.asList(monster));
 
         controller.step(game, GUI.ACTION.NONE, 500);
@@ -52,7 +52,7 @@ public class MonsterEasyControllerTest {
     }
     @Test
     void moveMonstersClosed() throws IOException {
-        Monster monster = new Monster(5, 5,1);
+        Monster monster = new Monster(5, 5,2);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
                 new Wall(4, 5),
@@ -69,7 +69,7 @@ public class MonsterEasyControllerTest {
 
     @Test
     void moveMonstersGap() throws IOException {
-        Monster monster = new Monster(5, 5,1);
+        Monster monster = new Monster(5, 5,2);
         arena.setMonsters(Arrays.asList(monster));
         arena.setWalls(Arrays.asList(
                 new Wall(4, 5),
@@ -90,7 +90,7 @@ public class MonsterEasyControllerTest {
 
     @Test
     void monsterHitPlayerTest() throws IOException {
-        Monster monster = new Monster(5, 5,1);
+        Monster monster = new Monster(5, 5,2);
         arena.getPlayerCharacter().setPosition(new Position(5,4));
         PlayerCharacter player2Character = new PlayerCharacter(5,6);
         arena.setPlayer2Character(player2Character);

@@ -25,10 +25,9 @@ public class NewHiscoreMenuController extends Controller<NewHiscoreMenu> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        InputHandler inputHandler = game.getGui();
         switch (action) {
             case INPUT_CHAR:
-                char inputChar = inputHandler.getLastInputCharacter();
+                char inputChar = game.getGui().getLastInputCharacter();
                 handleInputCharacter(inputChar);
                 String name = stringBuilder.toString();
                 getModel().setEntry(1, name);
