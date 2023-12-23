@@ -26,6 +26,10 @@ public class InputHandler implements GUI {
     private final KeybindManager keybindManager;
     private final Screen screen;
     private char lastInputCharacter;
+    public InputHandler(Screen screen) {
+        this.screen = screen;
+        keybindManager = new KeybindManager();
+    }
     public InputHandler(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
@@ -153,11 +157,12 @@ public class InputHandler implements GUI {
     public void drawFooter(int p1Hp,int p2Hp, boolean isSelected2Players, int totalScore, int score, int level){
         TextGraphics tg = screen.newTextGraphics();
         int currentTotalScore = score + totalScore - GameStats.getLevelScore(level);
-        if(isSelected2Players) tg.putString(37, 41, "2P");
-        else tg.putString(37, 41, "1P");
+        tg.putString(0, 41, "TOTAL SCORE:" + currentTotalScore);
         if(isSelected2Players) tg.putString(18, 41,"P1 HP:" + p1Hp + "  P2 HP:" + p2Hp);
         else tg.putString(30,41,"HP:" + p1Hp);
-        tg.putString(0, 41, "TOTAL SCORE:" + currentTotalScore);
+        if(isSelected2Players) tg.putString(37, 41, "2P");
+        else tg.putString(37, 41, "1P");
+
 
     }
 
@@ -173,7 +178,6 @@ public class InputHandler implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
     }
-
     @Override
     public void clear() {
         screen.clear();

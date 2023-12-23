@@ -9,19 +9,19 @@ import org.mockito.Mockito;
 
 class PlayerCharacterViewTest {
     private PlayerCharacter playerCharacter;
-    private PlayerCharacterView viewer;
+    private PlayerCharacterView view;
     private GUI gui;
 
     @BeforeEach
     void setUp() {
         playerCharacter = new PlayerCharacter(10, 10);
-        viewer = new PlayerCharacterView();
+        view = new PlayerCharacterView();
         gui = Mockito.mock(GUI.class);
     }
 
     @Test
     void drawElement() {
-        viewer.draw(playerCharacter, gui);
+        view.draw(playerCharacter, gui);
         Mockito.verify(gui, Mockito.times(1)).drawUpPlayerCharacter(playerCharacter.getPosition());
     }
 }

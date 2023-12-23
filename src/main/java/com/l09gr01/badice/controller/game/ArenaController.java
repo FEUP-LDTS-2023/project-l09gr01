@@ -15,11 +15,11 @@ import java.util.Random;
 
 
 public class ArenaController extends GameController {
-    private final PlayerCharacterController playerCharacterController;
-    private final Player2CharacterController player2CharacterController;
-    private final MonsterEasyController monsterEasyController;
-    private final MonsterMediumController monsterMediumController;
-    private final MonsterHardController monsterHardController;
+    private PlayerCharacterController playerCharacterController;
+    private Player2CharacterController player2CharacterController;
+    private MonsterEasyController monsterEasyController;
+    private MonsterMediumController monsterMediumController;
+    private MonsterHardController monsterHardController;
     private Random random = new Random();
 
     public ArenaController(Arena arena) {
@@ -96,5 +96,20 @@ public class ArenaController extends GameController {
             return randomNumber <= 1;
         }
         return false;
+    }
+    public void setPlayerCharacterController(PlayerCharacterController playerCharacterController){
+        this.playerCharacterController = playerCharacterController;
+    }
+    public void setPlayer2CharacterController(Player2CharacterController player2CharacterController){
+        this.player2CharacterController = player2CharacterController;
+    }
+    public void setMonsterEasyController(MonsterEasyController monsterEasyController){
+        this.monsterEasyController = monsterEasyController;
+    }
+    public void setMonsterMediumController(MonsterMediumController monsterMediumController){
+        this.monsterMediumController = monsterMediumController;
+    }
+    public void setMonsterHardController(MonsterHardController monsterHardController){
+        this.monsterHardController = monsterHardController;
     }
 }
