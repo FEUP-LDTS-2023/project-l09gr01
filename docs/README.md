@@ -20,8 +20,13 @@ This project is being developed by João Parada (up201405280@edu.fe.up.pt), Joã
 
 > This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 - **Arena levels** - For each level there will be different arena layouts with increasing difficulty.
-![mockup-2](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/c48fd691-5ec7-4896-8b7d-f56fa4228431)
-Level example
+- Level complete example
+
+![docs/mockups/Screencast from 22-12-2023 11 49 24.gif](https://github.com/FEUP-LDTS-2023/project-l09gr01/blob/master/docs/mockups/Screencast%20from%2022-12-2023%2011%2049%2024.gif)
+
+- Level failed example
+  
+![docs/mockups/Screencast from 22-12-2023 11 50 57_trimmed.gif](https://github.com/FEUP-LDTS-2023/project-l09gr01/blob/master/docs/mockups/Screencast%20from%2022-12-2023%2011%2050%2057_trimmed.gif)
 
 - **Power-ups** - You can collect different power-ups from the ground that will boost your character (faster movement speed, temporary immunity, etc.) or give you access to new abilities.
 - **Breaking walls** - You have the ability to break rows or lines of walls by pressing spacebar as long as you are facing them and they are breakable.
@@ -29,8 +34,7 @@ Level example
 - **Two-player mode**
 - **Different difficulty monster behaviour algorithms**
 - **Menus and Hiscores functionality**
-![mockup-1](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/f9d1b2b4-1731-47b6-91be-e73b43955e61)
-![mockup-3](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/f604b506-c9a0-4de2-b7cf-083d9d60dbf1)
+![docs/mockups/Screencast from 22-12-2023 11 49 24.gif](https://github.com/FEUP-LDTS-2023/project-l09gr01/blob/master/docs/mockups/Screencast%20from%2022-12-2023%2011%2055%2010.gif)
 - **Saving and loading level unlocks** 
 - **Score updater** - For each fruit collected the score increases. (see level example)
 - **Pausing game state** - Pressing P or ESC during game, the current game state will freeze until it is resumed or closed. (see level example)
