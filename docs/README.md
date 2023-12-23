@@ -143,6 +143,10 @@ might be challenging to understand at first sight, even thought they have low ti
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
+Luciano designed the custom font and worked on some controller algorithms like moveMonster(). (10%)
+
+João Cordeiro designed the levels, helped with the UML diagram, created some tests and worked on the initial class structure. (20%)
+
+Everything else was developed by João Parada. (70%)
 
 
