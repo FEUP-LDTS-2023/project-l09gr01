@@ -1,9 +1,0 @@
-PATTERNS:
-Factory Method;
-Composite (elements, monsters)
-Observer (score)
-Strategy (monster movement)
-State (Game state(in-game or menu))
-Adapter (breakable walls???)
-Singleton (1 Game class)
-Architectural Pattern: Model-View-Controller

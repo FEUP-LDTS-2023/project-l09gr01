@@ -8,7 +8,6 @@ import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class HiscoresMenuController extends Controller<HiscoresMenu> {
     public HiscoresMenuController(HiscoresMenu menu) {

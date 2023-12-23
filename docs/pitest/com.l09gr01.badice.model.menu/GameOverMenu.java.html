@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>GameOverMenu.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.l09gr01.badice.model.menu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class GameOverMenu extends Menu {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int level;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String time;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int score;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public GameOverMenu(int level, String time, int score) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.entries = Arrays.asList(&#34;TRY AGAIN&#34;, &#34;CHOOSE LEVEL&#34;, &#34;MAIN MENU&#34;, &#34;QUIT&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.level = level;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.time = time;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.score = score;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedTryAgain() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_18'/>
+18
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_18'>2</a>
+<span>
+
+1. isSelectedTryAgain : replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedTryAgain &rarr; KILLED<br/>
+
+2. isSelectedTryAgain : replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedTryAgain &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_20'>2</a>
+<span>
+
+1. isSelectedChooseLevel : replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedChooseLevel &rarr; KILLED<br/>
+
+2. isSelectedChooseLevel : replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedChooseLevel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean isSelectedChooseLevel() { return isSelected(1);}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_21'>2</a>
+<span>
+
+1. isSelectedMainMenu : replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedMainMenu &rarr; KILLED<br/>
+
+2. isSelectedMainMenu : replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedMainMenu &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean isSelectedMainMenu() { return isSelected(2);}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_22'>2</a>
+<span>
+
+1. isSelectedQuit : replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedQuit &rarr; KILLED<br/>
+
+2. isSelectedQuit : replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedQuit &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean isSelectedQuit() { return isSelected(3);}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getLevel() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_24'>1</a>
+<span>
+
+1. getLevel : replaced int return with 0 for com/l09gr01/badice/model/menu/GameOverMenu::getLevel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return level;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_26'>1</a>
+<span>
+
+1. getTime : replaced return value with &#34;&#34; for com/l09gr01/badice/model/menu/GameOverMenu::getTime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public String getTime() {return time;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_27'>1</a>
+<span>
+
+1. getScore : replaced int return with 0 for com/l09gr01/badice/model/menu/GameOverMenu::getScore &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public int getScore(){return score;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@adafe19_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedTryAgain<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectMainMenuTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedTryAgain &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedTryAgain<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectMainMenuTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedTryAgain &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedChooseLevel<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:chooseLevelTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedChooseLevel &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedChooseLevel<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectMainMenuTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedChooseLevel &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedMainMenu<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectMainMenuTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedMainMenu &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedMainMenu<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectQuitTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedMainMenu &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedQuit<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectQuitTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedQuit &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedQuit<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectMainMenuTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/GameOverMenu::isSelectedQuit &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLevel<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:tryAgainTest()]</span></span> replaced int return with 0 for com/l09gr01/badice/model/menu/GameOverMenu::getLevel &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTime<br/><b>Killed by : </b>com.l09gr01.badice.view.menu.GameOverMenuViewTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.view.menu.GameOverMenuViewTest]/[method:drawElementsTest()]</span></span> replaced return value with &#34;&#34; for com/l09gr01/badice/model/menu/GameOverMenu::getTime &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@adafe19_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@adafe19_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getScore<br/><b>Killed by : </b>com.l09gr01.badice.view.menu.GameOverMenuViewTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.view.menu.GameOverMenuViewTest]/[method:drawElementsTest()]</span></span> replaced int return with 0 for com/l09gr01/badice/model/menu/GameOverMenu::getScore &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectQuitTest()] (2 ms)</li><li>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:chooseLevelTest()] (6 ms)</li><li>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:selectMainMenuTest()] (4 ms)</li><li>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:tryAgainTest()] (4 ms)</li><li>com.l09gr01.badice.view.menu.GameOverMenuViewTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.view.menu.GameOverMenuViewTest]/[method:drawElementsTest()] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>

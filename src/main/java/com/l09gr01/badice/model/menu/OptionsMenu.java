@@ -1,11 +1,8 @@
 package com.l09gr01.badice.model.menu;
 
-import com.l09gr01.badice.gui.GUI;
-import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.game.arena.Arena;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class OptionsMenu extends Menu {
 

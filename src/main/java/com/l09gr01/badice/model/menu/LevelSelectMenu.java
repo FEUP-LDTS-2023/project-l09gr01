@@ -1,7 +1,6 @@
 package com.l09gr01.badice.model.menu;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LevelSelectMenu extends Menu{
 

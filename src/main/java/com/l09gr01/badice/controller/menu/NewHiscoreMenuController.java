@@ -3,7 +3,6 @@ package com.l09gr01.badice.controller.menu;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.Game;
 import com.l09gr01.badice.controller.Controller;
-import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.gui.KeybindManager;
 import com.l09gr01.badice.model.menu.HiscoresMenu;
 import com.l09gr01.badice.model.menu.NewHiscoreMenu;

@@ -1,6 +1,5 @@
 package com.l09gr01.badice.view.menu;
 
-import com.googlecode.lanterna.gui2.TextBox;
 import com.l09gr01.badice.gui.GUI;
 import com.l09gr01.badice.model.Position;
 import com.l09gr01.badice.model.menu.InstructionsMenu;

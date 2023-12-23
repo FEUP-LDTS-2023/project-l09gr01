@@ -13,8 +13,6 @@ import com.l09gr01.badice.utils.GameStats;
 
 import java.io.IOException;
 
-import static com.l09gr01.badice.gui.GUI.ACTION.NONE;
-
 public class OptionsMenuController extends Controller<OptionsMenu> {
     public OptionsMenuController(OptionsMenu menu) {
         super(menu);

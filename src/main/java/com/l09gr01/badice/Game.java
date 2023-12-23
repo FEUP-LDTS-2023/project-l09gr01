@@ -4,16 +4,11 @@ import com.l09gr01.badice.gui.InputHandler;
 import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 import com.l09gr01.badice.state.State;
-import com.l09gr01.badice.utils.GameStats;
-import com.l09gr01.badice.utils.HiscoreEntry;
-import com.l09gr01.badice.utils.HiscoresManager;
 
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Map;
 
 public class Game {
 

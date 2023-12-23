@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>LevelSelectMenu.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.l09gr01.badice.model.menu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class LevelSelectMenu extends Menu{</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public LevelSelectMenu() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.entries = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_11'/>
+11
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_11'>2</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+2. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 1; i &#60;= getMaxLevel(); i++){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.entries.add(&#34;LEVEL &#34; + i);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.entries.add(&#34;BACK TO MAIN MENU&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedLevel1() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_17'/>
+17
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_17'>2</a>
+<span>
+
+1. isSelectedLevel1 : replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel1 &rarr; KILLED<br/>
+
+2. isSelectedLevel1 : replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedLevel2() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_20'>2</a>
+<span>
+
+1. isSelectedLevel2 : replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel2 &rarr; KILLED<br/>
+
+2. isSelectedLevel2 : replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel2 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedLevel3() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_23'>2</a>
+<span>
+
+1. isSelectedLevel3 : replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel3 &rarr; KILLED<br/>
+
+2. isSelectedLevel3 : replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel3 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(2);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedLevel4() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_26'>2</a>
+<span>
+
+1. isSelectedLevel4 : replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel4 &rarr; KILLED<br/>
+
+2. isSelectedLevel4 : replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel4 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(3);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedLevel5() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_29'>2</a>
+<span>
+
+1. isSelectedLevel5 : replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel5 &rarr; KILLED<br/>
+
+2. isSelectedLevel5 : replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel5 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(4);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedBack() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_32'>2</a>
+<span>
+
+1. isSelectedBack : replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedBack &rarr; KILLED<br/>
+
+2. isSelectedBack : replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedBack &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(5);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1426370c_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_11'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedLevel1<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedLevel1<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel1 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedLevel2<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedLevel2<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel2 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedLevel3<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedLevel3<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel3 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedLevel4<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel4 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedLevel4<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel4 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedLevel5<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel5 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedLevel5<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedLevel5 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1426370c_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1426370c_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedBack<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with true for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedBack &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedBack<br/><b>Killed by : </b>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()]</span></span> replaced boolean return with false for com/l09gr01/badice/model/menu/LevelSelectMenu::isSelectedBack &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:backSelectedTest()] (1 ms)</li><li>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:level1SelectedTest()] (5 ms)</li><li>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:level3SelectedTest()] (3 ms)</li><li>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:level5SelectedTest()] (4 ms)</li><li>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:level2SelectedTest()] (4 ms)</li><li>com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelSelectMenuControllerTest]/[method:level4SelectedTest()] (3 ms)</li><li>com.l09gr01.badice.controller.menu.LevelCompletedMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.LevelCompletedMenuControllerTest]/[method:selectedChooseLevelTest()] (4 ms)</li><li>com.l09gr01.badice.controller.menu.MainMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.MainMenuControllerTest]/[method:chooseLevelTest()] (1 ms)</li><li>com.l09gr01.badice.controller.menu.GameOverMenuControllerTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.controller.menu.GameOverMenuControllerTest]/[method:chooseLevelTest()] (6 ms)</li><li>com.l09gr01.badice.view.menu.LevelSelectMenuViewTest.[engine:junit-jupiter]/[class:com.l09gr01.badice.view.menu.LevelSelectMenuViewTest]/[method:drawElementsTest()] (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>

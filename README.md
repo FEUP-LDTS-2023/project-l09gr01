@@ -1,53 +1,139 @@
-## LDTS_l09gr01 - Bad Ice
+## LDTS_l09gr01 - BAD ICE
 
 
-In this fun and exciting strategy, maze-based game, your goal is to collect every last piece of fruit in each level. 
-Each maze is guarded by different monsters that you can either defeat or avoid by using different power-ups that are scattered around the area.
-You will be able to modify the maze layout in real time to your advantage by destroying and creating ice blocks.
+BAD ICE is a maze-based, strategy game where your goal is to collect every piece of fruit in each level. 
+Each level is guarded by different monsters that you must avoid by creating and removing ice blocks.
+The difficulty of each maze will increase as you progress through the levels.
+Make use of the power-ups that randomly spawn on the map.
 Your creativity and ability to think quick will be put to the test!
 
-This project is being developed by João Parada (up201405280@edu.fe.up.pt), João Cordeiro (up202205682@edu.fe.up.pt) and Luciano Ferreira (up202208158@edu.fe.up.pt) for LDTS 2023⁄24.
+This project was developed by João Parada (up201405280@edu.fe.up.pt), João Cordeiro (up202205682@edu.fe.up.pt) and Luciano Ferreira (up202208158@edu.fe.up.pt) for LDTS 2023⁄24.
 
-### IMPLEMENTED FEATURES
+For a more detailed version of this description click [here](./docs/README.md).
 
-- WIP;
+## Screenshots
 
-### PLANNED FEATURES
-
-- **Arena levels** - For each level there will be different arena layouts with increasing difficulty.
-![mockup-2](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/c48fd691-5ec7-4896-8b7d-f56fa4228431)
-Level example
-
-- **Power-ups** - You can collect different power-ups from the ground that will boost your character (faster movement speed, temporary immunity, etc.) or give you access to new abilities.
-- **Breaking walls** - You have the ability to break rows or lines of walls by pressing spacebar as long as you are facing them and they are breakable.
-- **Creating walls** - You have the ability to create rows or lines of walls by pressing spacebar as long as there is room avaiable.
-- **Two-player mode**
-- **Different difficulty monster behaviour algorithms**
-- **Menus and Hiscores functionality**
-![mockup-1](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/f9d1b2b4-1731-47b6-91be-e73b43955e61)
-![mockup-3](https://github.com/FEUP-LDTS-2023/project-l09gr01/assets/117671595/f604b506-c9a0-4de2-b7cf-083d9d60dbf1)
-- **Saving and loading level unlocks** 
-- **Score updater** - For each fruit collected the score increases. (see level example)
-- **Pausing game state** - Pressing P or ESC during game, the current game state will freeze until it is resumed or closed. (see level example)
-- **Game sound** - Getting hit by a monster, collecting fruit, hitting a wall, collecting and using power-ups, completing level, losing level all should play different sounds.
-- **Music** - Menu music and in-game music.
-
-### DESIGN
-
-**Problem in Context**
-Creating menus
+The following screenshots and gifs illustrate the general look of our game and menus:
+### Game preview
+<p align="center" justify="center">
+  <img src="docs/gifs/gameplayExample1.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 1. Level Example</i></b>
+</p>
+<br>
+<br />
 
 
-**The Pattern**
-MVC Architectural Pattern
+### Menus
 
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/mainMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 1. Main Menu </i></b>
+</p>  
 
-**Implementation**
-For each new menu there will be a new state, viewer and controller.
+<br>
+<br />
 
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/levelSelectMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 2. Level Selection Menu </i></b>  
+</p>  
 
-### SELF-EVALUATION
-João Parada - 50%,
-João Cordeiro - 25%,
-Luciano Ferreira - 25%.
+<br>
+<br />
 
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/instructionsMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 3. Instructions Menu </i></b>
+</p>  
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/hiscoresMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 4. Hiscores Menu </i></b>
+</p>
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/optionsMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 5. Options Menu </i></b>
+</p>
+
+<br>
+<br />
+
+### Levels
+
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/level2.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 5. Level 2 </i></b>
+</p>
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/level4.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 6. Level 4 </i></b>
+</p>
+
+<br>
+<br />
+
+### Strategy
+<p align="center" justify="center">
+  <img src="docs/gifs/gameplayExample2.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 2. Manipulate the ice to your advantage</i></b>
+</p>
+<br>
+<br />
+
+### End Game
+
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/levelCompletedMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 7. Level Completed Menu</i></b>
+</p>
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/levelFailedMenu.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 8. Level Failed Menu</i></b>
+</p>
+
+### Two-Player Mode
+<p align="center" justify="center">
+  <img src="docs/gifs/twoPlayerMode.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 3. Supports Two-Player Mode</i></b>
+</p>
+<br>
+<br />

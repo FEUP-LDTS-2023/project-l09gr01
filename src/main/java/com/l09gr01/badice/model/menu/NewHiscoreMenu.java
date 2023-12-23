@@ -27,9 +27,6 @@ public class NewHiscoreMenu extends Menu {
     public HiscoreEntry createHiscoreEntry(){
         return new HiscoreEntry(this.getNewRank(),this.getNewName(),this.getNewScore(),this.getNewTime());
     }
-    public boolean isSelectedInsertName() {
-        return isSelected(0);
-    }
 
     public int getNewRank() {
         return newRank;

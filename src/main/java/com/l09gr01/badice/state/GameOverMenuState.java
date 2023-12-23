@@ -6,10 +6,6 @@ import com.l09gr01.badice.model.menu.GameOverMenu;
 import com.l09gr01.badice.view.View;
 import com.l09gr01.badice.view.menu.GameOverMenuView;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 public class GameOverMenuState extends State<GameOverMenu>{
     public GameOverMenuState(GameOverMenu model){
         super(model);

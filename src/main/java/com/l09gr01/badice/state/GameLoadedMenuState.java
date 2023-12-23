@@ -6,10 +6,6 @@ import com.l09gr01.badice.model.menu.GameLoadedMenu;
 import com.l09gr01.badice.view.View;
 import com.l09gr01.badice.view.menu.GameLoadedMenuView;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 public class GameLoadedMenuState extends State<GameLoadedMenu>{
     public GameLoadedMenuState(GameLoadedMenu model) {
         super(model);

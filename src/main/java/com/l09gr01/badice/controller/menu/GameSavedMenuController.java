@@ -8,7 +8,6 @@ import com.l09gr01.badice.model.menu.MainMenu;
 import com.l09gr01.badice.state.MainMenuState;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class GameSavedMenuController extends Controller<GameSavedMenu> {
     public GameSavedMenuController(GameSavedMenu menu) {
