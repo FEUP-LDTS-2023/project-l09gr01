@@ -9,6 +9,7 @@ Your creativity and ability to think quick will be put to the test!
 
 This project was developed by João Parada (up201405280@edu.fe.up.pt), João Cordeiro (up202205682@edu.fe.up.pt) and Luciano Ferreira (up202208158@edu.fe.up.pt) for LDTS 2023⁄24.
 
+Project based on [hero-solid](https://github.com/arestivo/hero-solid/).
 ### IMPLEMENTED FEATURES
 
 

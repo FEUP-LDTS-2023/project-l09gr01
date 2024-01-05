@@ -11,6 +11,8 @@ This project was developed by João Parada (up201405280@edu.fe.up.pt), João Cor
 
 For a more detailed version of this description click [here](./docs/README.md).
 
+Project based on [hero-solid](https://github.com/arestivo/hero-solid/).
+
 ## Screenshots
 
 The following screenshots and gifs illustrate the general look of our game and menus:
